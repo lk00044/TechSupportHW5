@@ -20,9 +20,9 @@ namespace TechSupport.Controller
             this.loginSource = new LoginDAL();
         }
 
-        public List<Login> getLoginsAndPasswords()
+        public List<Login> GetLoginsAndPasswords()
         {
-            return this.loginSource.getLoginsAndPasswords();
+            return this.loginSource.GetLoginsAndPasswords();
         }
     }
 }

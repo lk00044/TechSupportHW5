@@ -16,7 +16,7 @@ namespace TechSupport.DAL
         };
 
         
-        public List<Login> getLoginsAndPasswords()
+        public List<Login> GetLoginsAndPasswords()
         {
             return _logins;
         }
