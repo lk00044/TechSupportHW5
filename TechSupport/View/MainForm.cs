@@ -16,5 +16,11 @@ namespace TechSupport.View
         {
             InitializeComponent();
         }
+
+        private void LogoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+
+        }
     }
 }

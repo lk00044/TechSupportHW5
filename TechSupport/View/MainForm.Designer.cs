@@ -28,12 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "MainForm";
+            DisplayUserNameLabel = new Label();
+            LogoutLinkLabel = new LinkLabel();
+            SuspendLayout();
+            // 
+            // DisplayUserNameLabel
+            // 
+            DisplayUserNameLabel.Location = new Point(182, 25);
+            DisplayUserNameLabel.Name = "DisplayUserNameLabel";
+            DisplayUserNameLabel.Size = new Size(315, 38);
+            DisplayUserNameLabel.TabIndex = 0;
+            // 
+            // LogoutLinkLabel
+            // 
+            LogoutLinkLabel.AutoSize = true;
+            LogoutLinkLabel.Location = new Point(421, 87);
+            LogoutLinkLabel.Name = "LogoutLinkLabel";
+            LogoutLinkLabel.Size = new Size(56, 20);
+            LogoutLinkLabel.TabIndex = 1;
+            LogoutLinkLabel.TabStop = true;
+            LogoutLinkLabel.Text = "Logout";
+            LogoutLinkLabel.LinkClicked += LogoutLinkLabel_LinkClicked;
+            // 
+            // MainForm
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(526, 299);
+            Controls.Add(LogoutLinkLabel);
+            Controls.Add(DisplayUserNameLabel);
+            Name = "MainForm";
+            Text = "MainForm";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label DisplayUserNameLabel;
+        private LinkLabel LogoutLinkLabel;
     }
 }
