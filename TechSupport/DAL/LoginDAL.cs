@@ -9,10 +9,20 @@ namespace TechSupport.DAL
 {
     public class LoginDAL
     {
-        private static List<Login> logins = new List<Login>
+        private static List<Login> _logins = new List<Login>
         {
             new Login("jane", "1234"),
             new Login("Li", "1234")
         };
+
+        
+        public List<Login> getLoginsAndPasswords()
+        {
+            return _logins;
+        }
+
     }
+
+
+
 }
