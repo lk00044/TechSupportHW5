@@ -40,13 +40,14 @@
             // 
             DisplayUserNameLabel.Location = new Point(199, 9);
             DisplayUserNameLabel.Name = "DisplayUserNameLabel";
-            DisplayUserNameLabel.Size = new Size(315, 38);
+            DisplayUserNameLabel.Size = new Size(315, 33);
             DisplayUserNameLabel.TabIndex = 0;
+            DisplayUserNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // LogoutLinkLabel
             // 
             LogoutLinkLabel.AutoSize = true;
-            LogoutLinkLabel.Location = new Point(458, 56);
+            LogoutLinkLabel.Location = new Point(458, 49);
             LogoutLinkLabel.Name = "LogoutLinkLabel";
             LogoutLinkLabel.Size = new Size(56, 20);
             LogoutLinkLabel.TabIndex = 1;

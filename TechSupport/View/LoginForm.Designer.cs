@@ -60,6 +60,7 @@
             UserNameTextBox.Name = "UserNameTextBox";
             UserNameTextBox.Size = new Size(125, 27);
             UserNameTextBox.TabIndex = 2;
+            UserNameTextBox.Click += UserNameTextBox_Click;
             // 
             // PasswordTextBox
             // 
