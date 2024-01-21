@@ -1,3 +1,5 @@
+using TechSupport.View;
+
 namespace TechSupport
 
 {/// <summary>
@@ -6,7 +8,7 @@ namespace TechSupport
     public partial class LoginForm : Form
     {
         /// <summary>
-        /// Form for user to use to login 
+        /// Constructor for form  for user to use to login
         /// </summary>
         public LoginForm()
         {
@@ -15,7 +17,23 @@ namespace TechSupport
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var userName = this.UserNameTextBox.Text;
+                var password = this.PasswordTextBox.Text;
 
+                if(userName == "jane" && password == "test1234")
+                {
+                    using (Form mainForm = new MainForm(userName))
+                    {
+                        mainForm.ShowDialog();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("UserName or Password is incorrect.\n");
+            }
 
         }
     }

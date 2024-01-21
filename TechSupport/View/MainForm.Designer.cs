@@ -30,11 +30,15 @@
         {
             DisplayUserNameLabel = new Label();
             LogoutLinkLabel = new LinkLabel();
+            AddIncidentButton = new Button();
+            SearchIncidentButton = new Button();
+            IncidentsDataGridView = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)IncidentsDataGridView).BeginInit();
             SuspendLayout();
             // 
             // DisplayUserNameLabel
             // 
-            DisplayUserNameLabel.Location = new Point(182, 25);
+            DisplayUserNameLabel.Location = new Point(199, 9);
             DisplayUserNameLabel.Name = "DisplayUserNameLabel";
             DisplayUserNameLabel.Size = new Size(315, 38);
             DisplayUserNameLabel.TabIndex = 0;
@@ -42,7 +46,7 @@
             // LogoutLinkLabel
             // 
             LogoutLinkLabel.AutoSize = true;
-            LogoutLinkLabel.Location = new Point(421, 87);
+            LogoutLinkLabel.Location = new Point(458, 56);
             LogoutLinkLabel.Name = "LogoutLinkLabel";
             LogoutLinkLabel.Size = new Size(56, 20);
             LogoutLinkLabel.TabIndex = 1;
@@ -50,15 +54,49 @@
             LogoutLinkLabel.Text = "Logout";
             LogoutLinkLabel.LinkClicked += LogoutLinkLabel_LinkClicked;
             // 
+            // AddIncidentButton
+            // 
+            AddIncidentButton.Location = new Point(87, 258);
+            AddIncidentButton.Name = "AddIncidentButton";
+            AddIncidentButton.Size = new Size(146, 29);
+            AddIncidentButton.TabIndex = 2;
+            AddIncidentButton.Text = "Add Incident";
+            AddIncidentButton.UseVisualStyleBackColor = true;
+            AddIncidentButton.Click += AddIncidentButton_Click;
+            // 
+            // SearchIncidentButton
+            // 
+            SearchIncidentButton.Location = new Point(278, 258);
+            SearchIncidentButton.Name = "SearchIncidentButton";
+            SearchIncidentButton.Size = new Size(128, 29);
+            SearchIncidentButton.TabIndex = 3;
+            SearchIncidentButton.Text = "Search Incident";
+            SearchIncidentButton.UseVisualStyleBackColor = true;
+            // 
+            // IncidentsDataGridView
+            // 
+            IncidentsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            IncidentsDataGridView.Location = new Point(87, 83);
+            IncidentsDataGridView.Name = "IncidentsDataGridView";
+            IncidentsDataGridView.RowHeadersWidth = 51;
+            IncidentsDataGridView.Size = new Size(319, 155);
+            IncidentsDataGridView.TabIndex = 4;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(526, 299);
+            Controls.Add(IncidentsDataGridView);
+            Controls.Add(SearchIncidentButton);
+            Controls.Add(AddIncidentButton);
             Controls.Add(LogoutLinkLabel);
             Controls.Add(DisplayUserNameLabel);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
+            ((System.ComponentModel.ISupportInitialize)IncidentsDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -67,5 +105,8 @@
 
         private Label DisplayUserNameLabel;
         private LinkLabel LogoutLinkLabel;
+        private Button AddIncidentButton;
+        private Button SearchIncidentButton;
+        private DataGridView IncidentsDataGridView;
     }
 }

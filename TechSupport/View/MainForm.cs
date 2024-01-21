@@ -12,14 +12,20 @@ namespace TechSupport.View
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public MainForm(string userName)
         {
             InitializeComponent();
+            this.DisplayUserNameLabel.Text = userName;
         }
 
         private void LogoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+
+        }
+
+        private void AddIncidentButton_Click(object sender, EventArgs e)
+        {
 
         }
     }

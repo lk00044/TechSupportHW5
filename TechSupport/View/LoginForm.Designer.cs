@@ -90,7 +90,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(406, 343);
+            ClientSize = new Size(429, 343);
             Controls.Add(LoginButton);
             Controls.Add(ErrorMessageLabel);
             Controls.Add(PasswordTextBox);
@@ -100,6 +100,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Log In";
             ResumeLayout(false);
             PerformLayout();
