@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace TechSupport.View
 {
@@ -21,7 +22,14 @@ namespace TechSupport.View
         private void LogoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+            using (Form loginForm = new LoginForm())
+            {     
+                this.Hide();
+                loginForm.ShowDialog();
+                   
+            }
 
+            
         }
 
         private void AddIncidentButton_Click(object sender, EventArgs e)
