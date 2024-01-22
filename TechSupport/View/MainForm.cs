@@ -36,8 +36,7 @@ namespace TechSupport.View
         {
             using (Form loginForm = new LoginForm())
             {
-                loginForm.ShowDialog();
-
+                loginForm.ShowDialog();                
             }
         }
 
@@ -65,6 +64,14 @@ namespace TechSupport.View
             }
         }
 
+        private void SearchIncidentButton_Click(object sender, EventArgs e)
+        {
+            using (Form searchForm = new SearchIncidentForm())
+            {
+                searchForm.ShowDialog();
+                this.Close();
 
+            }
+        }
     }
 }

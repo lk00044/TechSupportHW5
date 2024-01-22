@@ -90,7 +90,7 @@
             TitleTextBox.Location = new Point(120, 3);
             TitleTextBox.Name = "TitleTextBox";
             TitleTextBox.Size = new Size(329, 27);
-            TitleTextBox.TabIndex = 3;
+            TitleTextBox.TabIndex = 1;
             TitleTextBox.Click += TitleTextBox_Click;
             // 
             // CustomerIDLabel
@@ -107,7 +107,7 @@
             CustomerIDTextBox.Location = new Point(120, 267);
             CustomerIDTextBox.Name = "CustomerIDTextBox";
             CustomerIDTextBox.Size = new Size(329, 27);
-            CustomerIDTextBox.TabIndex = 5;
+            CustomerIDTextBox.TabIndex = 3;
             CustomerIDTextBox.Click += CustomerIDTextBox_Click;
             // 
             // DescriptionRichTextBox
@@ -115,7 +115,7 @@
             DescriptionRichTextBox.Location = new Point(120, 92);
             DescriptionRichTextBox.Name = "DescriptionRichTextBox";
             DescriptionRichTextBox.Size = new Size(329, 103);
-            DescriptionRichTextBox.TabIndex = 4;
+            DescriptionRichTextBox.TabIndex = 2;
             DescriptionRichTextBox.Text = "";
             // 
             // DescriptionLlabel
@@ -146,7 +146,7 @@
             AddButton.Location = new Point(109, 389);
             AddButton.Name = "AddButton";
             AddButton.Size = new Size(137, 29);
-            AddButton.TabIndex = 1;
+            AddButton.TabIndex = 4;
             AddButton.Text = "Add Incident";
             AddButton.UseVisualStyleBackColor = true;
             AddButton.Click += AddButton_Click;
@@ -156,7 +156,7 @@
             CancelButton.Location = new Point(295, 389);
             CancelButton.Name = "CancelButton";
             CancelButton.Size = new Size(137, 29);
-            CancelButton.TabIndex = 2;
+            CancelButton.TabIndex = 5;
             CancelButton.Text = "Cancel";
             CancelButton.UseVisualStyleBackColor = true;
             CancelButton.Click += CancelButton_Click;
@@ -173,7 +173,8 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "IncidentForm";
-            Text = "Incident Form";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Add Incident Form";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);

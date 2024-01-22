@@ -14,7 +14,7 @@ namespace TechSupport.Model
     /// Class that will keep the Incident objects
     /// </summary>
     {
-        public string title { get;  }
+        public string title { get; }
         public string description { get;  }
         public int customerID { get; }
 

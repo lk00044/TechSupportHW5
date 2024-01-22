@@ -38,6 +38,7 @@
             // 
             // DisplayUserNameLabel
             // 
+            DisplayUserNameLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             DisplayUserNameLabel.Location = new Point(486, 16);
             DisplayUserNameLabel.Name = "DisplayUserNameLabel";
             DisplayUserNameLabel.Size = new Size(315, 33);
@@ -46,6 +47,7 @@
             // 
             // LogoutLinkLabel
             // 
+            LogoutLinkLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             LogoutLinkLabel.AutoSize = true;
             LogoutLinkLabel.Location = new Point(745, 49);
             LogoutLinkLabel.Name = "LogoutLinkLabel";
@@ -73,9 +75,11 @@
             SearchIncidentButton.TabIndex = 3;
             SearchIncidentButton.Text = "Search Incident";
             SearchIncidentButton.UseVisualStyleBackColor = true;
+            SearchIncidentButton.Click += SearchIncidentButton_Click;
             // 
             // IncidentsDataGridView
             // 
+            IncidentsDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             IncidentsDataGridView.BorderStyle = BorderStyle.Fixed3D;
             IncidentsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             IncidentsDataGridView.Location = new Point(87, 83);
