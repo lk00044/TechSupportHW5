@@ -50,7 +50,7 @@
             PassWordLabel.AutoSize = true;
             PassWordLabel.Location = new Point(81, 117);
             PassWordLabel.Name = "PassWordLabel";
-            PassWordLabel.Size = new Size(73, 20);
+            PassWordLabel.Size = new Size(86, 20);
             PassWordLabel.TabIndex = 1;
             PassWordLabel.Text = "description:";
             // 

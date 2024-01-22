@@ -38,7 +38,7 @@
             // 
             // DisplayUserNameLabel
             // 
-            DisplayUserNameLabel.Location = new Point(199, 9);
+            DisplayUserNameLabel.Location = new Point(486, 16);
             DisplayUserNameLabel.Name = "DisplayUserNameLabel";
             DisplayUserNameLabel.Size = new Size(315, 33);
             DisplayUserNameLabel.TabIndex = 0;
@@ -47,7 +47,7 @@
             // LogoutLinkLabel
             // 
             LogoutLinkLabel.AutoSize = true;
-            LogoutLinkLabel.Location = new Point(458, 49);
+            LogoutLinkLabel.Location = new Point(745, 49);
             LogoutLinkLabel.Name = "LogoutLinkLabel";
             LogoutLinkLabel.Size = new Size(56, 20);
             LogoutLinkLabel.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             // AddIncidentButton
             // 
-            AddIncidentButton.Location = new Point(87, 258);
+            AddIncidentButton.Location = new Point(188, 258);
             AddIncidentButton.Name = "AddIncidentButton";
             AddIncidentButton.Size = new Size(146, 29);
             AddIncidentButton.TabIndex = 2;
@@ -67,7 +67,7 @@
             // 
             // SearchIncidentButton
             // 
-            SearchIncidentButton.Location = new Point(278, 258);
+            SearchIncidentButton.Location = new Point(463, 258);
             SearchIncidentButton.Name = "SearchIncidentButton";
             SearchIncidentButton.Size = new Size(128, 29);
             SearchIncidentButton.TabIndex = 3;
@@ -76,27 +76,31 @@
             // 
             // IncidentsDataGridView
             // 
+            IncidentsDataGridView.BorderStyle = BorderStyle.Fixed3D;
             IncidentsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             IncidentsDataGridView.Location = new Point(87, 83);
             IncidentsDataGridView.Name = "IncidentsDataGridView";
             IncidentsDataGridView.RowHeadersWidth = 51;
-            IncidentsDataGridView.Size = new Size(319, 155);
+            IncidentsDataGridView.Size = new Size(622, 155);
             IncidentsDataGridView.TabIndex = 4;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(526, 299);
+            ClientSize = new Size(813, 299);
             Controls.Add(IncidentsDataGridView);
             Controls.Add(SearchIncidentButton);
             Controls.Add(AddIncidentButton);
             Controls.Add(LogoutLinkLabel);
             Controls.Add(DisplayUserNameLabel);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "MainForm";
+            Text = "Add/Search Incidents Form";
+            Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)IncidentsDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();

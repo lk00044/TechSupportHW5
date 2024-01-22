@@ -29,7 +29,10 @@ namespace TechSupport.DAL
             _incidents.Add(incident);
         }
 
-        
+        /// <summary>
+        /// Get the list of incidents 
+        /// </summary>
+        /// <returns> the list of incidents </returns>
         public List<Incident> GetIncidents()
         {
             return _incidents;

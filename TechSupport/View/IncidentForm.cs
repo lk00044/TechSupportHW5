@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -28,13 +29,49 @@ namespace TechSupport.View
             try
             {
                 var title = this.TitleTextBox.Text;
-                var description = this.DescriptionLlabel.Text;
-                var customerID = int.Parse(this.CustomerIDTextBox.Text);
+                var description = this.DescriptionRichTextBox.Text;
+                var customerID = this.CustomerIDTextBox.Text;
 
-                this._incidentController.AddIncident(new Incident(title, description, customerID));
+                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(customerID) || (int.TryParse(customerID, out _) == false))
+                {
 
-                this.DialogResult = DialogResult.OK;
+                    if (string.IsNullOrEmpty(title))
+                    {
+                        this.TitleErrorLabel.ForeColor = Color.Red;
+                        this.TitleErrorLabel.Text = "Invalid Title";
+                    }
 
+                    if (string.IsNullOrEmpty(description))
+                    {
+                        this.DescriptionErrorLabel.ForeColor = Color.Red;
+                        this.DescriptionErrorLabel.Text = "Invalid Description";
+                    }
+
+                    if (int.TryParse(customerID, out _) == false)
+                    {
+                        this.CustomerIDErrorLabel.ForeColor = Color.Red;
+                        this.CustomerIDErrorLabel.Text = "Customer ID must be numeric.";
+                    }
+
+                    if (string.IsNullOrEmpty(customerID))
+                    {
+                        this.CustomerIDErrorLabel.ForeColor = Color.Red;
+                        this.CustomerIDErrorLabel.Text = "Invalid customer ID";
+                    }
+
+                    this.TitleTextBox.Clear();
+                    this.DescriptionRichTextBox.Clear();
+                    this.CustomerIDTextBox.Clear();
+
+                }
+                else
+                {
+                    int intCustomerID = int.Parse(this.CustomerIDTextBox.Text);
+
+                    this._incidentController.AddIncident(new Incident(title, description, intCustomerID));
+
+                    this.DialogResult = DialogResult.OK;
+                }
             }
             catch (Exception ex)
             {
@@ -47,5 +84,27 @@ namespace TechSupport.View
         {
             DialogResult = DialogResult.Cancel;
         }
+
+        private void TitleTextBox_Click(object sender, EventArgs e)
+        {
+            this.TitleErrorLabel.Text = "";
+            this.CustomerIDErrorLabel.Text = "";
+            this.DescriptionErrorLabel.Text = "";
+        }
+
+        private void DescriptionRichTextBox_Click(object sender, EventArgs e)
+        {
+            this.TitleErrorLabel.Text = "";
+            this.CustomerIDErrorLabel.Text = "";
+            this.DescriptionErrorLabel.Text = "";
+        }
+
+        private void CustomerIDTextBox_Click(object sender, EventArgs e)
+        {
+            this.TitleErrorLabel.Text = "";
+            this.CustomerIDErrorLabel.Text = "";
+            this.DescriptionErrorLabel.Text = "";
+        }
+
     }
 }

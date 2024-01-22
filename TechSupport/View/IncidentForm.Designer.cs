@@ -60,20 +60,20 @@
             tableLayoutPanel1.Location = new Point(46, 46);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 6;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 59.375F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 40.625F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 131F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 33F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 44.3038F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 55.6962F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 121F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 54F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 31F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 41F));
-            tableLayoutPanel1.Size = new Size(452, 315);
+            tableLayoutPanel1.Size = new Size(452, 337);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // TitleErrorLabel
             // 
-            TitleErrorLabel.Location = new Point(120, 44);
+            TitleErrorLabel.Location = new Point(120, 39);
             TitleErrorLabel.Name = "TitleErrorLabel";
-            TitleErrorLabel.Size = new Size(329, 25);
+            TitleErrorLabel.Size = new Size(329, 30);
             TitleErrorLabel.TabIndex = 1;
             // 
             // TitleLabel
@@ -91,11 +91,12 @@
             TitleTextBox.Name = "TitleTextBox";
             TitleTextBox.Size = new Size(329, 27);
             TitleTextBox.TabIndex = 3;
+            TitleTextBox.Click += TitleTextBox_Click;
             // 
             // CustomerIDLabel
             // 
             CustomerIDLabel.AutoSize = true;
-            CustomerIDLabel.Location = new Point(3, 240);
+            CustomerIDLabel.Location = new Point(3, 264);
             CustomerIDLabel.Name = "CustomerIDLabel";
             CustomerIDLabel.Size = new Size(94, 20);
             CustomerIDLabel.TabIndex = 2;
@@ -103,23 +104,24 @@
             // 
             // CustomerIDTextBox
             // 
-            CustomerIDTextBox.Location = new Point(120, 243);
+            CustomerIDTextBox.Location = new Point(120, 267);
             CustomerIDTextBox.Name = "CustomerIDTextBox";
             CustomerIDTextBox.Size = new Size(329, 27);
             CustomerIDTextBox.TabIndex = 5;
+            CustomerIDTextBox.Click += CustomerIDTextBox_Click;
             // 
             // DescriptionRichTextBox
             // 
-            DescriptionRichTextBox.Location = new Point(120, 77);
+            DescriptionRichTextBox.Location = new Point(120, 92);
             DescriptionRichTextBox.Name = "DescriptionRichTextBox";
-            DescriptionRichTextBox.Size = new Size(329, 125);
+            DescriptionRichTextBox.Size = new Size(329, 103);
             DescriptionRichTextBox.TabIndex = 4;
             DescriptionRichTextBox.Text = "";
             // 
             // DescriptionLlabel
             // 
             DescriptionLlabel.AutoSize = true;
-            DescriptionLlabel.Location = new Point(3, 74);
+            DescriptionLlabel.Location = new Point(3, 89);
             DescriptionLlabel.Name = "DescriptionLlabel";
             DescriptionLlabel.Size = new Size(88, 20);
             DescriptionLlabel.TabIndex = 1;
@@ -127,14 +129,14 @@
             // 
             // DescriptionErrorLabel
             // 
-            DescriptionErrorLabel.Location = new Point(120, 205);
+            DescriptionErrorLabel.Location = new Point(120, 210);
             DescriptionErrorLabel.Name = "DescriptionErrorLabel";
             DescriptionErrorLabel.Size = new Size(329, 25);
             DescriptionErrorLabel.TabIndex = 6;
             // 
             // CustomerIDErrorLabel
             // 
-            CustomerIDErrorLabel.Location = new Point(120, 273);
+            CustomerIDErrorLabel.Location = new Point(120, 295);
             CustomerIDErrorLabel.Name = "CustomerIDErrorLabel";
             CustomerIDErrorLabel.Size = new Size(329, 25);
             CustomerIDErrorLabel.TabIndex = 7;
@@ -168,6 +170,8 @@
             Controls.Add(AddButton);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "IncidentForm";
             Text = "Incident Form";
             tableLayoutPanel1.ResumeLayout(false);

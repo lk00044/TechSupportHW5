@@ -27,6 +27,7 @@ namespace TechSupport
                 {
                     using (Form mainForm = new MainForm(userName))
                     {
+                        this.Close();
                         mainForm.ShowDialog();
                     }
                 }
@@ -49,5 +50,6 @@ namespace TechSupport
         {
             this.ErrorMessageLabel.Text = "";
         }
+
     }
 }
