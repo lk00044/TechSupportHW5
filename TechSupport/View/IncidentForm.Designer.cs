@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            TitleLabel = new Label();
-            DescriptionLlabel = new Label();
-            CustomerIDLabel = new Label();
-            TitleTextBox = new TextBox();
-            DescriptionRichTextBox = new RichTextBox();
-            CustomerIDTextBox = new TextBox();
             TitleErrorLabel = new Label();
+            TitleLabel = new Label();
+            TitleTextBox = new TextBox();
+            CustomerIDLabel = new Label();
+            CustomerIDTextBox = new TextBox();
+            DescriptionRichTextBox = new RichTextBox();
+            DescriptionLlabel = new Label();
             DescriptionErrorLabel = new Label();
             CustomerIDErrorLabel = new Label();
             AddButton = new Button();
@@ -69,6 +69,13 @@
             tableLayoutPanel1.Size = new Size(452, 315);
             tableLayoutPanel1.TabIndex = 0;
             // 
+            // TitleErrorLabel
+            // 
+            TitleErrorLabel.Location = new Point(120, 44);
+            TitleErrorLabel.Name = "TitleErrorLabel";
+            TitleErrorLabel.Size = new Size(329, 25);
+            TitleErrorLabel.TabIndex = 1;
+            // 
             // TitleLabel
             // 
             TitleLabel.AutoSize = true;
@@ -78,14 +85,12 @@
             TitleLabel.TabIndex = 0;
             TitleLabel.Text = "Title:";
             // 
-            // DescriptionLlabel
+            // TitleTextBox
             // 
-            DescriptionLlabel.AutoSize = true;
-            DescriptionLlabel.Location = new Point(3, 74);
-            DescriptionLlabel.Name = "DescriptionLlabel";
-            DescriptionLlabel.Size = new Size(88, 20);
-            DescriptionLlabel.TabIndex = 1;
-            DescriptionLlabel.Text = "Description:";
+            TitleTextBox.Location = new Point(120, 3);
+            TitleTextBox.Name = "TitleTextBox";
+            TitleTextBox.Size = new Size(329, 27);
+            TitleTextBox.TabIndex = 3;
             // 
             // CustomerIDLabel
             // 
@@ -96,12 +101,12 @@
             CustomerIDLabel.TabIndex = 2;
             CustomerIDLabel.Text = "Customer ID:";
             // 
-            // TitleTextBox
+            // CustomerIDTextBox
             // 
-            TitleTextBox.Location = new Point(120, 3);
-            TitleTextBox.Name = "TitleTextBox";
-            TitleTextBox.Size = new Size(329, 27);
-            TitleTextBox.TabIndex = 3;
+            CustomerIDTextBox.Location = new Point(120, 243);
+            CustomerIDTextBox.Name = "CustomerIDTextBox";
+            CustomerIDTextBox.Size = new Size(329, 27);
+            CustomerIDTextBox.TabIndex = 5;
             // 
             // DescriptionRichTextBox
             // 
@@ -111,19 +116,14 @@
             DescriptionRichTextBox.TabIndex = 4;
             DescriptionRichTextBox.Text = "";
             // 
-            // CustomerIDTextBox
+            // DescriptionLlabel
             // 
-            CustomerIDTextBox.Location = new Point(120, 243);
-            CustomerIDTextBox.Name = "CustomerIDTextBox";
-            CustomerIDTextBox.Size = new Size(329, 27);
-            CustomerIDTextBox.TabIndex = 5;
-            // 
-            // TitleErrorLabel
-            // 
-            TitleErrorLabel.Location = new Point(120, 44);
-            TitleErrorLabel.Name = "TitleErrorLabel";
-            TitleErrorLabel.Size = new Size(329, 25);
-            TitleErrorLabel.TabIndex = 1;
+            DescriptionLlabel.AutoSize = true;
+            DescriptionLlabel.Location = new Point(3, 74);
+            DescriptionLlabel.Name = "DescriptionLlabel";
+            DescriptionLlabel.Size = new Size(88, 20);
+            DescriptionLlabel.TabIndex = 1;
+            DescriptionLlabel.Text = "Description:";
             // 
             // DescriptionErrorLabel
             // 
@@ -147,6 +147,7 @@
             AddButton.TabIndex = 1;
             AddButton.Text = "Add Incident";
             AddButton.UseVisualStyleBackColor = true;
+            AddButton.Click += AddButton_Click;
             // 
             // CancelButton
             // 
@@ -156,6 +157,7 @@
             CancelButton.TabIndex = 2;
             CancelButton.Text = "Cancel";
             CancelButton.UseVisualStyleBackColor = true;
+            CancelButton.Click += CancelButton_Click;
             // 
             // IncidentForm
             // 
@@ -165,8 +167,9 @@
             Controls.Add(CancelButton);
             Controls.Add(AddButton);
             Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "IncidentForm";
-            Text = "IncidentForm";
+            Text = "Incident Form";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
