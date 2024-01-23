@@ -52,7 +52,7 @@
             PassWordLabel.Name = "PassWordLabel";
             PassWordLabel.Size = new Size(86, 20);
             PassWordLabel.TabIndex = 1;
-            PassWordLabel.Text = "description:";
+            PassWordLabel.Text = "Description:";
             // 
             // UserNameTextBox
             // 

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TechSupport.Controller;
 using TechSupport.Model;
 
 // Leslie Keller
@@ -37,6 +39,28 @@ namespace TechSupport.DAL
         {
             return _incidents;
         }
+
+        /// <summary>
+        /// Get the list of incidents tht match the searchID 
+        /// </summary>
+        /// <param name="searchID"></param>
+        /// <returns>_matchingIncidents - the list that matches the searchID </returns>
+        public List<Incident> GetMatchingIncidents(int searchID)
+        {
+            List<Incident> _matchingIncidents = new List<Incident>();
+
+            foreach(Incident incident in _incidents)
+            {
+                if (incident.CustomerID == searchID)
+                {
+                    _matchingIncidents.Add(incident);
+                }
+            }
+
+            return _matchingIncidents;
+
+        }
+
 
     }
 

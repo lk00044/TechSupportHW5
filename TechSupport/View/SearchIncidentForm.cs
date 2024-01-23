@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechSupport.Controller;
+using TechSupport.DAL;
 using TechSupport.Model;
 
 namespace TechSupport.View
@@ -15,34 +16,36 @@ namespace TechSupport.View
     public partial class SearchIncidentForm : Form
     {
         private readonly IncidentController _incidentController;
-        private IncidentController matchingIncidents;
+        private readonly IncidentDAL _incidentDAL;
+        
 
         public SearchIncidentForm()
         {
             InitializeComponent();
             this._incidentController = new IncidentController();
-            this.matchingIncidents = new IncidentController();
+            this._incidentDAL = new IncidentDAL();
         }
 
-        private void RefreshDataGrid()
+        private void RefreshDataGrid(List<Incident> matchingIncidents)
         {
             this.IncidentsDataGridView.DataSource = null;
-            this.IncidentsDataGridView.DataSource = this.matchingIncidents.GetIncidents();
+            this.IncidentsDataGridView.DataSource = matchingIncidents;
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            int searchID = int.Parse(this.CustomerIDTextBox.Text);
-            List<Incident> allIncidents = this._incidentController.GetIncidents();            
+            string searchIDText = this.CustomerIDTextBox.Text;
 
-            foreach(Incident inc in allIncidents)
+            if (string.IsNullOrEmpty(searchIDText))
+                throw new ArgumentNullException("Customer ID cannot be empty", "Title");
+            else
             {
-                if (inc.customerID == searchID)
-                {
-                    matchingIncidents.AddIncident(inc);
-                }
+                int searchID = int.Parse(searchIDText);
+                List<Incident> matchingIncidents = new List<Incident>();
+                matchingIncidents = this._incidentDAL.GetMatchingIncidents(searchID);
+                this.RefreshDataGrid(matchingIncidents);
             }
-            this.RefreshDataGrid();
+           
         }
 
  
