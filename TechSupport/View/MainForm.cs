@@ -12,6 +12,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace TechSupport.View
 {
+    /// <summary>
+    /// Class for the Main Form to add or search for an incident.
+    /// </summary>
     public partial class MainForm : Form
     {
         private readonly IncidentController _incidentController;
@@ -36,7 +39,9 @@ namespace TechSupport.View
         {
             using (Form loginForm = new LoginForm())
             {
-                loginForm.ShowDialog();                
+                this.Hide();
+                loginForm.ShowDialog();
+                this.Close();
             }
         }
 
@@ -63,11 +68,11 @@ namespace TechSupport.View
 
             }
         }
-
         private void SearchIncidentButton_Click(object sender, EventArgs e)
         {
             using (Form searchForm = new SearchIncidentForm())
             {
+                this.Hide();
                 searchForm.ShowDialog();
                 this.Close();
 

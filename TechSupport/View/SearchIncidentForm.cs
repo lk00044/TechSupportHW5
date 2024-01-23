@@ -36,15 +36,23 @@ namespace TechSupport.View
         {
             string searchIDText = this.CustomerIDTextBox.Text;
 
-            if (string.IsNullOrEmpty(searchIDText))
-                throw new ArgumentNullException("Customer ID cannot be empty", "Title");
-            else
+            try
             {
-                int searchID = int.Parse(searchIDText);
-                List<Incident> matchingIncidents = new List<Incident>();
-                matchingIncidents = this._incidentDAL.GetMatchingIncidents(searchID);
-                this.RefreshDataGrid(matchingIncidents);
+                if (string.IsNullOrEmpty(searchIDText))
+                    throw new ArgumentNullException("Customer ID cannot be empty", "Title");
+                else
+                {
+                    int searchID = int.Parse(searchIDText);
+                    List<Incident> matchingIncidents = new List<Incident>();
+                    matchingIncidents = this._incidentDAL.GetMatchingIncidents(searchID);
+                    this.RefreshDataGrid(matchingIncidents);
+                }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Invalid Input \n" + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
            
         }
 

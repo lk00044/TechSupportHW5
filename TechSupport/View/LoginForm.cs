@@ -27,7 +27,9 @@ namespace TechSupport
                 {
                     using (Form mainForm = new MainForm(userName))
                     {
+                        this.Hide();
                         mainForm.ShowDialog();
+                        this.Close();
                     }
                 }
                 else

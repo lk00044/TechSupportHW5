@@ -18,6 +18,9 @@ namespace TechSupport.View
 
         private readonly IncidentController _incidentController;
 
+        /// <summary>
+        /// Constructor to build the form and initialize the controller
+        /// </summary>
         public IncidentForm()
         {
             InitializeComponent();
@@ -67,9 +70,7 @@ namespace TechSupport.View
                 else
                 {
                     int intCustomerID = int.Parse(this.CustomerIDTextBox.Text);
-
                     this._incidentController.AddIncident(new Incident(title, description, intCustomerID));
-
                     this.DialogResult = DialogResult.OK;
                 }
             }

@@ -28,46 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tableLayoutPanel1 = new TableLayoutPanel();
+            AddIncidentTableLayoutPanel = new TableLayoutPanel();
             TitleErrorLabel = new Label();
             TitleLabel = new Label();
             TitleTextBox = new TextBox();
             CustomerIDLabel = new Label();
             CustomerIDTextBox = new TextBox();
             DescriptionRichTextBox = new RichTextBox();
-            DescriptionLlabel = new Label();
+            DescriptionLabel = new Label();
             DescriptionErrorLabel = new Label();
             CustomerIDErrorLabel = new Label();
             AddButton = new Button();
             CancelButton = new Button();
-            tableLayoutPanel1.SuspendLayout();
+            AddIncidentTableLayoutPanel.SuspendLayout();
             SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // AddIncidentTableLayoutPanel
             // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.8849564F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 74.11504F));
-            tableLayoutPanel1.Controls.Add(TitleErrorLabel, 1, 1);
-            tableLayoutPanel1.Controls.Add(TitleLabel, 0, 0);
-            tableLayoutPanel1.Controls.Add(TitleTextBox, 1, 0);
-            tableLayoutPanel1.Controls.Add(CustomerIDLabel, 0, 4);
-            tableLayoutPanel1.Controls.Add(CustomerIDTextBox, 1, 4);
-            tableLayoutPanel1.Controls.Add(DescriptionRichTextBox, 1, 2);
-            tableLayoutPanel1.Controls.Add(DescriptionLlabel, 0, 2);
-            tableLayoutPanel1.Controls.Add(DescriptionErrorLabel, 1, 3);
-            tableLayoutPanel1.Controls.Add(CustomerIDErrorLabel, 1, 5);
-            tableLayoutPanel1.Location = new Point(46, 46);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 6;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 44.3038F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 55.6962F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 121F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 54F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 31F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 41F));
-            tableLayoutPanel1.Size = new Size(452, 337);
-            tableLayoutPanel1.TabIndex = 0;
+            AddIncidentTableLayoutPanel.ColumnCount = 2;
+            AddIncidentTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.8849564F));
+            AddIncidentTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 74.11504F));
+            AddIncidentTableLayoutPanel.Controls.Add(TitleErrorLabel, 1, 1);
+            AddIncidentTableLayoutPanel.Controls.Add(TitleLabel, 0, 0);
+            AddIncidentTableLayoutPanel.Controls.Add(TitleTextBox, 1, 0);
+            AddIncidentTableLayoutPanel.Controls.Add(CustomerIDLabel, 0, 4);
+            AddIncidentTableLayoutPanel.Controls.Add(CustomerIDTextBox, 1, 4);
+            AddIncidentTableLayoutPanel.Controls.Add(DescriptionRichTextBox, 1, 2);
+            AddIncidentTableLayoutPanel.Controls.Add(DescriptionLabel, 0, 2);
+            AddIncidentTableLayoutPanel.Controls.Add(DescriptionErrorLabel, 1, 3);
+            AddIncidentTableLayoutPanel.Controls.Add(CustomerIDErrorLabel, 1, 5);
+            AddIncidentTableLayoutPanel.Location = new Point(46, 46);
+            AddIncidentTableLayoutPanel.Name = "AddIncidentTableLayoutPanel";
+            AddIncidentTableLayoutPanel.RowCount = 6;
+            AddIncidentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 44.3038F));
+            AddIncidentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 55.6962F));
+            AddIncidentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 121F));
+            AddIncidentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 54F));
+            AddIncidentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 31F));
+            AddIncidentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 41F));
+            AddIncidentTableLayoutPanel.Size = new Size(452, 337);
+            AddIncidentTableLayoutPanel.TabIndex = 0;
             // 
             // TitleErrorLabel
             // 
@@ -118,14 +118,14 @@
             DescriptionRichTextBox.TabIndex = 2;
             DescriptionRichTextBox.Text = "";
             // 
-            // DescriptionLlabel
+            // DescriptionLabel
             // 
-            DescriptionLlabel.AutoSize = true;
-            DescriptionLlabel.Location = new Point(3, 89);
-            DescriptionLlabel.Name = "DescriptionLlabel";
-            DescriptionLlabel.Size = new Size(88, 20);
-            DescriptionLlabel.TabIndex = 1;
-            DescriptionLlabel.Text = "Description:";
+            DescriptionLabel.AutoSize = true;
+            DescriptionLabel.Location = new Point(3, 89);
+            DescriptionLabel.Name = "DescriptionLabel";
+            DescriptionLabel.Size = new Size(88, 20);
+            DescriptionLabel.TabIndex = 1;
+            DescriptionLabel.Text = "Description:";
             // 
             // DescriptionErrorLabel
             // 
@@ -168,23 +168,23 @@
             ClientSize = new Size(563, 439);
             Controls.Add(CancelButton);
             Controls.Add(AddButton);
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(AddIncidentTableLayoutPanel);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "IncidentForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Incident Form";
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
+            AddIncidentTableLayoutPanel.ResumeLayout(false);
+            AddIncidentTableLayoutPanel.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel AddIncidentTableLayoutPanel;
         private Label TitleLabel;
-        private Label DescriptionLlabel;
+        private Label DescriptionLabel;
         private Label CustomerIDLabel;
         private TextBox TitleTextBox;
         private TextBox CustomerIDTextBox;
