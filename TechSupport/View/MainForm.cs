@@ -18,6 +18,7 @@ namespace TechSupport.View
     public partial class MainForm : Form
     {
         private readonly IncidentController _incidentController;
+        private string name;
 
         /// <summary>
         /// The constructor for the main form
@@ -26,7 +27,8 @@ namespace TechSupport.View
         public MainForm(string userName)
         {
             InitializeComponent();
-            this.DisplayUserNameLabel.Text = userName;
+            name = userName;
+            this.DisplayUserNameLabel.Text = name;
             this._incidentController = new IncidentController();
         }
 
@@ -70,7 +72,7 @@ namespace TechSupport.View
         }
         private void SearchIncidentButton_Click(object sender, EventArgs e)
         {
-            using (Form searchForm = new SearchIncidentForm())
+            using (Form searchForm = new SearchIncidentForm(name))
             {
                 this.Hide();
                 searchForm.ShowDialog();

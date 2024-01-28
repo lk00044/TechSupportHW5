@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using TechSupport.Controller;
 using TechSupport.DAL;
 using TechSupport.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace TechSupport.View
 {
@@ -17,13 +18,15 @@ namespace TechSupport.View
     {
         private readonly IncidentController _incidentController;
         private readonly IncidentDAL _incidentDAL;
-        
+        private string name;
 
-        public SearchIncidentForm()
+
+        public SearchIncidentForm(string userName)
         {
             InitializeComponent();
             this._incidentController = new IncidentController();
             this._incidentDAL = new IncidentDAL();
+            name = userName;
         }
 
         private void RefreshDataGrid(List<Incident> matchingIncidents)
@@ -48,14 +51,22 @@ namespace TechSupport.View
                     this.RefreshDataGrid(matchingIncidents);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Invalid Input \n" + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-           
+
+
         }
 
- 
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            using (Form mainForm = new MainForm(name))
+            {
+                this.Hide();
+                mainForm.ShowDialog();
+                this.Close();
+            }
+        }
     }
 }

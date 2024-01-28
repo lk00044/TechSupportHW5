@@ -32,6 +32,7 @@
             IncidentsDataGridView = new DataGridView();
             SearchPromptLabel = new Label();
             CustomerIDTextBox = new TextBox();
+            CloseButton = new Button();
             ((System.ComponentModel.ISupportInitialize)IncidentsDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -70,11 +71,22 @@
             CustomerIDTextBox.Size = new Size(125, 27);
             CustomerIDTextBox.TabIndex = 1;
             // 
+            // CloseButton
+            // 
+            CloseButton.Location = new Point(215, 308);
+            CloseButton.Name = "CloseButton";
+            CloseButton.Size = new Size(94, 29);
+            CloseButton.TabIndex = 3;
+            CloseButton.Text = "Close";
+            CloseButton.UseVisualStyleBackColor = true;
+            CloseButton.Click += CloseButton_Click;
+            // 
             // SearchIncidentForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(550, 365);
+            Controls.Add(CloseButton);
             Controls.Add(CustomerIDTextBox);
             Controls.Add(SearchPromptLabel);
             Controls.Add(IncidentsDataGridView);
@@ -94,5 +106,6 @@
         private DataGridView IncidentsDataGridView;
         private Label SearchPromptLabel;
         private TextBox CustomerIDTextBox;
+        private Button CloseButton;
     }
 }
