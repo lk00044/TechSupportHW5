@@ -15,14 +15,14 @@ namespace TechSupport.Controller
     /// </summary>
     public class IncidentController
     {
-        private IncidentDAL incidentSource;
+        private IncidentDAL IncidentSource;
 
         /// <summary>
         /// Constructor to mediate between the IncidentDAL and the view.
         /// </summary>
         public IncidentController()
         {
-            this.incidentSource = new IncidentDAL();
+            this.IncidentSource = new IncidentDAL();
         }
 
         /// <summary>
@@ -31,20 +31,20 @@ namespace TechSupport.Controller
         /// <returns> the indicents from the internal structore </returns>
         public List<Incident> GetIncidents()
         {
-            return this.incidentSource.GetIncidents();
+            return this.IncidentSource.GetIncidents();
         }
 
         /// <summary>
         /// Add an incident to the internal structure 
         /// </summary>
-        /// <param name="incident"></param>
+        /// <param UserName="incident"></param>
         /// <exception cref="ArgumentNullException"></exception>
         public void AddIncident(Incident incident)
         {
             if (incident == null)
                 throw new ArgumentNullException("Incident cannot be null.");
 
-            this.incidentSource.AddIncident(incident);
+            this.IncidentSource.AddIncident(incident);
         }
     }
 }

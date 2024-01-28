@@ -19,16 +19,16 @@ namespace TechSupport.DAL
         };
 
         /// <summary>
-        /// Add an incident to the internal structure 
+        /// Add an AnIncident to the internal structure 
         /// </summary>
-        /// <param name="incident"></param>
+        /// <param UserName="AnIncident"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public void AddIncident(Incident incident)
+        public void AddIncident(Incident AnIncident)
         {
-            if (incident == null)
+            if (AnIncident == null)
                 throw new ArgumentNullException("Incident cannot be null.");
 
-            _incidents.Add(incident);
+            _incidents.Add(AnIncident);
         }
 
         /// <summary>
@@ -41,17 +41,17 @@ namespace TechSupport.DAL
         }
 
         /// <summary>
-        /// Get the list of incidents tht match the searchID 
+        /// Get the list of incidents tht match the SearchID 
         /// </summary>
-        /// <param name="searchID"></param>
-        /// <returns>_matchingIncidents - the list that matches the searchID </returns>
-        public List<Incident> GetMatchingIncidents(int searchID)
+        /// <param UserName="SearchID"></param>
+        /// <returns>_matchingIncidents - the list that matches the SearchID </returns>
+        public List<Incident> GetMatchingIncidents(int SearchID)
         {
             List<Incident> _matchingIncidents = new List<Incident>();
 
             foreach(Incident incident in _incidents)
             {
-                if (incident.CustomerID == searchID)
+                if (incident.CustomerID == SearchID)
                 {
                     _matchingIncidents.Add(incident);
                 }

@@ -21,11 +21,11 @@ namespace TechSupport.Model
         /// <summary>
         /// Constructor to create the Incident object
         /// </summary>
-        /// <param name="Title"></param>            The Title of the incident
-        /// <param name="Description"></param>      The Description of the incident
+        /// <param UserName="Title"></param>            The Title of the incident
+        /// <param UserName="Description"></param>      The Description of the incident
         /// <param CustomerID="CustomerID"></param> The customer id of the incident
         /// <exception cref="ArgumentNullException"></exception>
-        public Incident(string UserName, string Password, int customerID)
+        public Incident(string UserName, string Password, int CustomerID)
         {
             if (string.IsNullOrEmpty(UserName))
                 throw new ArgumentNullException("UserName cannot be empty", "Title");
@@ -33,12 +33,12 @@ namespace TechSupport.Model
             if (string.IsNullOrEmpty(Password))
                 throw new ArgumentNullException("Description cannot be empty", "Title");
 
-            if (string.IsNullOrEmpty(customerID.ToString()))
+            if (string.IsNullOrEmpty(CustomerID.ToString()))
                 throw new ArgumentNullException("Customer ID cannot be empty", "Title");
 
             this.Title = UserName;
             this.Description = Password;
-            this.CustomerID = customerID;
+            this.CustomerID = CustomerID;
         }
 
     }

@@ -18,34 +18,34 @@ namespace TechSupport.View
     {
         private readonly IncidentController _incidentController;
         private readonly IncidentDAL _incidentDAL;
-        private string name;
+        private string UserName;
 
 
-        public SearchIncidentForm(string userName)
+        public SearchIncidentForm(string Name)
         {
             InitializeComponent();
             this._incidentController = new IncidentController();
             this._incidentDAL = new IncidentDAL();
-            name = userName;
+            UserName = Name;
         }
 
-        private void RefreshDataGrid(List<Incident> matchingIncidents)
+        private void RefreshDataGrid(List<Incident> MatchingIncidents)
         {
             this.IncidentsDataGridView.DataSource = null;
-            this.IncidentsDataGridView.DataSource = matchingIncidents;
+            this.IncidentsDataGridView.DataSource = MatchingIncidents;
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            string searchIDText = this.CustomerIDTextBox.Text;
+            string SearchIDText = this.CustomerIDTextBox.Text;
 
             try
             {
-                if (string.IsNullOrEmpty(searchIDText))
+                if (string.IsNullOrEmpty(SearchIDText))
                     throw new ArgumentNullException("Customer ID cannot be empty", "Title");
                 else
                 {
-                    int searchID = int.Parse(searchIDText);
+                    int searchID = int.Parse(SearchIDText);
                     List<Incident> matchingIncidents = new List<Incident>();
                     matchingIncidents = this._incidentDAL.GetMatchingIncidents(searchID);
                     this.RefreshDataGrid(matchingIncidents);
@@ -61,10 +61,10 @@ namespace TechSupport.View
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            using (Form mainForm = new MainForm(name))
+            using (Form MainForm = new MainForm(UserName))
             {
                 this.Hide();
-                mainForm.ShowDialog();
+                MainForm.ShowDialog();
                 this.Close();
             }
         }
