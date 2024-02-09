@@ -25,10 +25,10 @@ namespace TechSupport
 
                 if (userName == "jane" && password == "test1234")
                 {
-                    using (Form mainForm = new MainForm(userName))
+                    using (Form dashboardTabForm = new DashboardTabMainForm())
                     {
                         this.Hide();
-                        mainForm.ShowDialog();
+                        dashboardTabForm.ShowDialog();
                         this.Close();
                     }
                 }
