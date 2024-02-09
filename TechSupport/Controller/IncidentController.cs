@@ -25,6 +25,8 @@ namespace TechSupport.Controller
             this.IncidentSource = new IncidentDAL();
         }
 
+
+
         /// <summary>
         /// Returns the incidents from the source 
         /// </summary>

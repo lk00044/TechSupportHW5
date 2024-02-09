@@ -28,169 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            TitleErrorLabel = new Label();
-            TitleLabel = new Label();
-            TitleTextBox = new TextBox();
-            CustomerIDLabel = new Label();
-            DescriptionRichTextBox = new RichTextBox();
-            DescriptionLabel = new Label();
-            AddIncidentTableLayoutPanel = new TableLayoutPanel();
-            CustomerIDTextBox = new TextBox();
-            DescriptionErrorLabel = new Label();
-            CustomerIDErrorLabel = new Label();
-            CancelButton = new Button();
-            AddButton = new Button();
-            AddIncidentTableLayoutPanel.SuspendLayout();
+            OpenIncidentsListView = new ListView();
+            ProductCodeColumnHeader = new ColumnHeader();
+            DateOpenedColumnHeader = new ColumnHeader();
+            CustomerColumnHeader = new ColumnHeader();
+            TechnicianColumnHeader = new ColumnHeader();
+            TitleColumnHeader = new ColumnHeader();
             SuspendLayout();
             // 
-            // TitleErrorLabel
+            // OpenIncidentsListView
             // 
-            TitleErrorLabel.Location = new Point(120, 40);
-            TitleErrorLabel.Name = "TitleErrorLabel";
-            TitleErrorLabel.Size = new Size(329, 29);
-            TitleErrorLabel.TabIndex = 1;
+            OpenIncidentsListView.Columns.AddRange(new ColumnHeader[] { ProductCodeColumnHeader, DateOpenedColumnHeader, CustomerColumnHeader, TechnicianColumnHeader, TitleColumnHeader });
+            OpenIncidentsListView.Dock = DockStyle.Fill;
+            OpenIncidentsListView.Location = new Point(0, 0);
+            OpenIncidentsListView.Name = "OpenIncidentsListView";
+            OpenIncidentsListView.Size = new Size(575, 227);
+            OpenIncidentsListView.TabIndex = 0;
+            OpenIncidentsListView.UseCompatibleStateImageBehavior = false;
             // 
-            // TitleLabel
+            // ProductCodeColumnHeader
             // 
-            TitleLabel.AutoSize = true;
-            TitleLabel.Location = new Point(3, 0);
-            TitleLabel.Name = "TitleLabel";
-            TitleLabel.Size = new Size(41, 20);
-            TitleLabel.TabIndex = 0;
-            TitleLabel.Text = "Title:";
+            ProductCodeColumnHeader.Text = "Product Code";
+            ProductCodeColumnHeader.Width = 15;
             // 
-            // TitleTextBox
+            // DateOpenedColumnHeader
             // 
-            TitleTextBox.Location = new Point(120, 3);
-            TitleTextBox.Name = "TitleTextBox";
-            TitleTextBox.Size = new Size(329, 27);
-            TitleTextBox.TabIndex = 1;
-            TitleTextBox.Click += TitleTextBox_Click;
+            DateOpenedColumnHeader.Text = "Date Opened";
+            DateOpenedColumnHeader.TextAlign = HorizontalAlignment.Center;
+            DateOpenedColumnHeader.Width = 15;
             // 
-            // CustomerIDLabel
+            // CustomerColumnHeader
             // 
-            CustomerIDLabel.AutoSize = true;
-            CustomerIDLabel.Location = new Point(3, 264);
-            CustomerIDLabel.Name = "CustomerIDLabel";
-            CustomerIDLabel.Size = new Size(94, 20);
-            CustomerIDLabel.TabIndex = 2;
-            CustomerIDLabel.Text = "Customer ID:";
+            CustomerColumnHeader.Text = "Customer";
+            CustomerColumnHeader.TextAlign = HorizontalAlignment.Center;
+            CustomerColumnHeader.Width = 30;
             // 
-            // DescriptionRichTextBox
+            // TechnicianColumnHeader
             // 
-            DescriptionRichTextBox.Location = new Point(120, 93);
-            DescriptionRichTextBox.Name = "DescriptionRichTextBox";
-            DescriptionRichTextBox.Size = new Size(329, 103);
-            DescriptionRichTextBox.TabIndex = 2;
-            DescriptionRichTextBox.Text = "";
-            DescriptionRichTextBox.Click += DescriptionRichTextBox_Click;
+            TechnicianColumnHeader.Text = "Technician";
+            TechnicianColumnHeader.TextAlign = HorizontalAlignment.Center;
+            TechnicianColumnHeader.Width = 30;
             // 
-            // DescriptionLabel
+            // TitleColumnHeader
             // 
-            DescriptionLabel.AutoSize = true;
-            DescriptionLabel.Location = new Point(3, 90);
-            DescriptionLabel.Name = "DescriptionLabel";
-            DescriptionLabel.Size = new Size(88, 20);
-            DescriptionLabel.TabIndex = 1;
-            DescriptionLabel.Text = "Description:";
-            // 
-            // AddIncidentTableLayoutPanel
-            // 
-            AddIncidentTableLayoutPanel.ColumnCount = 2;
-            AddIncidentTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.8849564F));
-            AddIncidentTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 74.11504F));
-            AddIncidentTableLayoutPanel.Controls.Add(TitleErrorLabel, 1, 1);
-            AddIncidentTableLayoutPanel.Controls.Add(TitleLabel, 0, 0);
-            AddIncidentTableLayoutPanel.Controls.Add(TitleTextBox, 1, 0);
-            AddIncidentTableLayoutPanel.Controls.Add(CustomerIDLabel, 0, 4);
-            AddIncidentTableLayoutPanel.Controls.Add(CustomerIDTextBox, 1, 4);
-            AddIncidentTableLayoutPanel.Controls.Add(DescriptionRichTextBox, 1, 2);
-            AddIncidentTableLayoutPanel.Controls.Add(DescriptionLabel, 0, 2);
-            AddIncidentTableLayoutPanel.Controls.Add(DescriptionErrorLabel, 1, 3);
-            AddIncidentTableLayoutPanel.Controls.Add(CustomerIDErrorLabel, 1, 5);
-            AddIncidentTableLayoutPanel.Location = new Point(42, 24);
-            AddIncidentTableLayoutPanel.Name = "AddIncidentTableLayoutPanel";
-            AddIncidentTableLayoutPanel.RowCount = 6;
-            AddIncidentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 44.3038F));
-            AddIncidentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 55.6962F));
-            AddIncidentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 121F));
-            AddIncidentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 53F));
-            AddIncidentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 31F));
-            AddIncidentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 41F));
-            AddIncidentTableLayoutPanel.Size = new Size(453, 337);
-            AddIncidentTableLayoutPanel.TabIndex = 6;
-            // 
-            // CustomerIDTextBox
-            // 
-            CustomerIDTextBox.Location = new Point(120, 267);
-            CustomerIDTextBox.Name = "CustomerIDTextBox";
-            CustomerIDTextBox.Size = new Size(329, 27);
-            CustomerIDTextBox.TabIndex = 3;
-            CustomerIDTextBox.Click += CustomerIDTextBox_Click;
-            // 
-            // DescriptionErrorLabel
-            // 
-            DescriptionErrorLabel.Location = new Point(120, 211);
-            DescriptionErrorLabel.Name = "DescriptionErrorLabel";
-            DescriptionErrorLabel.Size = new Size(329, 25);
-            DescriptionErrorLabel.TabIndex = 6;
-            // 
-            // CustomerIDErrorLabel
-            // 
-            CustomerIDErrorLabel.Location = new Point(120, 295);
-            CustomerIDErrorLabel.Name = "CustomerIDErrorLabel";
-            CustomerIDErrorLabel.Size = new Size(329, 25);
-            CustomerIDErrorLabel.TabIndex = 7;
-            // 
-            // CancelButton
-            // 
-            CancelButton.Location = new Point(291, 368);
-            CancelButton.Name = "CancelButton";
-            CancelButton.Size = new Size(137, 29);
-            CancelButton.TabIndex = 8;
-            CancelButton.Text = "Cancel";
-            CancelButton.UseVisualStyleBackColor = true;
-            CancelButton.Click += CancelButton_Click;
-            // 
-            // AddButton
-            // 
-            AddButton.Location = new Point(105, 368);
-            AddButton.Name = "AddButton";
-            AddButton.Size = new Size(137, 29);
-            AddButton.TabIndex = 7;
-            AddButton.Text = "Add Incident";
-            AddButton.UseVisualStyleBackColor = true;
-            AddButton.Click += AddButton_Click;
+            TitleColumnHeader.Text = "Title";
+            TitleColumnHeader.TextAlign = HorizontalAlignment.Center;
             // 
             // LoadIncidentsUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSize = true;
-            Controls.Add(AddIncidentTableLayoutPanel);
-            Controls.Add(CancelButton);
-            Controls.Add(AddButton);
-            Margin = new Padding(3, 4, 3, 4);
+            Controls.Add(OpenIncidentsListView);
             Name = "LoadIncidentsUserControl";
-            Size = new Size(537, 420);
-            AddIncidentTableLayoutPanel.ResumeLayout(false);
-            AddIncidentTableLayoutPanel.PerformLayout();
+            Size = new Size(575, 227);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Label TitleErrorLabel;
-        private Label TitleLabel;
-        private TextBox TitleTextBox;
-        private Label CustomerIDLabel;
-        private RichTextBox DescriptionRichTextBox;
-        private Label DescriptionLabel;
-        private TableLayoutPanel AddIncidentTableLayoutPanel;
-        private TextBox CustomerIDTextBox;
-        private Label DescriptionErrorLabel;
-        private Label CustomerIDErrorLabel;
-        private Button CancelButton;
-        private Button AddButton;
+        private ListView OpenIncidentsListView;
+        private ColumnHeader ProductCodeColumnHeader;
+        private ColumnHeader DateOpenedColumnHeader;
+        private ColumnHeader CustomerColumnHeader;
+        private ColumnHeader TechnicianColumnHeader;
+        private ColumnHeader TitleColumnHeader;
     }
 }

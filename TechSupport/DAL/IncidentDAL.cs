@@ -13,10 +13,7 @@ namespace TechSupport.DAL
 {
     public class IncidentDAL
     {
-        private static List<Incident> _incidents = new List<Incident>
-        {
-
-        };
+        private static List<Incident> _incidents = new List<Incident>();
 
         /// <summary>
         /// Add an AnIncident to the internal structure 
@@ -47,18 +44,7 @@ namespace TechSupport.DAL
         /// <returns>_matchingIncidents - the list that matches the SearchID </returns>
         public List<Incident> GetMatchingIncidents(int SearchID)
         {
-            List<Incident> _matchingIncidents = new List<Incident>();
-
-            foreach(Incident incident in _incidents)
-            {
-                if (incident.CustomerID == SearchID)
-                {
-                    _matchingIncidents.Add(incident);
-                }
-            }
-
-            return _matchingIncidents;
-
+            return _incidents.FindAll(incident => incident.CustomerID == SearchID);
         }
 
 
