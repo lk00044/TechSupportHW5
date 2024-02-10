@@ -1,4 +1,4 @@
-﻿namespace TechSupport
+﻿namespace DisplayIncidents
 {
     partial class LoginForm
     {

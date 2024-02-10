@@ -1,4 +1,4 @@
-namespace TechSupport
+namespace DisplayIncidents
 {
     internal static class Program
     {

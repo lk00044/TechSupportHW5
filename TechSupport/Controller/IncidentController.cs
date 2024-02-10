@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TechSupport.DAL;
-using TechSupport.Model;
+using DisplayIncidents.DAL;
+using DisplayIncidents.Model;
 
 // Leslie Keller
 
-namespace TechSupport.Controller
+namespace DisplayIncidents.Controller
 {
     /// <summary>
     /// Handles the interaction between the view and the Login Data Access Layer (LoginDAL)

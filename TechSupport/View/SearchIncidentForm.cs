@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TechSupport.Controller;
-using TechSupport.DAL;
-using TechSupport.Model;
+using DisplayIncidents.Controller;
+using DisplayIncidents.DAL;
+using DisplayIncidents.Model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace TechSupport.View
+namespace DisplayIncidents.View
 {
     public partial class SearchIncidentForm : Form
     {

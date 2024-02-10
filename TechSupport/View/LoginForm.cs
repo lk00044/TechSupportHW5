@@ -1,6 +1,6 @@
-using TechSupport.View;
+using DisplayIncidents.View;
 
-namespace TechSupport
+namespace DisplayIncidents
 
 {/// <summary>
 /// Class for the LoginForm for the user to log in

@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TechSupport.Controller;
+using DisplayIncidents.Controller;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace TechSupport.View
+namespace DisplayIncidents.View
 {
     /// <summary>
     /// Class for the Main Form to add or search for an incident.

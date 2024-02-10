@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Leslie Keller
 
-// Leslie Keller
-
-namespace TechSupport.Model
+namespace DisplayIncidents.Model
 {
 
     public class Incident
@@ -14,32 +8,23 @@ namespace TechSupport.Model
     /// Class that will keep the Incident objects
     /// </summary>
     {
-        public string Title { get; }
-        public string Description { get;  }
-        public int CustomerID { get; }
 
-        /// <summary>
-        /// Constructor to create the Incident object
-        /// </summary>
-        /// <param UserName="Title"></param>            The Title of the incident
-        /// <param UserName="Description"></param>      The Description of the incident
-        /// <param CustomerID="CustomerID"></param> The customer id of the incident
-        /// <exception cref="ArgumentNullException"></exception>
-        public Incident(string UserName, string Password, int CustomerID)
-        {
-            if (string.IsNullOrEmpty(UserName))
-                throw new ArgumentNullException("UserName cannot be empty", "Title");
+        public string Title { get; set; }
 
-            if (string.IsNullOrEmpty(Password))
-                throw new ArgumentNullException("Description cannot be empty", "Title");
+        public string Description { get; set; }
 
-            if (string.IsNullOrEmpty(CustomerID.ToString()))
-                throw new ArgumentNullException("Customer ID cannot be empty", "Title");
+        public int CustomerID { get; set; }
 
-            this.Title = UserName;
-            this.Description = Password;
-            this.CustomerID = CustomerID;
-        }
+        public string ProductCode { get; set; }
+
+        public int IncidentID { get; set; }
+
+        public int TechID { get; set; }
+        
+        public DateTime DateOpened { get; set; }
+        
+        public DateTime DateClosed { get; set; }
+
 
     }
 }

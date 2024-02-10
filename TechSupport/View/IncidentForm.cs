@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TechSupport.Controller;
-using TechSupport.Model;
+﻿using DisplayIncidents.Controller;
+using DisplayIncidents.Model;
 
-namespace TechSupport.View
+namespace DisplayIncidents.View
 {
     public partial class IncidentForm : Form
     {
@@ -70,7 +60,7 @@ namespace TechSupport.View
                 else
                 {
                     int intCustomerID = int.Parse(this.CustomerIDTextBox.Text);
-                    this._incidentController.AddIncident(new Incident(title, description, intCustomerID));
+                    this._incidentController.AddIncident(new Incident());
                     this.DialogResult = DialogResult.OK;
                 }
             }

@@ -1,4 +1,4 @@
-﻿namespace TechSupport.View
+﻿namespace DisplayIncidents.View
 {
     partial class IncidentForm
     {

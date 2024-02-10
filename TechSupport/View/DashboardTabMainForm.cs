@@ -1,12 +1,12 @@
 ﻿
-using TechSupport.Controller;
+using DisplayIncidents.Controller;
 
 /// <summary>
 /// Main Dashboard
 /// Leslie Keller
 /// </summary>
 
-namespace TechSupport.View
+namespace DisplayIncidents.View
 {
     public partial class DashboardTabMainForm : Form
     {

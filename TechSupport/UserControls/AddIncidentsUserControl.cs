@@ -1,5 +1,5 @@
-﻿using TechSupport.Controller;
-using TechSupport.Model;
+﻿using DisplayIncidents.Controller;
+using DisplayIncidents.Model;
 
 /// <summary>
 /// Add Incidents User Control
@@ -8,7 +8,7 @@ using TechSupport.Model;
 /// </summary>
 /// 
 
-namespace TechSupport.UserControls
+namespace DisplayIncidents.UserControls
 {
     public partial class AddIncidentsUserControl : UserControl
     {
@@ -63,7 +63,7 @@ namespace TechSupport.UserControls
                 else
                 {
                     int intCustomerID = int.Parse(this.CustomerIDTextBox.Text);                   
-                    this._incidentController.AddIncident(new Incident(title, description, intCustomerID));
+                    this._incidentController.AddIncident(new Incident());
                 }
                 this.TitleTextBox.Clear();
                 this.DescriptionRichTextBox.Clear();
