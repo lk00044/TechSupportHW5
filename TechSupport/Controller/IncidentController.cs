@@ -1,9 +1,9 @@
-﻿using TechSupport.DAL;
-using DisplayIncidents.Model;
+﻿using IncidentsLocal.DAL;
+using Incidents.Model;
 
 // Leslie Keller
 
-namespace DisplayIncidents.Controller
+namespace Incidents.Controller
 {
     /// <summary>
     /// Handles the interaction between the view and the Login Data Access Layer (LoginDAL)
@@ -19,8 +19,6 @@ namespace DisplayIncidents.Controller
         {
             this.IncidentSource = new IncidentDAL();
         }
-
-
 
         /// <summary>
         /// Returns the incidents from the source 

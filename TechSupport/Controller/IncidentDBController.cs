@@ -1,5 +1,5 @@
-﻿using DisplayIncidents.DAL;
-using DisplayIncidents.Model;
+﻿using Incidents.DAL;
+using Incidents.Model;
 
 // Leslie Keller
 

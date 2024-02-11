@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 
-namespace DisplayIncidents
+namespace Incidents
 {
     /// <summary>
     /// Get a connection object. 

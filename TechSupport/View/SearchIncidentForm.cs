@@ -1,8 +1,8 @@
-﻿using DisplayIncidents.Controller;
-using DisplayIncidents.DAL;
-using DisplayIncidents.Model;
+﻿using Incidents.Controller;
+using Incidents.DAL;
+using Incidents.Model;
 
-namespace DisplayIncidents.View
+namespace Incidents.View
 { 
     /// <summary>
     /// Search Incident Form to look for matching incidents

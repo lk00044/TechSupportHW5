@@ -1,5 +1,5 @@
 ﻿using DisplayDBIncidents.Controller;
-using DisplayIncidents.Model;
+using Incidents.Model;
 
 /// <summary>
 /// Load Incidents User Control
@@ -8,7 +8,7 @@ using DisplayIncidents.Model;
 /// Leslie Keller
 /// </summary>
 /// 
-namespace DisplayIncidents.UserControls
+namespace Incidents.UserControls
 {
     public partial class LoadOpenIncidentsUserControl : UserControl
     {
@@ -18,6 +18,11 @@ namespace DisplayIncidents.UserControls
         {
             InitializeComponent();
             this._incidentController = new IncidentDBController();
+            this.RefreshData();
+        }
+
+        private void DisplayOpenIncidentsTabPage_Click(object sender, EventArgs e)
+        {
             this.RefreshData();
         }
 

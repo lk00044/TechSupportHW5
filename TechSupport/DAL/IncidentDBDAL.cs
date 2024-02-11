@@ -1,9 +1,9 @@
-﻿using DisplayIncidents.Model;
+﻿using Incidents.Model;
 using System.Data.SqlClient;
 
 // Leslie Keller
 
-namespace DisplayIncidents.DAL
+namespace Incidents.DAL
 {
     public class IncidentDBDAL
     {        

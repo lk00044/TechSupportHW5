@@ -1,12 +1,12 @@
 ﻿
-using DisplayIncidents.Controller;
+using Incidents.Controller;
 
 /// <summary>
 /// Main Dashboard
 /// Leslie Keller
 /// </summary>
 
-namespace DisplayIncidents.View
+namespace Incidents.View
 {
     public partial class DashboardTabMainForm : Form
     {

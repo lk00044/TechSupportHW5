@@ -1,11 +1,11 @@
 ﻿using DisplayDBIncidents.Controller;
-using DisplayIncidents.Model;
+using Incidents.Model;
 
 /// <summary>
 /// Class to display the Incident Form
 /// 
 /// </summary>
-namespace DisplayIncidents.View
+namespace Incidents.View
 
 {
     public partial class IncidentForm : Form

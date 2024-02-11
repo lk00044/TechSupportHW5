@@ -1,4 +1,4 @@
-namespace DisplayIncidents
+namespace Incidents
 {
     internal static class Program
     {

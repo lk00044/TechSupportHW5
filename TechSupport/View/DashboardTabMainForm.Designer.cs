@@ -1,4 +1,4 @@
-﻿namespace DisplayIncidents.View
+﻿namespace Incidents.View
 {
     partial class DashboardTabMainForm
     {
@@ -32,14 +32,16 @@
             AddIncidentTabPage = new TabPage();
             addIncidentsUserControl1 = new UserControls.AddIncidentsUserControl();
             LoadIncidentsTabPage = new TabPage();
-            DisplayOpenIncidentsTabPage = new TabPage();
             SearchIncidentsTabPage = new TabPage();
             LogOutLinkLabel = new LinkLabel();
             DisplayNameLabel = new Label();
-            loadIncidentsUserControl2 = new TechSupport.UserControls.LoadIncidentsUserControl();
+            loadIncidentsUserControl1 = new IncidentsLocal.UserControls.LoadIncidentsUserControl();
+            DisplayOpenIncidentsTabPage = new TabPage();
+            loadOpenIncidentsUserControl1 = new UserControls.LoadOpenIncidentsUserControl();
             IncidentsTabControl.SuspendLayout();
             AddIncidentTabPage.SuspendLayout();
             LoadIncidentsTabPage.SuspendLayout();
+            DisplayOpenIncidentsTabPage.SuspendLayout();
             SuspendLayout();
             // 
             // IncidentsTabControl
@@ -75,12 +77,12 @@
             addIncidentsUserControl1.Location = new Point(8, 4);
             addIncidentsUserControl1.Margin = new Padding(2, 4, 2, 4);
             addIncidentsUserControl1.Name = "addIncidentsUserControl1";
-            addIncidentsUserControl1.Size = new Size(727, 500);
+            addIncidentsUserControl1.Size = new Size(728, 500);
             addIncidentsUserControl1.TabIndex = 0;
             // 
             // LoadIncidentsTabPage
             // 
-            LoadIncidentsTabPage.Controls.Add(loadIncidentsUserControl2);
+            LoadIncidentsTabPage.Controls.Add(loadIncidentsUserControl1);
             LoadIncidentsTabPage.Location = new Point(4, 34);
             LoadIncidentsTabPage.Name = "LoadIncidentsTabPage";
             LoadIncidentsTabPage.Size = new Size(711, 417);
@@ -88,22 +90,12 @@
             LoadIncidentsTabPage.Text = "Display All Incidents";
             LoadIncidentsTabPage.UseVisualStyleBackColor = true;
             // 
-            // DisplayOpenIncidentsTabPage
-            // 
-            DisplayOpenIncidentsTabPage.Location = new Point(4, 34);
-            DisplayOpenIncidentsTabPage.Name = "DisplayOpenIncidentsTabPage";
-            DisplayOpenIncidentsTabPage.Padding = new Padding(3);
-            DisplayOpenIncidentsTabPage.Size = new Size(192, 62);
-            DisplayOpenIncidentsTabPage.TabIndex = 4;
-            DisplayOpenIncidentsTabPage.Text = "Display Open Incidents";
-            DisplayOpenIncidentsTabPage.UseVisualStyleBackColor = true;
-            // 
             // SearchIncidentsTabPage
             // 
             SearchIncidentsTabPage.Location = new Point(4, 34);
             SearchIncidentsTabPage.Margin = new Padding(3, 4, 3, 4);
             SearchIncidentsTabPage.Name = "SearchIncidentsTabPage";
-            SearchIncidentsTabPage.Size = new Size(192, 62);
+            SearchIncidentsTabPage.Size = new Size(711, 417);
             SearchIncidentsTabPage.TabIndex = 2;
             SearchIncidentsTabPage.Text = "Search Incidents";
             SearchIncidentsTabPage.UseVisualStyleBackColor = true;
@@ -127,12 +119,33 @@
             DisplayNameLabel.TabIndex = 2;
             DisplayNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // loadIncidentsUserControl2
+            // loadIncidentsUserControl1
             // 
-            loadIncidentsUserControl2.Location = new Point(8, 3);
-            loadIncidentsUserControl2.Name = "loadIncidentsUserControl2";
-            loadIncidentsUserControl2.Size = new Size(695, 406);
-            loadIncidentsUserControl2.TabIndex = 0;
+            loadIncidentsUserControl1.AutoSize = true;
+            loadIncidentsUserControl1.Location = new Point(0, 4);
+            loadIncidentsUserControl1.Margin = new Padding(4, 4, 4, 4);
+            loadIncidentsUserControl1.Name = "loadIncidentsUserControl1";
+            loadIncidentsUserControl1.Size = new Size(879, 522);
+            loadIncidentsUserControl1.TabIndex = 0;
+            // 
+            // DisplayOpenIncidentsTabPage
+            // 
+            DisplayOpenIncidentsTabPage.Controls.Add(loadOpenIncidentsUserControl1);
+            DisplayOpenIncidentsTabPage.Location = new Point(4, 34);
+            DisplayOpenIncidentsTabPage.Name = "DisplayOpenIncidentsTabPage";
+            DisplayOpenIncidentsTabPage.Padding = new Padding(3);
+            DisplayOpenIncidentsTabPage.Size = new Size(711, 417);
+            DisplayOpenIncidentsTabPage.TabIndex = 4;
+            DisplayOpenIncidentsTabPage.Text = "Display Open Incidents";
+            DisplayOpenIncidentsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // loadOpenIncidentsUserControl1
+            // 
+            loadOpenIncidentsUserControl1.AutoSize = true;
+            loadOpenIncidentsUserControl1.Location = new Point(8, 6);
+            loadOpenIncidentsUserControl1.Name = "loadOpenIncidentsUserControl1";
+            loadOpenIncidentsUserControl1.Size = new Size(695, 403);
+            loadOpenIncidentsUserControl1.TabIndex = 0;
             // 
             // DashboardTabMainForm
             // 
@@ -151,6 +164,9 @@
             AddIncidentTabPage.ResumeLayout(false);
             AddIncidentTabPage.PerformLayout();
             LoadIncidentsTabPage.ResumeLayout(false);
+            LoadIncidentsTabPage.PerformLayout();
+            DisplayOpenIncidentsTabPage.ResumeLayout(false);
+            DisplayOpenIncidentsTabPage.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -162,9 +178,9 @@
         private LinkLabel LogOutLinkLabel;
         private TabPage LoadIncidentsTabPage;
         private UserControls.AddIncidentsUserControl addIncidentsUserControl1;
-        private UserControls.LoadOpenIncidentsUserControl loadIncidentsUserControl1;
-        private TabPage DisplayOpenIncidentsTabPage;
         private Label DisplayNameLabel;
-        private TechSupport.UserControls.LoadIncidentsUserControl loadIncidentsUserControl2;
+        private IncidentsLocal.UserControls.LoadIncidentsUserControl loadIncidentsUserControl1;
+        private TabPage DisplayOpenIncidentsTabPage;
+        private UserControls.LoadOpenIncidentsUserControl loadOpenIncidentsUserControl1;
     }
 }

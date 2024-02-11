@@ -1,4 +1,4 @@
-﻿namespace DisplayIncidents
+﻿namespace Incidents
 {
     partial class LoginForm
     {

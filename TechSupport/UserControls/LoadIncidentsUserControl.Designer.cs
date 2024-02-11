@@ -1,4 +1,4 @@
-﻿namespace TechSupport.UserControls
+﻿namespace IncidentsLocal.UserControls
 {
     partial class LoadIncidentsUserControl
     {

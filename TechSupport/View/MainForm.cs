@@ -1,6 +1,6 @@
-﻿using DisplayIncidents.Controller;
+﻿using Incidents.Controller;
 
-namespace DisplayIncidents.View
+namespace Incidents.View
 {
     /// <summary>
     /// Class for the Main Form to add or search for an incident.

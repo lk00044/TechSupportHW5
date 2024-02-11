@@ -1,6 +1,6 @@
-using DisplayIncidents.View;
+using Incidents.View;
 
-namespace DisplayIncidents
+namespace Incidents
 
 {/// <summary>
 /// Class for the LoginForm for the user to log in

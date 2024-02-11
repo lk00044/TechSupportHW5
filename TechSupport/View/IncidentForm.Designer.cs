@@ -1,4 +1,4 @@
-﻿namespace DisplayIncidents.View
+﻿namespace Incidents.View
 {
     partial class IncidentForm
     {

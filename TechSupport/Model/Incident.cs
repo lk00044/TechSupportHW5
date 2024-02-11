@@ -4,7 +4,7 @@
 /// <summary>
 /// Class that will keep the Incident objects
 /// </summary>
-namespace DisplayIncidents.Model
+namespace Incidents.Model
 {
 
     public class Incident

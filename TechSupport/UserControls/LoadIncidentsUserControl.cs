@@ -1,10 +1,10 @@
-﻿using DisplayIncidents.Controller;
+﻿using Incidents.Controller;
 
 
 /// <summary>
 /// Class to diplay the data in the view
 /// </summary>
-namespace TechSupport.UserControls
+namespace IncidentsLocal.UserControls
 {
     public partial class LoadIncidentsUserControl : UserControl
     {
@@ -14,6 +14,7 @@ namespace TechSupport.UserControls
         {
             InitializeComponent();
             this._incidentController = new IncidentController();
+            this.RefreshDataGrid();
         }
         private void RefreshDataGrid()
         {
@@ -21,7 +22,7 @@ namespace TechSupport.UserControls
             this.IncidentsDataGridView.DataSource = this._incidentController.GetIncidents();
         }
 
-        private void IncidentsTabControl_Click(object sender, EventArgs e)
+        private void LoadIncidentsTabPage_Click(object sender, EventArgs e)
         {
             this.RefreshDataGrid(); 
         }

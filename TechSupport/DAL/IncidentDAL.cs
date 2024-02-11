@@ -1,4 +1,4 @@
-﻿using DisplayIncidents.Model;
+﻿using Incidents.Model;
 
 // Leslie Keller
 
@@ -6,14 +6,11 @@
 /// <summary>
 /// Data Access for the Incidents Local
 /// </summary>
-namespace TechSupport.DAL
+namespace IncidentsLocal.DAL
 {
     public class IncidentDAL
     {
-        private static List<Incident> _incidents = new List<Incident>
-        {
-
-        };
+        private static List<Incident> _incidents = new List<Incident>();
 
         /// <summary>
         /// Add an AnIncident to the internal structure 

@@ -1,5 +1,5 @@
-﻿using DisplayIncidents.Controller;
-using DisplayIncidents.Model;
+﻿using Incidents.Controller;
+using Incidents.Model;
 
 /// <summary>
 /// Add Incidents User Control
@@ -8,7 +8,7 @@ using DisplayIncidents.Model;
 /// </summary>
 /// 
 
-namespace DisplayIncidents.UserControls
+namespace Incidents.UserControls
 {
     public partial class AddIncidentsUserControl : UserControl
     {
