@@ -2,103 +2,62 @@
 
 // Leslie Keller
 
-namespace DisplayIncidents.DAL
+
+/// <summary>
+/// Data Access for the Incidents Local
+/// </summary>
+namespace TechSupport.DAL
 {
     public class IncidentDAL
-    {        
+    {
+        private static List<Incident> _incidents = new List<Incident>
+        {
+
+        };
 
         /// <summary>
-        /// Add an AnIncident to the Incidents database
+        /// Add an AnIncident to the internal structure 
         /// </summary>
+        /// <param UserName="AnIncident"></param>
         /// <exception cref="ArgumentNullException"></exception>
         public void AddIncident(Incident AnIncident)
         {
             if (AnIncident == null)
                 throw new ArgumentNullException("Incident cannot be null.");
 
-            string insertStatement =
-               "INSERT IncidentID, CustomerID, ProductCode, " +
-               "TechID, DateOpened, DateClosed " +
-               "Title, Description " +
-               "VALUES @IncidentID, @CustomerID, @ProductCode, " +
-               "@TechID, @DateOpened, @DateClosed, " +
-               "@Title, @Description ";
-
-            using (SqlConnection connection = IncidentsDBConnection.GetConnection())
-            {
-                connection.Open();
-
-                using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
-                {
-                    insertCommand.Parameters.AddWithValue("@IncidentID", AnIncident.IncidentID);
-                    insertCommand.Parameters.AddWithValue("@CustomerID", AnIncident.CustomerID);
-                    insertCommand.Parameters.AddWithValue("@ProductCode", AnIncident.ProductCode);
-                    insertCommand.Parameters.AddWithValue("@TechID", AnIncident.TechID);
-                    insertCommand.Parameters.AddWithValue("@DateOpened", AnIncident.DateOpened);
-                    insertCommand.Parameters.AddWithValue("@DateClosed", AnIncident.DateClosed);
-                    insertCommand.Parameters.AddWithValue("@Title", AnIncident.Title);
-                    insertCommand.Parameters.AddWithValue("@Description", AnIncident.Description);
-                }
-            }
-
+            _incidents.Add(AnIncident);
         }
 
         /// <summary>
         /// Get the list of incidents 
         /// </summary>
-        /// <returns> the list of incidents </returns> 
+        /// <returns> the list of incidents </returns>
         public List<Incident> GetIncidents()
         {
-            List<Incident> incidentList = new List<Incident>();
-
-            string selectStatement =
-                "SELECT IncidentID, CustomerID, ProductCode, " +
-                "TechID, DateOpened, DateClosed " +
-                "Title, Description " +
-                "FROM Incidents " +
-                "ORDER BY IncidentID";
-
-            using (SqlConnection connection = IncidentsDBConnection.GetConnection())
-            {
-                connection.Open();
-
-                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
-                {
-                    using (SqlDataReader reader = selectCommand.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Incident incident = new Incident();
-                            incident.IncidentID =   (int)reader["IncidentID"];
-                            incident.CustomerID =   (int)reader["CustomerID"];
-                            incident.ProductCode =  reader["ProductCode"].ToString();
-                            incident.TechID =       (int)reader["TechID"];
-                            incident.DateOpened =   (DateTime)reader["DateOpened"];
-                            incident.DateClosed =   (DateTime)reader["DateClosed"];
-                            incident.Title =        reader["Title"].ToString();
-                            incident.Description =  reader["Description"].ToString();
-
-                            incidentList.Add(incident);
-                        }
-                    }
-                }
-            }
-            return incidentList;
-            //  return _incidents;
+            return _incidents;
         }
 
         /// <summary>
-        /// Get the list of incidents that match the SearchID 
+        /// Get the list of incidents tht match the SearchID 
         /// </summary>
         /// <param UserName="SearchID"></param>
         /// <returns>_matchingIncidents - the list that matches the SearchID </returns>
         public List<Incident> GetMatchingIncidents(int SearchID)
         {
-            List<Incident> matchingIncidentList = new List<Incident>();
-            matchingIncidentList = this.GetIncidents();
+            List<Incident> _matchingIncidents = new List<Incident>();
 
-            return matchingIncidentList.FindAll(incident => incident.CustomerID == SearchID);
+            foreach (Incident incident in _incidents)
+            {
+                if (incident.CustomerID == SearchID)
+                {
+                    _matchingIncidents.Add(incident);
+                }
+            }
+
+            return _matchingIncidents;
+
         }
+
 
     }
 

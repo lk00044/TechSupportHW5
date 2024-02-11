@@ -17,15 +17,16 @@ namespace DisplayIncidents
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            string userName = "";
 
             try
             {
-                var userName = this.UserNameTextBox.Text;
+                userName = this.UserNameTextBox.Text;
                 var password = this.PasswordTextBox.Text;
 
                 if (userName == "jane" && password == "test1234")
                 {
-                    using (Form dashboardTabForm = new DashboardTabMainForm())
+                    using (Form dashboardTabForm = new DashboardTabMainForm(userName))
                     {
                         this.Hide();
                         dashboardTabForm.ShowDialog();
@@ -51,6 +52,7 @@ namespace DisplayIncidents
         {
             this.ErrorMessageLabel.Text = "";
         }
+
 
     }
 }

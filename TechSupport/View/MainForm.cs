@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DisplayIncidents.Controller;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+﻿using DisplayIncidents.Controller;
 
 namespace DisplayIncidents.View
 {
@@ -17,7 +7,7 @@ namespace DisplayIncidents.View
     /// </summary>
     public partial class MainForm : Form
     {
-        private readonly IncidentController _incidentController;
+        private readonly IncidentDBController _incidentController;
         private string UserName;
 
         /// <summary>
@@ -29,7 +19,7 @@ namespace DisplayIncidents.View
             InitializeComponent();
             UserName = Name;
             this.DisplayUserNameLabel.Text = UserName;
-            this._incidentController = new IncidentController();
+            this._incidentController = new IncidentDBController();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

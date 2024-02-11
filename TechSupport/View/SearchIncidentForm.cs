@@ -1,31 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DisplayIncidents.Controller;
+﻿using DisplayIncidents.Controller;
 using DisplayIncidents.DAL;
 using DisplayIncidents.Model;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DisplayIncidents.View
 {
+    /// <summary>
+    /// Search Incident Form to look for matching incidents
+    /// based on Customer ID
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.Form" />
     public partial class SearchIncidentForm : Form
     {
-        private readonly IncidentController _incidentController;
-        private readonly IncidentDAL _incidentDAL;
+        private readonly IncidentDBController _incidentController;
+        private readonly IncidentDBDAL _incidentDAL;
         private string UserName;
 
 
         public SearchIncidentForm(string Name)
         {
             InitializeComponent();
-            this._incidentController = new IncidentController();
-            this._incidentDAL = new IncidentDAL();
+            this._incidentController = new IncidentDBController();
+            this._incidentDAL = new IncidentDBDAL();
             UserName = Name;
         }
 
@@ -58,7 +53,6 @@ namespace DisplayIncidents.View
 
 
         }
-
         private void CloseButton_Click(object sender, EventArgs e)
         {
             using (Form MainForm = new MainForm(UserName))

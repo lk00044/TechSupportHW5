@@ -1,14 +1,14 @@
 ﻿// Leslie Keller
 
+
+/// <summary>
+/// Class that will keep the Incident objects
+/// </summary>
 namespace DisplayIncidents.Model
 {
 
     public class Incident
-    /// <summary>
-    /// Class that will keep the Incident objects
-    /// </summary>
     {
-
         public string Title { get; set; }
 
         public string Description { get; set; }

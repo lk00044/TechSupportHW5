@@ -45,7 +45,7 @@
             // 
             // TitleErrorLabel
             // 
-            TitleErrorLabel.Location = new Point(120, 40);
+            TitleErrorLabel.Location = new Point(140, 40);
             TitleErrorLabel.Name = "TitleErrorLabel";
             TitleErrorLabel.Size = new Size(329, 29);
             TitleErrorLabel.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             // TitleTextBox
             // 
-            TitleTextBox.Location = new Point(120, 3);
+            TitleTextBox.Location = new Point(140, 3);
             TitleTextBox.Name = "TitleTextBox";
             TitleTextBox.Size = new Size(329, 27);
             TitleTextBox.TabIndex = 1;
@@ -78,7 +78,7 @@
             // 
             // DescriptionRichTextBox
             // 
-            DescriptionRichTextBox.Location = new Point(120, 93);
+            DescriptionRichTextBox.Location = new Point(140, 93);
             DescriptionRichTextBox.Name = "DescriptionRichTextBox";
             DescriptionRichTextBox.Size = new Size(329, 103);
             DescriptionRichTextBox.TabIndex = 2;
@@ -117,12 +117,12 @@
             AddIncidentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 53F));
             AddIncidentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 31F));
             AddIncidentTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 41F));
-            AddIncidentTableLayoutPanel.Size = new Size(453, 337);
+            AddIncidentTableLayoutPanel.Size = new Size(530, 337);
             AddIncidentTableLayoutPanel.TabIndex = 6;
             // 
             // CustomerIDTextBox
             // 
-            CustomerIDTextBox.Location = new Point(120, 267);
+            CustomerIDTextBox.Location = new Point(140, 267);
             CustomerIDTextBox.Name = "CustomerIDTextBox";
             CustomerIDTextBox.Size = new Size(329, 27);
             CustomerIDTextBox.TabIndex = 3;
@@ -130,21 +130,21 @@
             // 
             // DescriptionErrorLabel
             // 
-            DescriptionErrorLabel.Location = new Point(120, 211);
+            DescriptionErrorLabel.Location = new Point(140, 211);
             DescriptionErrorLabel.Name = "DescriptionErrorLabel";
             DescriptionErrorLabel.Size = new Size(329, 25);
             DescriptionErrorLabel.TabIndex = 6;
             // 
             // CustomerIDErrorLabel
             // 
-            CustomerIDErrorLabel.Location = new Point(120, 295);
+            CustomerIDErrorLabel.Location = new Point(140, 295);
             CustomerIDErrorLabel.Name = "CustomerIDErrorLabel";
             CustomerIDErrorLabel.Size = new Size(329, 25);
             CustomerIDErrorLabel.TabIndex = 7;
             // 
             // CancelButton
             // 
-            CancelButton.Location = new Point(291, 368);
+            CancelButton.Location = new Point(355, 367);
             CancelButton.Name = "CancelButton";
             CancelButton.Size = new Size(137, 29);
             CancelButton.TabIndex = 8;
@@ -172,7 +172,7 @@
             Controls.Add(AddButton);
             Margin = new Padding(3, 4, 3, 4);
             Name = "AddIncidentsUserControl";
-            Size = new Size(537, 432);
+            Size = new Size(620, 432);
             AddIncidentTableLayoutPanel.ResumeLayout(false);
             AddIncidentTableLayoutPanel.PerformLayout();
             ResumeLayout(false);

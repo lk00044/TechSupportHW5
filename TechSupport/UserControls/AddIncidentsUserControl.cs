@@ -12,7 +12,7 @@ namespace DisplayIncidents.UserControls
 {
     public partial class AddIncidentsUserControl : UserControl
     {
-       private IncidentController _incidentController;
+       private IncidentDBController _incidentController;
 
         /// <summary>o the Incident Controller
         /// Constructor to build the form and initialize the controller
@@ -20,7 +20,7 @@ namespace DisplayIncidents.UserControls
         public AddIncidentsUserControl()
         {
             InitializeComponent();
-            this._incidentController = new IncidentController();
+            this._incidentController = new IncidentDBController();
         }
 
         private void AddButton_Click(object sender, EventArgs e)

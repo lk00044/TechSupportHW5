@@ -1,12 +1,17 @@
 ﻿using DisplayIncidents.Controller;
 using DisplayIncidents.Model;
 
+/// <summary>
+/// Class to display the Incident Form
+/// 
+/// </summary>
 namespace DisplayIncidents.View
+
 {
     public partial class IncidentForm : Form
     {
 
-        private readonly IncidentController _incidentController;
+        private readonly IncidentDBController _incidentController;
 
         /// <summary>
         /// Constructor to build the form and initialize the controller
@@ -14,7 +19,7 @@ namespace DisplayIncidents.View
         public IncidentForm()
         {
             InitializeComponent();
-            _incidentController = new IncidentController();
+            _incidentController = new IncidentDBController();
         }
 
         private void AddButton_Click(object sender, EventArgs e)

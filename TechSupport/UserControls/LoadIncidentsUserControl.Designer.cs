@@ -1,4 +1,4 @@
-﻿namespace DisplayIncidents.UserControls
+﻿namespace TechSupport.UserControls
 {
     partial class LoadIncidentsUserControl
     {
@@ -28,69 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            OpenIncidentsListView = new ListView();
-            ProductCodeColumnHeader = new ColumnHeader();
-            DateOpenedColumnHeader = new ColumnHeader();
-            CustomerColumnHeader = new ColumnHeader();
-            TechnicianColumnHeader = new ColumnHeader();
-            TitleColumnHeader = new ColumnHeader();
+            IncidentsDataGridView = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)IncidentsDataGridView).BeginInit();
             SuspendLayout();
             // 
-            // OpenIncidentsListView
+            // IncidentsDataGridView
             // 
-            OpenIncidentsListView.Columns.AddRange(new ColumnHeader[] { ProductCodeColumnHeader, DateOpenedColumnHeader, CustomerColumnHeader, TechnicianColumnHeader, TitleColumnHeader });
-            OpenIncidentsListView.Dock = DockStyle.Fill;
-            OpenIncidentsListView.Location = new Point(0, 0);
-            OpenIncidentsListView.Name = "OpenIncidentsListView";
-            OpenIncidentsListView.Size = new Size(575, 227);
-            OpenIncidentsListView.TabIndex = 0;
-            OpenIncidentsListView.UseCompatibleStateImageBehavior = false;
-            // 
-            // ProductCodeColumnHeader
-            // 
-            ProductCodeColumnHeader.Text = "Product Code";
-            ProductCodeColumnHeader.Width = 15;
-            // 
-            // DateOpenedColumnHeader
-            // 
-            DateOpenedColumnHeader.Text = "Date Opened";
-            DateOpenedColumnHeader.TextAlign = HorizontalAlignment.Center;
-            DateOpenedColumnHeader.Width = 15;
-            // 
-            // CustomerColumnHeader
-            // 
-            CustomerColumnHeader.Text = "Customer";
-            CustomerColumnHeader.TextAlign = HorizontalAlignment.Center;
-            CustomerColumnHeader.Width = 30;
-            // 
-            // TechnicianColumnHeader
-            // 
-            TechnicianColumnHeader.Text = "Technician";
-            TechnicianColumnHeader.TextAlign = HorizontalAlignment.Center;
-            TechnicianColumnHeader.Width = 30;
-            // 
-            // TitleColumnHeader
-            // 
-            TitleColumnHeader.Text = "Title";
-            TitleColumnHeader.TextAlign = HorizontalAlignment.Center;
+            IncidentsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            IncidentsDataGridView.Dock = DockStyle.Fill;
+            IncidentsDataGridView.Location = new Point(0, 0);
+            IncidentsDataGridView.Name = "IncidentsDataGridView";
+            IncidentsDataGridView.RowHeadersWidth = 51;
+            IncidentsDataGridView.Size = new Size(689, 361);
+            IncidentsDataGridView.TabIndex = 0;
             // 
             // LoadIncidentsUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(OpenIncidentsListView);
+            Controls.Add(IncidentsDataGridView);
             Name = "LoadIncidentsUserControl";
-            Size = new Size(575, 227);
+            Size = new Size(689, 361);
+            ((System.ComponentModel.ISupportInitialize)IncidentsDataGridView).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListView OpenIncidentsListView;
-        private ColumnHeader ProductCodeColumnHeader;
-        private ColumnHeader DateOpenedColumnHeader;
-        private ColumnHeader CustomerColumnHeader;
-        private ColumnHeader TechnicianColumnHeader;
-        private ColumnHeader TitleColumnHeader;
+        private DataGridView IncidentsDataGridView;
     }
 }
