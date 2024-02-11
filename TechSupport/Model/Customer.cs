@@ -2,7 +2,7 @@
 /// <summary>
 /// Class to represent the customer
 /// </summary>
-namespace Customer.Model
+namespace Customers.Model
 {
     public class Customer
     {
@@ -17,7 +17,7 @@ namespace Customer.Model
 
         public string State { get; set; }
 
-        public string Zip { get; set; }
+        public string ZipCode { get; set; }
 
         public string Phone { get; set; }
 

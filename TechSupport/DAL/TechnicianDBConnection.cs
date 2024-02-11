@@ -1,6 +1,5 @@
 ﻿using System.Data.SqlClient;
 
-
 namespace TechnicianConnection
 {
     /// <summary>
@@ -11,7 +10,7 @@ namespace TechnicianConnection
         public static SqlConnection GetConnection()
         {
             string connectionString =
-                 "Data Source=localhost;Initial Catalog=Technicians;" +
+                 "Data Source=CSDBLAB-VM04;Initial Catalog=Technicians;" +
                 "Integrated Security=True";
 
             SqlConnection connection = new SqlConnection(connectionString);
@@ -19,6 +18,4 @@ namespace TechnicianConnection
             return connection;
         }
     }
-}
-
 }

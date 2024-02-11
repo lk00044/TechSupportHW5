@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TechSupport.Model
+namespace Technicians.Model
 {
     public class Technician
     {

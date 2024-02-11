@@ -7,7 +7,7 @@ namespace DisplayIncidents.View
     /// </summary>
     public partial class MainForm : Form
     {
-        private readonly IncidentDBController _incidentController;
+        private readonly IncidentController _incidentController;
         private string UserName;
 
         /// <summary>
@@ -19,7 +19,7 @@ namespace DisplayIncidents.View
             InitializeComponent();
             UserName = Name;
             this.DisplayUserNameLabel.Text = UserName;
-            this._incidentController = new IncidentDBController();
+            this._incidentController = new IncidentController();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

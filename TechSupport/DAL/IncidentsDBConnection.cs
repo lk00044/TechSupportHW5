@@ -10,7 +10,7 @@ namespace DisplayIncidents
         public static SqlConnection GetConnection()
         {
             string connectionString =
-                 "Data Source=localhost;Initial Catalog=Incidents;" +
+                 "Data Source=CSDBLAB-VM04;Initial Catalog=Incidents;" +
                 "Integrated Security=True";
 
             SqlConnection connection = new SqlConnection(connectionString);

@@ -2,23 +2,23 @@
 
 
 namespace CustomerConnection
+{
+    /// <summary>
+    /// Get a connection object. 
+    /// </summary>
+    public static class CustomerDBConnection
     {
-        /// <summary>
-        /// Get a connection object. 
-        /// </summary>
-        public static class CustomerDBConnection
+        public static SqlConnection GetConnection()
         {
-            public static SqlConnection GetConnection()
-            {
-                string connectionString =
-                     "Data Source=localhost;Initial Catalog=Customers;" +
-                    "Integrated Security=True";
+            string connectionString =
+                "Data Source=CSDBLAB-VM04;Initial Catalog=Customers;" +
+                "Integrated Security=True";
 
-                SqlConnection connection = new SqlConnection(connectionString);
+            SqlConnection connection = new SqlConnection(connectionString);
 
-                return connection;
-            }
+            return connection;
         }
     }
-
 }
+
+

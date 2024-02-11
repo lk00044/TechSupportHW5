@@ -3,7 +3,7 @@ using DisplayIncidents.DAL;
 using DisplayIncidents.Model;
 
 namespace DisplayIncidents.View
-{
+{ 
     /// <summary>
     /// Search Incident Form to look for matching incidents
     /// based on Customer ID
@@ -11,7 +11,7 @@ namespace DisplayIncidents.View
     /// <seealso cref="System.Windows.Forms.Form" />
     public partial class SearchIncidentForm : Form
     {
-        private readonly IncidentDBController _incidentController;
+        private readonly IncidentController _incidentController;
         private readonly IncidentDBDAL _incidentDAL;
         private string UserName;
 
@@ -19,7 +19,7 @@ namespace DisplayIncidents.View
         public SearchIncidentForm(string Name)
         {
             InitializeComponent();
-            this._incidentController = new IncidentDBController();
+            this._incidentController = new IncidentController();
             this._incidentDAL = new IncidentDBDAL();
             UserName = Name;
         }
