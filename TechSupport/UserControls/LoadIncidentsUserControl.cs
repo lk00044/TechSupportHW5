@@ -22,10 +22,12 @@ namespace IncidentsLocal.UserControls
             this.IncidentsDataGridView.DataSource = this._incidentController.GetIncidents();
         }
 
-        private void LoadIncidentsTabPage_Click(object sender, EventArgs e)
+        private void LoadIncidentsTabPage_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.RefreshDataGrid(); 
         }
+
+
 
     }
 }

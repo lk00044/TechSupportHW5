@@ -48,7 +48,5 @@ namespace TechSupport.UserControls
             }
         }
 
-      ///  private void 
-
     }
 }
