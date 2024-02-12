@@ -1,28 +1,24 @@
 ﻿using Incidents.Controller;
-using Incidents.DAL;
 using Incidents.Model;
 
-namespace Incidents.View
-{ 
-    /// <summary>
-    /// Search Incident Form to look for matching incidents
-    /// based on Customer ID
-    /// </summary>
-    /// <seealso cref="System.Windows.Forms.Form" />
-    public partial class SearchIncidentForm : Form
+
+/// <summary>
+/// User Control class used to search incidents for matching incidents
+/// based on the search customer id
+/// </summary>
+namespace TechSupport.UserControls
+{
+    public partial class SearchIncidentsUserControl : UserControl
     {
+
         private readonly IncidentController _incidentController;
-        private readonly IncidentDBDAL _incidentDAL;
-        private string UserName;
 
-
-        public SearchIncidentForm(string Name)
+        public SearchIncidentsUserControl()
         {
             InitializeComponent();
             this._incidentController = new IncidentController();
-            this._incidentDAL = new IncidentDBDAL();
-            UserName = Name;
         }
+
 
         private void RefreshDataGrid(List<Incident> MatchingIncidents)
         {
@@ -42,7 +38,7 @@ namespace Incidents.View
                 {
                     int searchID = int.Parse(SearchIDText);
                     List<Incident> matchingIncidents = new List<Incident>();
-                    matchingIncidents = this._incidentDAL.GetMatchingIncidents(searchID);
+                    matchingIncidents = this._incidentController.GetMatchingIncidents(searchID);
                     this.RefreshDataGrid(matchingIncidents);
                 }
             }
@@ -50,9 +46,9 @@ namespace Incidents.View
             {
                 MessageBox.Show("Invalid Input \n" + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
+
+      ///  private void 
 
     }
 }

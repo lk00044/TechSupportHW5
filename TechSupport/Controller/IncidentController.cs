@@ -30,6 +30,15 @@ namespace Incidents.Controller
         }
 
         /// <summary>
+        /// Returns the incidents from the source that match the search ID
+        /// </summary>
+        /// <returns> the indicents from the internal structure </returns>
+        public List<Incident> GetMatchingIncidents (int searchID)
+        {
+            return this.IncidentSource.GetMatchingIncidents(searchID);
+        }
+
+        /// <summary>
         /// Add an incident to the internal structure 
         /// </summary>
         /// <param UserName="incident"></param>

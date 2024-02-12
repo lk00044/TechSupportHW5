@@ -63,7 +63,7 @@ namespace Incidents.UserControls
                 else
                 {
                     int intCustomerID = int.Parse(this.CustomerIDTextBox.Text);                   
-                    this._incidentController.AddIncident(new Incident());
+                    this._incidentController.AddIncident(new Incident(title, description, intCustomerID));
                 }
                 this.TitleTextBox.Clear();
                 this.DescriptionRichTextBox.Clear();
