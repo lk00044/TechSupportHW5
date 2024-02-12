@@ -28,10 +28,14 @@ namespace Incidents.View
             {
                 this.Hide();
                 loginForm.ShowDialog();
-                this.Close();
+               // this.Close();
             }
         }
 
+        private void TabDashboardMainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
 
     }
 }

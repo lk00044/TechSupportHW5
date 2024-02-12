@@ -29,8 +29,8 @@ namespace Incidents
                     using (Form dashboardTabForm = new DashboardTabMainForm(userName))
                     {
                         this.Hide();
-                        dashboardTabForm.Show();
-                       
+                        dashboardTabForm.ShowDialog();
+                      //  this.Close();
                     }
                 }
                 else
@@ -57,7 +57,6 @@ namespace Incidents
         {
             Application.Exit();
         }
-
 
     }
 }

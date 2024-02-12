@@ -60,7 +60,6 @@
             IncidentsTabControl.SelectedIndex = 0;
             IncidentsTabControl.Size = new Size(719, 455);
             IncidentsTabControl.TabIndex = 0;
-            IncidentsTabControl.SelectedIndexChanged += TabDashboardMainForm_Load;
             IncidentsTabControl.TabIndexChanged += TabDashboardMainForm_Load;
             IncidentsTabControl.Click += TabDashboardMainForm_Load;
             // 
@@ -90,7 +89,7 @@
             LoadIncidentsTabPage.Controls.Add(loadIncidentsUserControl1);
             LoadIncidentsTabPage.Location = new Point(4, 34);
             LoadIncidentsTabPage.Name = "LoadIncidentsTabPage";
-            LoadIncidentsTabPage.Size = new Size(192, 62);
+            LoadIncidentsTabPage.Size = new Size(711, 417);
             LoadIncidentsTabPage.TabIndex = 3;
             LoadIncidentsTabPage.Text = "Display All Incidents";
             LoadIncidentsTabPage.UseVisualStyleBackColor = true;
