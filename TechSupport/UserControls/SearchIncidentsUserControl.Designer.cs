@@ -37,7 +37,7 @@
             // 
             // CustomerIDTextBox
             // 
-            CustomerIDTextBox.Location = new Point(211, 43);
+            CustomerIDTextBox.Location = new Point(233, 40);
             CustomerIDTextBox.Name = "CustomerIDTextBox";
             CustomerIDTextBox.Size = new Size(125, 27);
             CustomerIDTextBox.TabIndex = 4;
@@ -45,7 +45,7 @@
             // SearchPromptLabel
             // 
             SearchPromptLabel.AutoSize = true;
-            SearchPromptLabel.Location = new Point(70, 44);
+            SearchPromptLabel.Location = new Point(50, 47);
             SearchPromptLabel.Name = "SearchPromptLabel";
             SearchPromptLabel.Size = new Size(132, 20);
             SearchPromptLabel.TabIndex = 6;

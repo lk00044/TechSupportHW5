@@ -29,8 +29,8 @@ namespace Incidents
                     using (Form dashboardTabForm = new DashboardTabMainForm(userName))
                     {
                         this.Hide();
-                        dashboardTabForm.ShowDialog();
-                        this.Close();
+                        dashboardTabForm.Show();
+                       
                     }
                 }
                 else
@@ -51,6 +51,11 @@ namespace Incidents
         private void UserNameTextBox_Click(object sender, EventArgs e)
         {
             this.ErrorMessageLabel.Text = "";
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
 

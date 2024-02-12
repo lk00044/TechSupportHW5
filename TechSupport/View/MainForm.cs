@@ -33,7 +33,7 @@ namespace Incidents.View
             {
                 this.Hide();
                 loginForm.ShowDialog();
-                this.Close();
+         
             }
         }
 
@@ -69,6 +69,11 @@ namespace Incidents.View
                 this.Close();
 
             }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

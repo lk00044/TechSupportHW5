@@ -27,6 +27,11 @@ namespace IncidentsLocal.UserControls
             this.RefreshDataGrid(); 
         }
 
+        private void LoadIncidentsTabPage_Selected  (object sender, EventArgs e)
+        {
+            this.RefreshDataGrid();
+        }
+
 
 
     }
