@@ -26,5 +26,6 @@ namespace IncidentsLocal.UserControls
         {
             this.RefreshDataGrid(); 
         }
+
     }
 }

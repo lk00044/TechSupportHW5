@@ -10,8 +10,7 @@ namespace TechnicianConnection
         public static SqlConnection GetConnection()
         {
             string connectionString =
-                 "Data Source=CSDBLAB-VM04;Initial Catalog=Technicians;" +
-                "Integrated Security=True";
+                 "Data Source=CSDBLAB-VM04;Initial Catalog=TechSupport;Integrated Security=True";
 
             SqlConnection connection = new SqlConnection(connectionString);
 

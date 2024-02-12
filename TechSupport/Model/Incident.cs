@@ -26,5 +26,36 @@ namespace Incidents.Model
         public DateTime DateClosed { get; set; }
 
 
+        /// <summary>
+        /// Constructor to create the Incident object
+        /// </summary>
+        /// <param UserName="Title"></param>            The Title of the incident
+        /// <param UserName="Description"></param>      The Description of the incident
+        /// <param CustomerID="CustomerID"></param> The customer id of the incident
+        /// <exception cref="ArgumentNullException"></exception>
+        public Incident(string Title, string Description, int CustomerID)
+        {
+            if (string.IsNullOrEmpty(Title))
+                throw new ArgumentNullException("UserName cannot be empty", "Title");
+
+            if (string.IsNullOrEmpty(Description))
+                throw new ArgumentNullException("Description cannot be empty", "Title");
+
+            if (string.IsNullOrEmpty(CustomerID.ToString()))
+                throw new ArgumentNullException("Customer ID cannot be empty", "Title");
+
+            this.Title = Title;
+            this.Description = Description;
+            this.CustomerID = CustomerID;
+
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Incident"/> class.
+        /// Default constructor with no params
+        /// </summary>
+        public Incident() { }
     }
+
+
 }

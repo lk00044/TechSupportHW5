@@ -65,7 +65,7 @@ namespace Incidents.View
                 else
                 {
                     int intCustomerID = int.Parse(this.CustomerIDTextBox.Text);
-                    this._incidentController.AddIncident(new Incident());
+                    this._incidentController.AddIncident(new Incident(title, description, intCustomerID));
                     this.DialogResult = DialogResult.OK;
                 }
             }

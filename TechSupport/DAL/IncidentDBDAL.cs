@@ -1,4 +1,5 @@
 ﻿using Incidents.Model;
+using System;
 using System.Data.SqlClient;
 
 // Leslie Keller
@@ -53,9 +54,7 @@ namespace Incidents.DAL
             List<Incident> incidentList = new List<Incident>();
 
             string selectStatement =
-                "SELECT Incidents.IncidentID, Incidents.CustomerID, Incidents.ProductCode, " +
-                "Incidents.TechID, Incidents.DateOpened, Incidents.DateClosed " +
-                "Incidents.Title, Incidents.Description " +
+                "SELECT IncidentID, CustomerID, ProductCode, TechID, DateOpened, DateClosed, Title, Description " +
                 "FROM Incidents "
                 ;
 
@@ -67,6 +66,7 @@ namespace Incidents.DAL
                 {
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
+                        
                         while (reader.Read())
                         {
                             Incident incident = new Incident();
@@ -75,7 +75,16 @@ namespace Incidents.DAL
                             incident.ProductCode = reader["ProductCode"].ToString();
                             incident.TechID = (int)reader["TechID"];
                             incident.DateOpened = (DateTime)reader["DateOpened"];
-                            incident.DateClosed = (DateTime)reader["DateClosed"];
+                          //  incident.DateClosed =;
+                            if ((DateTime)reader["DateClosed"] == null)
+                            {
+                                incident.DateClosed = DateTime.MinValue;
+                            } 
+                            else
+                            {
+                                incident.DateClosed = (DateTime)reader["DateClosed"];                                
+                            }
+                                                      
                             incident.Title = reader["Title"].ToString();
                             incident.Description = reader["Description"].ToString();
 

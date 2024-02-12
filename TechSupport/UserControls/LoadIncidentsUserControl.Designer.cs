@@ -28,19 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             IncidentsDataGridView = new DataGridView();
+            incidentControllerBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)IncidentsDataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)incidentControllerBindingSource).BeginInit();
             SuspendLayout();
             // 
             // IncidentsDataGridView
             // 
             IncidentsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            IncidentsDataGridView.Dock = DockStyle.Fill;
             IncidentsDataGridView.Location = new Point(0, 0);
             IncidentsDataGridView.Name = "IncidentsDataGridView";
             IncidentsDataGridView.RowHeadersWidth = 51;
             IncidentsDataGridView.Size = new Size(689, 361);
             IncidentsDataGridView.TabIndex = 0;
+            // 
+            // incidentControllerBindingSource
+            // 
+            incidentControllerBindingSource.DataSource = typeof(Incidents.Controller.IncidentController);
             // 
             // LoadIncidentsUserControl
             // 
@@ -50,11 +56,13 @@
             Name = "LoadIncidentsUserControl";
             Size = new Size(689, 361);
             ((System.ComponentModel.ISupportInitialize)IncidentsDataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)incidentControllerBindingSource).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private DataGridView IncidentsDataGridView;
+        private BindingSource incidentControllerBindingSource;
     }
 }

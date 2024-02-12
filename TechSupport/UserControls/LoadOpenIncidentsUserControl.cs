@@ -40,6 +40,9 @@ namespace Incidents.UserControls
                     for (int i = 0; i < incidentList.Count; i++)
                     {
                         incident = incidentList[i];
+
+                        Console.Write("Date Closed: " + incident.DateClosed);
+
                         if (incident.DateClosed == null || incident.DateClosed == DateTime.MinValue) { 
                             OpenIncidentsListView.Items[i].SubItems.Add(incident.ProductCode.ToString());
                             OpenIncidentsListView.Items[i].SubItems.Add(incident.DateOpened.ToShortDateString());
@@ -52,7 +55,6 @@ namespace Incidents.UserControls
                 else
                 {
                     MessageBox.Show("All incidents are closed.", "No Open Incidents");
-
                 }
             }
             catch (Exception ex)
