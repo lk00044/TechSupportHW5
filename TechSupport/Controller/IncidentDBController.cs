@@ -31,6 +31,12 @@ namespace DisplayDBIncidents.Controller
             return this.IncidentSource.GetIncidents();
         }
 
+        public List<Incident> GetOpenIncidents()
+        {
+            return this.IncidentSource.GetOpenIncidents();
+
+        }
+
         /// <summary>
         /// Add an incident to the internal structure 
         /// </summary>

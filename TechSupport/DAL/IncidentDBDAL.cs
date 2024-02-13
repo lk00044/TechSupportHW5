@@ -1,6 +1,7 @@
 ﻿using Incidents.Model;
 using System;
 using System.Data.SqlClient;
+using System.Diagnostics.Metrics;
 
 // Leslie Keller
 
@@ -73,10 +74,17 @@ namespace Incidents.DAL
                             incident.IncidentID = (int)reader["IncidentID"];
                             incident.CustomerID = (int)reader["CustomerID"];
                             incident.ProductCode = reader["ProductCode"].ToString();
-                            incident.TechID = (int)reader["TechID"];
+                           // incident.TechID = (int)reader["TechID"];
+  
+                            if (reader["TechID"] is not DBNull)
+                            {
+                                  incident.TechID  = Convert.ToInt32(reader["TechID"]);                               
+                            }
+
                             incident.DateOpened = (DateTime)reader["DateOpened"];
-                          //  incident.DateClosed =;
-                            if ((DateTime)reader["DateClosed"] == null)
+                          //  incident.DateClosed = (DateTime)reader["DateClosed"]; ;
+                            
+                            if (reader["DateClosed"] is DBNull)
                             {
                                 incident.DateClosed = DateTime.MinValue;
                             } 
@@ -84,7 +92,7 @@ namespace Incidents.DAL
                             {
                                 incident.DateClosed = (DateTime)reader["DateClosed"];                                
                             }
-                                                      
+                             
                             incident.Title = reader["Title"].ToString();
                             incident.Description = reader["Description"].ToString();
 
@@ -102,12 +110,12 @@ namespace Incidents.DAL
         /// </summary>
         /// <param UserName="SearchID"></param>
         /// <returns>_matchingIncidents - the list that matches the SearchID </returns>
-        public List<Incident> GetMatchingIncidents(int SearchID)
+        public List<Incident> GetOpenIncidents()
         {
-            List<Incident> matchingIncidentList = new List<Incident>();
-            matchingIncidentList = this.GetIncidents();
+            List<Incident> openIncidentList = new List<Incident>();
+            openIncidentList = this.GetIncidents();
 
-            return matchingIncidentList.FindAll(incident => (incident.DateClosed == null || incident.DateClosed == DateTime.MinValue));
+            return openIncidentList.FindAll(incident => (incident.DateClosed == null || incident.DateClosed == DateTime.MinValue));
         }
 
     }

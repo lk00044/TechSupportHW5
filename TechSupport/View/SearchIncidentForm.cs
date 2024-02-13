@@ -42,7 +42,7 @@ namespace Incidents.View
                 {
                     int searchID = int.Parse(SearchIDText);
                     List<Incident> matchingIncidents = new List<Incident>();
-                    matchingIncidents = this._incidentDAL.GetMatchingIncidents(searchID);
+                    matchingIncidents = this._incidentController.GetMatchingIncidents(searchID);
                     this.RefreshDataGrid(matchingIncidents);
                 }
             }

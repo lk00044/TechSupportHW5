@@ -32,24 +32,20 @@ namespace Incidents.UserControls
 
             try
             {
-                incidentList = this._incidentController.GetIncidents();
+                incidentList = this._incidentController.GetOpenIncidents();
 
                 if (incidentList.Count > 0)
                 {
                     Incident incident;
-                    for (int i = 0; i < incidentList.Count; i++)
+                    for (int i = 0; i < incidentList.Count; i++)  
                     {
-                        incident = incidentList[i];
-
-                        Console.Write("Date Closed: " + incident.DateClosed);
-
-                        if (incident.DateClosed == null || incident.DateClosed == DateTime.MinValue) { 
-                            OpenIncidentsListView.Items[i].SubItems.Add(incident.ProductCode.ToString());
-                            OpenIncidentsListView.Items[i].SubItems.Add(incident.DateOpened.ToShortDateString());
-                            OpenIncidentsListView.Items[i].SubItems.Add(incident.CustomerID.ToString());
-                            OpenIncidentsListView.Items[i].SubItems.Add(incident.TechID.ToString());
-                            OpenIncidentsListView.Items[i].SubItems.Add(incident.Title.ToString());
-                        }
+                        incident = incidentList[i];          
+                        OpenIncidentsListView.Items.Add(incident.IncidentID.ToString());
+                        OpenIncidentsListView.Items[i].SubItems.Add(incident.ProductCode.ToString());
+                        OpenIncidentsListView.Items[i].SubItems.Add(incident.DateOpened.ToShortDateString());
+                        OpenIncidentsListView.Items[i].SubItems.Add(incident.CustomerID.ToString());
+                        OpenIncidentsListView.Items[i].SubItems.Add(incident.TechID.ToString());
+                        OpenIncidentsListView.Items[i].SubItems.Add(incident.Title.ToString());                        
                     }
                 }
                 else
