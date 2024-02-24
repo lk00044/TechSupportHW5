@@ -1,6 +1,6 @@
-﻿using TechnicianConnection;
-using Technicians.Model;
+﻿using Technicians.Model;
 using System.Data.SqlClient;
+using TechSupport.DAL;
 
 /// <summary>
 /// Get the Technician data from database 
@@ -11,7 +11,7 @@ namespace Technicians.DAL
     public class TechniciansDBDAL
     {
 
-        public List<Technician> GetCustomers()
+        public List<Technician> GetTechnicians()
         {
             List<Technician> technicianList = new List<Technician>();
 
@@ -20,7 +20,7 @@ namespace Technicians.DAL
                 "FROM Technicians "
                 ;
 
-            using (SqlConnection connection = TechnicianDBConnection.GetConnection())
+            using (SqlConnection connection = DBConnection.GetConnection()) 
             {
                 connection.Open();
 

@@ -1,6 +1,6 @@
-﻿using CustomerConnection;
-using Customers.Model;
+﻿using Customers.Model;
 using System.Data.SqlClient;
+using TechSupport.DAL;
 
 /// <summary>
 /// Get the Customer data from database 
@@ -19,7 +19,7 @@ namespace Customers.DAL
                 "FROM Customers "
                 ;
 
-            using (SqlConnection connection = CustomerDBConnection.GetConnection())
+            using (SqlConnection connection = DBConnection.GetConnection())
             {
                 connection.Open();
 

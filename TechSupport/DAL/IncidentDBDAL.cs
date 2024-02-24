@@ -1,7 +1,6 @@
 ﻿using Incidents.Model;
-using System;
 using System.Data.SqlClient;
-using System.Diagnostics.Metrics;
+using TechSupport.DAL;
 
 // Leslie Keller
 
@@ -27,18 +26,16 @@ namespace Incidents.DAL
                "@TechID, @DateOpened, @DateClosed, " +
                "@Title, @Description ";
 
-            using (SqlConnection connection = IncidentsDBConnection.GetConnection())
+            using (SqlConnection connection = DBConnection.GetConnection())
             {
                 connection.Open();
 
                 using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
                 {
-                    insertCommand.Parameters.AddWithValue("@IncidentID", AnIncident.IncidentID);
                     insertCommand.Parameters.AddWithValue("@CustomerID", AnIncident.CustomerID);
                     insertCommand.Parameters.AddWithValue("@ProductCode", AnIncident.ProductCode);
                     insertCommand.Parameters.AddWithValue("@TechID", AnIncident.TechID);
                     insertCommand.Parameters.AddWithValue("@DateOpened", AnIncident.DateOpened);
-                    insertCommand.Parameters.AddWithValue("@DateClosed", AnIncident.DateClosed);
                     insertCommand.Parameters.AddWithValue("@Title", AnIncident.Title);
                     insertCommand.Parameters.AddWithValue("@Description", AnIncident.Description);
                 }
@@ -59,7 +56,7 @@ namespace Incidents.DAL
                 "FROM Incidents "
                 ;
 
-            using (SqlConnection connection = IncidentsDBConnection.GetConnection())
+            using (SqlConnection connection = DBConnection.GetConnection())
             {
                 connection.Open();
 

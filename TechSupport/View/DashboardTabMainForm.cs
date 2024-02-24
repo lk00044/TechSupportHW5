@@ -27,8 +27,8 @@ namespace Incidents.View
             using (Form loginForm = new LoginForm())
             {
                 this.Hide();
-                loginForm.ShowDialog();
-               // this.Close();
+                loginForm.Show();
+                this.Close();
             }
         }
 

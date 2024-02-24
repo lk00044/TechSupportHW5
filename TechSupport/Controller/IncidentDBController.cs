@@ -6,7 +6,7 @@ using Incidents.Model;
 namespace DisplayDBIncidents.Controller
 {
     /// <summary>
-    /// Handles the interaction between the view and the Login Data Access Layer (LoginDAL)
+    /// Handles the interaction between the view and the Incident Data Access Layer 
     /// </summary>
     public class IncidentDBController
     {

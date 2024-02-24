@@ -1,5 +1,9 @@
-﻿using Incidents.Controller;
+﻿using Customers.Model;
+using DisplayDBIncidents.Controller;
+using Incidents.Controller;
 using Incidents.Model;
+using Technicians.Model;
+using TechSupport.Controller;
 
 /// <summary>
 /// Add Incidents User Control
@@ -12,7 +16,13 @@ namespace Incidents.UserControls
 {
     public partial class AddIncidentsUserControl : UserControl
     {
-       private IncidentController _incidentController;
+        private IncidentDBController _incidentController;
+        private CustomerDBController _customerController;
+        private TechnicianDBController _technicianDBController;
+
+        private List<Customer> customerList;
+        private List<Technician> technicianList;
+        private List<Incident> incidentList;
 
         /// <summary>o the Incident Controller
         /// Constructor to build the form and initialize the controller
@@ -20,7 +30,24 @@ namespace Incidents.UserControls
         public AddIncidentsUserControl()
         {
             InitializeComponent();
-            this._incidentController = new IncidentController();
+            this._incidentController = new IncidentDBController();
+            this._customerController = new CustomerDBController();  
+            this._technicianDBController = new TechnicianDBController(); 
+            this.customerList = new List<Customer>();
+            this.technicianList = new List<Technician>();
+            this.incidentList = new List<Incident>();
+        }
+
+        public void loadCustomerNames()
+        {
+            this.customerList = this._customerController.GetCustomers();
+            this.incidentList = this._incidentController.GetIncidents();
+            this.technicianList = this._technicianDBController.GetTechnicians();
+        }
+
+        public void loadProducts()
+        {
+
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -30,7 +57,6 @@ namespace Incidents.UserControls
             {
                 var title = this.TitleTextBox.Text;
                 var description = this.DescriptionRichTextBox.Text;
-                var customerID = this.CustomerIDTextBox.Text;
 
                 if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(customerID) || (int.TryParse(customerID, out _) == false))
                 {
@@ -47,27 +73,15 @@ namespace Incidents.UserControls
                         this.DescriptionErrorLabel.Text = "Invalid Description";
                     }
 
-                    if (int.TryParse(customerID, out _) == false)
-                    {
-                        this.CustomerIDErrorLabel.ForeColor = Color.Red;
-                        this.CustomerIDErrorLabel.Text = "Customer ID must be a positive integer.";
-                    }
-
-                    if (string.IsNullOrEmpty(customerID))
-                    {
-                        this.CustomerIDErrorLabel.ForeColor = Color.Red;
-                        this.CustomerIDErrorLabel.Text = "Invalid customer ID";
-                    }                   
+                                   
 
                 }
                 else
-                {
-                    int intCustomerID = int.Parse(this.CustomerIDTextBox.Text);                   
+                {                                     
                     this._incidentController.AddIncident(new Incident(title, description, intCustomerID));
                 }
                 this.TitleTextBox.Clear();
                 this.DescriptionRichTextBox.Clear();
-                this.CustomerIDTextBox.Clear();
             }
             catch (Exception ex)
             {

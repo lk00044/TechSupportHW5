@@ -29,16 +29,55 @@
         private void InitializeComponent()
         {
             OpenIncidentsListView = new ListView();
+            ProductCodeColumnHeader = new ColumnHeader();
+            DateOpenedColumnHeader = new ColumnHeader();
+            CustomerColumnHeader = new ColumnHeader();
+            TechnicialNameColumnHeader = new ColumnHeader();
+            TitleColumnHeader = new ColumnHeader();
+            DescriptionColumnHeader = new ColumnHeader();
             SuspendLayout();
             // 
             // OpenIncidentsListView
             // 
+            OpenIncidentsListView.Columns.AddRange(new ColumnHeader[] { ProductCodeColumnHeader, DateOpenedColumnHeader, CustomerColumnHeader, TechnicialNameColumnHeader, TitleColumnHeader, DescriptionColumnHeader });
             OpenIncidentsListView.Dock = DockStyle.Fill;
             OpenIncidentsListView.Location = new Point(0, 0);
             OpenIncidentsListView.Name = "OpenIncidentsListView";
             OpenIncidentsListView.Size = new Size(575, 227);
             OpenIncidentsListView.TabIndex = 0;
             OpenIncidentsListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // ProductCodeColumnHeader
+            // 
+            ProductCodeColumnHeader.Text = "Product Code";
+            ProductCodeColumnHeader.Width = 10;
+            // 
+            // DateOpenedColumnHeader
+            // 
+            DateOpenedColumnHeader.Text = "Date Opened";
+            DateOpenedColumnHeader.TextAlign = HorizontalAlignment.Center;
+            DateOpenedColumnHeader.Width = 20;
+            // 
+            // CustomerColumnHeader
+            // 
+            CustomerColumnHeader.Text = "Customer";
+            CustomerColumnHeader.TextAlign = HorizontalAlignment.Center;
+            CustomerColumnHeader.Width = 25;
+            // 
+            // TechnicialNameColumnHeader
+            // 
+            TechnicialNameColumnHeader.Text = "Technician";
+            TechnicialNameColumnHeader.Width = 25;
+            // 
+            // TitleColumnHeader
+            // 
+            TitleColumnHeader.Text = "Title";
+            TitleColumnHeader.TextAlign = HorizontalAlignment.Center;
+            // 
+            // DescriptionColumnHeader
+            // 
+            DescriptionColumnHeader.Text = "Description";
+            DescriptionColumnHeader.TextAlign = HorizontalAlignment.Center;
             // 
             // LoadOpenIncidentsUserControl
             // 
@@ -53,5 +92,11 @@
         #endregion
 
         private ListView OpenIncidentsListView;
+        private ColumnHeader ProductCodeColumnHeader;
+        private ColumnHeader DateOpenedColumnHeader;
+        private ColumnHeader CustomerColumnHeader;
+        private ColumnHeader TechnicialNameColumnHeader;
+        private ColumnHeader TitleColumnHeader;
+        private ColumnHeader DescriptionColumnHeader;
     }
 }
