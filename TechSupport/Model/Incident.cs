@@ -1,6 +1,8 @@
 ﻿// Leslie Keller
 
 
+using Customers.Model;
+
 /// <summary>
 /// Class that will keep the Incident objects
 /// </summary>

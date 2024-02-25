@@ -30,6 +30,7 @@ namespace Products.DAL
                             product.ProductCode = reader["ProductCode"].ToString();
                             product.ProductName = reader["ProductName"].ToString();
                             product.Version = (double) reader["Version"];
+                           // product.ReleaseDate = reader.IsDBNull(int columnOrdinal)
                             product.ReleaseDate = (DateTime) reader["ReleaseDate"];
                         
                             productList.Add(product);

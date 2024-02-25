@@ -8,8 +8,12 @@ using TechSupport.DAL;
 
 namespace Customers.DAL
 {
-    public class CustomersDBDAL { 
-    
+    public class CustomersDBDAL {
+
+        /// <summary>
+        /// Gets the customers.
+        /// </summary>
+        /// <returns></returns>
         public List<Customer> GetCustomers()
         {
             List<Customer> customerList = new List<Customer>();
@@ -45,6 +49,25 @@ namespace Customers.DAL
                 }
             }
             return customerList;
+        }
+
+        /// <summary>
+        /// Gets the customer identifier.
+        /// </summary>
+        /// <param name="customerName">Name of the customer.</param>
+        /// <returns></returns>
+        public Customer GetCustomer(string customerName)
+        {
+            List<Customer> aList = new List<Customer>();
+            aList = this.GetCustomers();
+            foreach (Customer a in aList)
+            {
+                if (a.Name == customerName)
+                {
+                    return a;
+                }
+            }
+            return null;
         }
     }
 }

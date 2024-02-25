@@ -1,8 +1,7 @@
 ﻿using Customers.Model;
 using DisplayDBIncidents.Controller;
-using Incidents.Controller;
 using Incidents.Model;
-using Technicians.Model;
+using Products.Model;
 using TechSupport.Controller;
 
 /// <summary>
@@ -18,10 +17,10 @@ namespace Incidents.UserControls
     {
         private IncidentDBController _incidentController;
         private CustomerDBController _customerController;
-        private TechnicianDBController _technicianDBController;
+        private ProductDBController _productDBController;
 
         private List<Customer> customerList;
-        private List<Technician> technicianList;
+        private List<Product> productList;
         private List<Incident> incidentList;
 
         /// <summary>o the Incident Controller
@@ -30,24 +29,35 @@ namespace Incidents.UserControls
         public AddIncidentsUserControl()
         {
             InitializeComponent();
+
             this._incidentController = new IncidentDBController();
-            this._customerController = new CustomerDBController();  
-            this._technicianDBController = new TechnicianDBController(); 
+            this._customerController = new CustomerDBController(); 
+            this._productDBController = new ProductDBController();
+
             this.customerList = new List<Customer>();
-            this.technicianList = new List<Technician>();
             this.incidentList = new List<Incident>();
+            this.productList = new List<Product>();
+
+            this.loadCustomerNames();
+            this.loadProducts();
         }
 
         public void loadCustomerNames()
         {
             this.customerList = this._customerController.GetCustomers();
-            this.incidentList = this._incidentController.GetIncidents();
-            this.technicianList = this._technicianDBController.GetTechnicians();
+            foreach (Customer customer in this.customerList)
+            {
+                CustomerIDComboBox.Items.Add(customer.Name);
+            }
         }
 
         public void loadProducts()
         {
-
+            this.productList = this._productDBController.GetProducts();
+            foreach (Product product in this.productList)
+            {
+                ProductComboBox.Items.Add(product.ProductName);
+            }
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -57,10 +67,11 @@ namespace Incidents.UserControls
             {
                 var title = this.TitleTextBox.Text;
                 var description = this.DescriptionRichTextBox.Text;
+                var prodName = this.ProductComboBox.Text;
+                var cusName = this.CustomerIDComboBox.Text;
 
-                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(customerID) || (int.TryParse(customerID, out _) == false))
+                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(description) == false)
                 {
-
                     if (string.IsNullOrEmpty(title))
                     {
                         this.TitleErrorLabel.ForeColor = Color.Red;
@@ -71,14 +82,13 @@ namespace Incidents.UserControls
                     {
                         this.DescriptionErrorLabel.ForeColor = Color.Red;
                         this.DescriptionErrorLabel.Text = "Invalid Description";
-                    }
-
-                                   
-
+                    }                         
                 }
                 else
-                {                                     
-                    this._incidentController.AddIncident(new Incident(title, description, intCustomerID));
+                {  
+                    Customer customer = this._customerController.GetCustomer(cusName);
+
+                    this._incidentController.AddIncident(new Incident(title, description, customer.CustomerID));
                 }
                 this.TitleTextBox.Clear();
                 this.DescriptionRichTextBox.Clear();
@@ -94,27 +104,23 @@ namespace Incidents.UserControls
         {
             this.TitleTextBox.Clear();
             this.DescriptionRichTextBox.Clear();
-            this.CustomerIDTextBox.Clear();
         }
 
         private void TitleTextBox_Click(object sender, EventArgs e)
         {
             this.TitleErrorLabel.Text = "";
-            this.CustomerIDErrorLabel.Text = "";
             this.DescriptionErrorLabel.Text = "";
         }
 
         private void DescriptionRichTextBox_Click(object sender, EventArgs e)
         {
             this.TitleErrorLabel.Text = "";
-            this.CustomerIDErrorLabel.Text = "";
             this.DescriptionErrorLabel.Text = "";
         }
 
         private void CustomerIDTextBox_Click(object sender, EventArgs e)
         {
             this.TitleErrorLabel.Text = "";
-            this.CustomerIDErrorLabel.Text = "";
             this.DescriptionErrorLabel.Text = "";
         }
 
