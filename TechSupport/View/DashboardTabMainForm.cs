@@ -37,5 +37,9 @@ namespace Incidents.View
             Application.Exit();
         }
 
+        private void AddIncidentTabPage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

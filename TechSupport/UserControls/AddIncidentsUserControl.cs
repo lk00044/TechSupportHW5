@@ -67,10 +67,10 @@ namespace Incidents.UserControls
             {
                 var title = this.TitleTextBox.Text;
                 var description = this.DescriptionRichTextBox.Text;
-                var prodName = this.ProductComboBox.Text;
-                var cusName = this.CustomerIDComboBox.Text;
+                var prodName = this.ProductComboBox.SelectedText;
+                var cusName = this.CustomerIDComboBox.SelectedText;
 
-                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(description) == false)
+                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(description))
                 {
                     if (string.IsNullOrEmpty(title))
                     {
@@ -87,7 +87,6 @@ namespace Incidents.UserControls
                 else
                 {  
                     Customer customer = this._customerController.GetCustomer(cusName);
-
                     this._incidentController.AddIncident(new Incident(title, description, customer.CustomerID));
                 }
                 this.TitleTextBox.Clear();
@@ -104,6 +103,8 @@ namespace Incidents.UserControls
         {
             this.TitleTextBox.Clear();
             this.DescriptionRichTextBox.Clear();
+            this.CustomerIDComboBox.Items.Clear();
+            this.ProductComboBox.Items.Clear();
         }
 
         private void TitleTextBox_Click(object sender, EventArgs e)
@@ -117,12 +118,5 @@ namespace Incidents.UserControls
             this.TitleErrorLabel.Text = "";
             this.DescriptionErrorLabel.Text = "";
         }
-
-        private void CustomerIDTextBox_Click(object sender, EventArgs e)
-        {
-            this.TitleErrorLabel.Text = "";
-            this.DescriptionErrorLabel.Text = "";
-        }
-
     }
 }

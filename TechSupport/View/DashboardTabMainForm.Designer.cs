@@ -31,8 +31,8 @@
             LogOutLinkLabel = new LinkLabel();
             DisplayNameLabel = new Label();
             DisplayOpenIncidentsTabPage = new TabPage();
-            AddIncidentTabPage = new TabPage();
             IncidentsTabControl = new TabControl();
+            AddIncidentTabPage = new TabPage();
             IncidentsTabControl.SuspendLayout();
             SuspendLayout();
             // 
@@ -65,17 +65,6 @@
             DisplayOpenIncidentsTabPage.Text = "Display Open Incidents";
             DisplayOpenIncidentsTabPage.UseVisualStyleBackColor = true;
             // 
-            // AddIncidentTabPage
-            // 
-            AddIncidentTabPage.Location = new Point(4, 34);
-            AddIncidentTabPage.Margin = new Padding(3, 4, 3, 4);
-            AddIncidentTabPage.Name = "AddIncidentTabPage";
-            AddIncidentTabPage.Padding = new Padding(3, 4, 3, 4);
-            AddIncidentTabPage.Size = new Size(711, 417);
-            AddIncidentTabPage.TabIndex = 1;
-            AddIncidentTabPage.Text = "Add";
-            AddIncidentTabPage.UseVisualStyleBackColor = true;
-            // 
             // IncidentsTabControl
             // 
             IncidentsTabControl.Controls.Add(DisplayOpenIncidentsTabPage);
@@ -90,6 +79,17 @@
             IncidentsTabControl.TabIndex = 0;
             IncidentsTabControl.TabIndexChanged += TabDashboardMainForm_Load;
             IncidentsTabControl.Click += TabDashboardMainForm_Load;
+            // 
+            // AddIncidentTabPage
+            // 
+            AddIncidentTabPage.Location = new Point(4, 34);
+            AddIncidentTabPage.Margin = new Padding(3, 4, 3, 4);
+            AddIncidentTabPage.Name = "AddIncidentTabPage";
+            AddIncidentTabPage.Padding = new Padding(3, 4, 3, 4);
+            AddIncidentTabPage.Size = new Size(711, 417);
+            AddIncidentTabPage.TabIndex = 1;
+            AddIncidentTabPage.Text = "Add";
+            AddIncidentTabPage.UseVisualStyleBackColor = true;
             // 
             // DashboardTabMainForm
             // 
@@ -114,8 +114,8 @@
         private TechSupport.UserControls.SearchIncidentsUserControl searchIncidentsUserControl1;
         private TabPage DisplayOpenIncidentsTabPage;
         private UserControls.LoadOpenIncidentsUserControl loadOpenIncidentsUserControl1;
-        private TabPage AddIncidentTabPage;
         private UserControls.AddIncidentsUserControl addIncidentsUserControl1;
         private TabControl IncidentsTabControl;
+        private TabPage AddIncidentTabPage;
     }
 }
