@@ -27,11 +27,6 @@ namespace TechSupport.Controller
             return this.CustomerSource.GetCustomers();
         }
 
-        /// <summary>
-        /// Gets the customer identifier.
-        /// </summary>
-        /// <param name="customerName">Name of the customer.</param>
-        /// <returns></returns>
         public Customer GetCustomer(string customerName)
         {
             return this.CustomerSource.GetCustomer(customerName);

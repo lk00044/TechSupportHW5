@@ -16,6 +16,12 @@ namespace Technicians.Model
 
         public string Email { get; set; }
 
+        public string GetTechName(int ID)
+        {
+            return Name;
+        }
 
     }
+
+  
 }

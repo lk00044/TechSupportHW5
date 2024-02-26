@@ -109,14 +109,57 @@ namespace Incidents.DAL
         /// <returns>_matchingIncidents - the list that matches the SearchID </returns>
         public List<Incident> GetOpenIncidents()
         {
-            List<Incident> openIncidentList = new List<Incident>();
-            openIncidentList = this.GetIncidents();
+            List<Incident> incidentList = new List<Incident>();
 
-            return openIncidentList.FindAll(incident => (incident.DateClosed == null || incident.DateClosed == DateTime.MinValue));
+            string selectStatement =
+                "SELECT i.IncidentID, i.CustomerID, i.ProductCode, i.TechID, " +
+                "i.DateOpened, i.DateClosed, i.Title, i.Description " +
+                "FROM Incidents i" +                
+                "WHERE DateClosed is null" 
+                ;
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            Incident incident = new Incident();
+                            incident.IncidentID = (int)reader["IncidentID"];
+                            incident.CustomerID = (int)reader["CustomerID"];
+                            incident.ProductCode = reader["ProductCode"].ToString();
+                            if (reader["TechID"] is not DBNull)
+                            {
+                                incident.TechID = Convert.ToInt32(reader["TechID"]);
+                            }
+
+                            incident.DateOpened = (DateTime)reader["DateOpened"];
+
+                            if (reader["DateClosed"] is DBNull)
+                            {
+                                incident.DateClosed = DateTime.MinValue;
+                            }
+                            else
+                            {
+                                incident.DateClosed = (DateTime)reader["DateClosed"];
+                            }
+
+                            incident.Title = reader["Title"].ToString();
+                            incident.Description = reader["Description"].ToString();
+
+                            incidentList.Add(incident);
+                        }
+                    }
+                }
+            }
+            return incidentList;
         }
 
     }
-
-
 
 }

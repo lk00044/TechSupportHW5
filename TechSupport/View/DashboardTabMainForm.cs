@@ -1,5 +1,6 @@
 ﻿
 using Incidents.Controller;
+using Incidents.UserControls;
 
 /// <summary>
 /// Main Dashboard
@@ -24,12 +25,7 @@ namespace Incidents.View
 
         private void LogOutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            using (Form loginForm = new LoginForm())
-            {
-                this.Hide();
-                loginForm.Show();
-                this.Close();
-            }
+            // Add Code Here
         }
 
         private void TabDashboardMainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -37,9 +33,27 @@ namespace Incidents.View
             Application.Exit();
         }
 
-        private void AddIncidentTabPage_Click(object sender, EventArgs e)
+        private void DisplayOpenIncidentsTabPage_Click(object sender, EventArgs e)
         {
+            TabPage selectedTab = IncidentsTabControl.SelectedTab;
+            LoadOpenIncidentsUserControl control = new LoadOpenIncidentsUserControl();
 
+            if (selectedTab == DisplayOpenIncidentsTabPage)
+            {
+                control.RefreshData();
+            }
         }
+
+        private void loadOpenIncidentsUserControl2_Load(object sender, EventArgs e)
+        {
+            TabPage selectedTab = IncidentsTabControl.SelectedTab;
+            LoadOpenIncidentsUserControl control = new LoadOpenIncidentsUserControl();
+
+            if (selectedTab == DisplayOpenIncidentsTabPage)
+            {
+                control.RefreshData();
+            }
+        }
+
     }
 }

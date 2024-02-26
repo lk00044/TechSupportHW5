@@ -1,5 +1,9 @@
-﻿using DisplayDBIncidents.Controller;
+﻿using Customers.Model;
+using DisplayDBIncidents.Controller;
 using Incidents.Model;
+using System;
+using Technicians.Model;
+using TechSupport.Controller;
 
 /// <summary>
 /// Load Incidents User Control
@@ -26,25 +30,32 @@ namespace Incidents.UserControls
             this.RefreshData();
         }
 
-        private void RefreshData()
+        public void RefreshData()
         {
-            List <Incident> incidentList;
+            List<Incident> incidentList;
+            Customer customer;
+            Technician tech;
 
             try
             {
                 incidentList = this._incidentController.GetOpenIncidents();
+                customer = new Customer();
+                tech = new Technician();
+
 
                 if (incidentList.Count > 0)
                 {
                     Incident incident;
                     for (int i = 0; i < incidentList.Count; i++)  
-                    {
-                        incident = incidentList[i];          
+                    {                        
+                        incident = incidentList[i];
+                        int cusID = incident.CustomerID;
+                        int techID = incident.TechID;
                         OpenIncidentsListView.Items.Add(incident.IncidentID.ToString());
                         OpenIncidentsListView.Items[i].SubItems.Add(incident.ProductCode.ToString());
                         OpenIncidentsListView.Items[i].SubItems.Add(incident.DateOpened.ToShortDateString());
-                        OpenIncidentsListView.Items[i].SubItems.Add(incident.CustomerID.ToString());
-                        OpenIncidentsListView.Items[i].SubItems.Add(incident.TechID.ToString());
+                        OpenIncidentsListView.Items[i].SubItems.Add(customer.GetCustomerName(cusID));
+                        OpenIncidentsListView.Items[i].SubItems.Add(tech.GetTechName(techID));
                         OpenIncidentsListView.Items[i].SubItems.Add(incident.Title.ToString());                        
                     }
                 }

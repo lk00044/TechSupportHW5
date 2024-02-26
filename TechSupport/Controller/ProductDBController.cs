@@ -25,5 +25,13 @@ namespace TechSupport.Controller
         {
             return this.ProductSource.GetProducts();
         }
+
+        public List<string> GetProductNames()
+        {
+            return this.ProductSource.GetProductNames();
+
+        }
+
+
     }
 }

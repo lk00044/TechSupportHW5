@@ -40,6 +40,36 @@ namespace Products.DAL
             }
             return productList;
         }
+
+        public List<string> GetProductNames()
+        {
+
+            List<string> names = new List<string>();
+
+            string selectStatement =
+                "SELECT Name " +
+                "FROM Products "
+                ;
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string ProductName = reader["Name"].ToString();
+
+                            names.Add(ProductName);
+                        }
+                    }
+                }
+            }
+            return names;
+        }
     }
 }
 

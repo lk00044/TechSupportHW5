@@ -73,9 +73,9 @@
             CustomerIDLabel.AutoSize = true;
             CustomerIDLabel.Location = new Point(3, 0);
             CustomerIDLabel.Name = "CustomerIDLabel";
-            CustomerIDLabel.Size = new Size(94, 20);
+            CustomerIDLabel.Size = new Size(119, 20);
             CustomerIDLabel.TabIndex = 2;
-            CustomerIDLabel.Text = "Customer ID:";
+            CustomerIDLabel.Text = "Customer Name:";
             // 
             // DescriptionRichTextBox
             // 

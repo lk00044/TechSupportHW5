@@ -23,6 +23,17 @@ namespace Customers.Model
 
         public string Email { get; set; }
 
+        /// <summary>
+        /// Gets the name of the customer.
+        /// </summary>
+        /// <param name="custID">The customer identifier.</param>
+        /// <returns></returns>
+        public string GetCustomerName(int custID)
+        {
+            return Name;
+        }
 
     }
+
+
 }

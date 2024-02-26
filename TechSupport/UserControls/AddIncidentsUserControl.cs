@@ -20,7 +20,7 @@ namespace Incidents.UserControls
         private ProductDBController _productDBController;
 
         private List<Customer> customerList;
-        private List<Product> productList;
+        private List<string> productList;
         private List<Incident> incidentList;
 
         /// <summary>o the Incident Controller
@@ -36,12 +36,15 @@ namespace Incidents.UserControls
 
             this.customerList = new List<Customer>();
             this.incidentList = new List<Incident>();
-            this.productList = new List<Product>();
+            this.productList = new List<string>();
 
             this.loadCustomerNames();
-            this.loadProducts();
+            this.loadProductNames();
         }
 
+        /// <summary>
+        /// Loads the customer names.
+        /// </summary>
         public void loadCustomerNames()
         {
             this.customerList = this._customerController.GetCustomers();
@@ -51,18 +54,20 @@ namespace Incidents.UserControls
             }
         }
 
-        public void loadProducts()
+        /// <summary>
+        /// Loads the product names.
+        /// </summary>
+        public void loadProductNames()
         {
-            this.productList = this._productDBController.GetProducts();
-            foreach (Product product in this.productList)
+            this.productList = this._productDBController.GetProductNames();
+            foreach (string productName in this.productList)
             {
-                ProductComboBox.Items.Add(product.ProductName);
+               ProductComboBox.Items.Add(productName);
             }
         }
 
         private void AddButton_Click(object sender, EventArgs e)
-        {
-            
+        {            
            try
             {
                 var title = this.TitleTextBox.Text;
@@ -103,8 +108,6 @@ namespace Incidents.UserControls
         {
             this.TitleTextBox.Clear();
             this.DescriptionRichTextBox.Clear();
-            this.CustomerIDComboBox.Items.Clear();
-            this.ProductComboBox.Items.Clear();
         }
 
         private void TitleTextBox_Click(object sender, EventArgs e)
