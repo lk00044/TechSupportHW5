@@ -31,16 +31,11 @@
             LogOutLinkLabel = new LinkLabel();
             DisplayNameLabel = new Label();
             DisplayOpenIncidentsTabPage = new TabPage();
-            OpenIncidentsListView = new ListView();
-            ProductCodeColumnHeader = new ColumnHeader();
-            DateOpenedColumnHeader = new ColumnHeader();
-            CustomerColumnHeader = new ColumnHeader();
-            TechnicianColumnHeader = new ColumnHeader();
-            TitleColumnHeader = new ColumnHeader();
             IncidentsTabControl = new TabControl();
             AddIncidentTabPage = new TabPage();
             addIncidentsUserControl1 = new UserControls.AddIncidentsUserControl();
             addIncidentsUserControl2 = new UserControls.AddIncidentsUserControl();
+            loadOpenIncidentsUserControl1 = new UserControls.LoadOpenIncidentsUserControl();
             DisplayOpenIncidentsTabPage.SuspendLayout();
             IncidentsTabControl.SuspendLayout();
             AddIncidentTabPage.SuspendLayout();
@@ -67,7 +62,7 @@
             // 
             // DisplayOpenIncidentsTabPage
             // 
-            DisplayOpenIncidentsTabPage.Controls.Add(OpenIncidentsListView);
+            DisplayOpenIncidentsTabPage.Controls.Add(loadOpenIncidentsUserControl1);
             DisplayOpenIncidentsTabPage.Location = new Point(4, 34);
             DisplayOpenIncidentsTabPage.Name = "DisplayOpenIncidentsTabPage";
             DisplayOpenIncidentsTabPage.Padding = new Padding(3);
@@ -75,39 +70,6 @@
             DisplayOpenIncidentsTabPage.TabIndex = 4;
             DisplayOpenIncidentsTabPage.Text = "Display Open Incidents";
             DisplayOpenIncidentsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // OpenIncidentsListView
-            // 
-            OpenIncidentsListView.Columns.AddRange(new ColumnHeader[] { ProductCodeColumnHeader, DateOpenedColumnHeader, CustomerColumnHeader, TechnicianColumnHeader, TitleColumnHeader });
-            OpenIncidentsListView.Dock = DockStyle.Fill;
-            OpenIncidentsListView.Location = new Point(3, 3);
-            OpenIncidentsListView.Name = "OpenIncidentsListView";
-            OpenIncidentsListView.Size = new Size(705, 618);
-            OpenIncidentsListView.TabIndex = 0;
-            OpenIncidentsListView.UseCompatibleStateImageBehavior = false;
-            OpenIncidentsListView.SelectedIndexChanged += OpenIncidentsListView_SelectedIndexChanged;
-            OpenIncidentsListView.TabIndexChanged += loadOpenIncidentsUserControl2_Load;
-            OpenIncidentsListView.Click += DisplayOpenIncidentsTabPage_Click;
-            // 
-            // ProductCodeColumnHeader
-            // 
-            ProductCodeColumnHeader.Text = "Product Code";
-            // 
-            // DateOpenedColumnHeader
-            // 
-            DateOpenedColumnHeader.Text = "Date Opened";
-            // 
-            // CustomerColumnHeader
-            // 
-            CustomerColumnHeader.Text = "Customer";
-            // 
-            // TechnicianColumnHeader
-            // 
-            TechnicianColumnHeader.Text = "Technician";
-            // 
-            // TitleColumnHeader
-            // 
-            TitleColumnHeader.Text = "Title";
             // 
             // IncidentsTabControl
             // 
@@ -121,6 +83,7 @@
             IncidentsTabControl.SelectedIndex = 0;
             IncidentsTabControl.Size = new Size(719, 662);
             IncidentsTabControl.TabIndex = 0;
+            IncidentsTabControl.SelectedIndexChanged += IncidentsTabControl_SelectedIndexChanged;
             IncidentsTabControl.TabIndexChanged += TabDashboardMainForm_Load;
             IncidentsTabControl.Click += TabDashboardMainForm_Load;
             // 
@@ -128,11 +91,11 @@
             // 
             AddIncidentTabPage.Controls.Add(addIncidentsUserControl1);
             AddIncidentTabPage.Controls.Add(addIncidentsUserControl2);
-            AddIncidentTabPage.Location = new Point(4, 29);
+            AddIncidentTabPage.Location = new Point(4, 34);
             AddIncidentTabPage.Margin = new Padding(3, 4, 3, 4);
             AddIncidentTabPage.Name = "AddIncidentTabPage";
             AddIncidentTabPage.Padding = new Padding(3, 4, 3, 4);
-            AddIncidentTabPage.Size = new Size(192, 67);
+            AddIncidentTabPage.Size = new Size(711, 624);
             AddIncidentTabPage.TabIndex = 1;
             AddIncidentTabPage.Text = "Add";
             AddIncidentTabPage.UseVisualStyleBackColor = true;
@@ -141,7 +104,7 @@
             // 
             addIncidentsUserControl1.AutoSize = true;
             addIncidentsUserControl1.Location = new Point(6, 0);
-            addIncidentsUserControl1.Margin = new Padding(3, 4, 3, 4);
+            addIncidentsUserControl1.Margin = new Padding(2, 4, 2, 4);
             addIncidentsUserControl1.Name = "addIncidentsUserControl1";
             addIncidentsUserControl1.Size = new Size(739, 661);
             addIncidentsUserControl1.TabIndex = 1;
@@ -149,11 +112,18 @@
             // addIncidentsUserControl2
             // 
             addIncidentsUserControl2.AutoSize = true;
-            addIncidentsUserControl2.Location = new Point(3, 4);
-            addIncidentsUserControl2.Margin = new Padding(3, 4, 3, 4);
+            addIncidentsUserControl2.Location = new Point(4, 5);
+            addIncidentsUserControl2.Margin = new Padding(4, 5, 4, 5);
             addIncidentsUserControl2.Name = "addIncidentsUserControl2";
-            addIncidentsUserControl2.Size = new Size(738, 661);
+            addIncidentsUserControl2.Size = new Size(922, 826);
             addIncidentsUserControl2.TabIndex = 0;
+            // 
+            // loadOpenIncidentsUserControl1
+            // 
+            loadOpenIncidentsUserControl1.Location = new Point(0, 3);
+            loadOpenIncidentsUserControl1.Name = "loadOpenIncidentsUserControl1";
+            loadOpenIncidentsUserControl1.Size = new Size(708, 615);
+            loadOpenIncidentsUserControl1.TabIndex = 0;
             // 
             // DashboardTabMainForm
             // 
@@ -167,7 +137,7 @@
             Name = "DashboardTabMainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Incidents Dashboard";
-            Load += TabDashboardMainForm_Load;
+            Load += DashboardTabMainForm_Load;
             DisplayOpenIncidentsTabPage.ResumeLayout(false);
             IncidentsTabControl.ResumeLayout(false);
             AddIncidentTabPage.ResumeLayout(false);
@@ -185,11 +155,5 @@
         private TabControl IncidentsTabControl;
         private TabPage AddIncidentTabPage;
         private UserControls.AddIncidentsUserControl addIncidentsUserControl2;
-        private ListView OpenIncidentsListView;
-        private ColumnHeader ProductCodeColumnHeader;
-        private ColumnHeader DateOpenedColumnHeader;
-        private ColumnHeader CustomerColumnHeader;
-        private ColumnHeader TechnicianColumnHeader;
-        private ColumnHeader TitleColumnHeader;
     }
 }

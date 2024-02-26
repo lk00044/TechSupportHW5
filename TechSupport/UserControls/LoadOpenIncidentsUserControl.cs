@@ -25,7 +25,7 @@ namespace Incidents.UserControls
             InitializeComponent();
             this._incidentController = new IncidentDBController();
             this._customerController = new CustomerDBController();
-            this._technicianController = new TechnicianDBController();  
+            this._technicianController = new TechnicianDBController();
             this.RefreshData();
         }
 
@@ -37,17 +37,12 @@ namespace Incidents.UserControls
         public void RefreshData()
         {
             List<Incident> incidentList;
-            List<Technician> technicianList;
-            List<Customer> customerList;
             Customer customer;
             Technician tech;
 
             try
             {
                 incidentList = this._incidentController.GetOpenIncidents();
-                technicianList = this._technicianController.GetTechnicians();
-                customerList = this._customerController.GetCustomers();
-
                 customer = new Customer();
                 tech = new Technician();
 
@@ -59,12 +54,12 @@ namespace Incidents.UserControls
                         incident = incidentList[i];
                         customer = this._customerController.GetCustomer(incident.CustomerID);
                         tech = this._technicianController.GetTechnician((int)incident.TechID);
-                       
+
                         OpenIncidentsListView.Items.Add(incident.IncidentID.ToString());
                         OpenIncidentsListView.Items[i].SubItems.Add(incident.ProductCode.ToString());
                         OpenIncidentsListView.Items[i].SubItems.Add(incident.DateOpened.ToShortDateString());
                         OpenIncidentsListView.Items[i].SubItems.Add(customer.Name.ToString());
-                        if (tech.Name is not null )
+                        if (tech.Name is not null)
                         {
                             OpenIncidentsListView.Items[i].SubItems.Add(tech.Name.ToString());
                         }
@@ -72,7 +67,7 @@ namespace Incidents.UserControls
                         {
                             OpenIncidentsListView.Items[i].SubItems.Add("Technician Name Unavailable");
                         }
-                        
+
                         OpenIncidentsListView.Items[i].SubItems.Add(incident.Title.ToString());
                     }
                 }
@@ -84,13 +79,7 @@ namespace Incidents.UserControls
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
-
             }
-        }
-
-        private void OpenIncidentsListView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.RefreshData();
         }
     }
 

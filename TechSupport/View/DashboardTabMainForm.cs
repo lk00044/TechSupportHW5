@@ -52,7 +52,7 @@ namespace Incidents.View
             }
         }
 
-        private void loadOpenIncidentsUserControl2_Load(object sender, EventArgs e)
+        private void IncidentsTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             TabPage selectedTab = IncidentsTabControl.SelectedTab;
             LoadOpenIncidentsUserControl control = new LoadOpenIncidentsUserControl();
@@ -63,7 +63,7 @@ namespace Incidents.View
             }
         }
 
-        private void OpenIncidentsListView_SelectedIndexChanged(object sender, EventArgs e)
+        private void DashboardTabMainForm_Load(object sender, EventArgs e)
         {
             TabPage selectedTab = IncidentsTabControl.SelectedTab;
             LoadOpenIncidentsUserControl control = new LoadOpenIncidentsUserControl();
@@ -73,6 +73,7 @@ namespace Incidents.View
                 control.RefreshData();
             }
         }
+
 
     }
 }
