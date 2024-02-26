@@ -142,7 +142,7 @@ namespace Incidents.DAL
 
                             if (reader["DateClosed"] is DBNull)
                             {
-                                incident.DateClosed = DateTime.MinValue;
+                                incident.DateClosed = null;
                             }
                             else
                             {

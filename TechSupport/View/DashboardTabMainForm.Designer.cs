@@ -85,6 +85,9 @@
             OpenIncidentsListView.Size = new Size(705, 618);
             OpenIncidentsListView.TabIndex = 0;
             OpenIncidentsListView.UseCompatibleStateImageBehavior = false;
+            OpenIncidentsListView.SelectedIndexChanged += OpenIncidentsListView_SelectedIndexChanged;
+            OpenIncidentsListView.TabIndexChanged += loadOpenIncidentsUserControl2_Load;
+            OpenIncidentsListView.Click += DisplayOpenIncidentsTabPage_Click;
             // 
             // ProductCodeColumnHeader
             // 

@@ -29,8 +29,16 @@ namespace Incidents
                     using (Form dashboardTabForm = new DashboardTabMainForm(userName))
                     {
                         this.Hide();
-                        dashboardTabForm.ShowDialog();
-                      //  this.Close();
+                        DialogResult result = dashboardTabForm.ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
+                            this.Show();
+                        }
+                        else if (result == DialogResult.Cancel)
+                        {
+                            this.Close();
+                        }
+
                     }
                 }
                 else

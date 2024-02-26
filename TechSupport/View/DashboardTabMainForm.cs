@@ -21,11 +21,19 @@ namespace Incidents.View
         private void TabDashboardMainForm_Load(object sender, EventArgs e)
         {
             DisplayNameLabel.Text = UserName;
+            TabPage selectedTab = IncidentsTabControl.SelectedTab;
+            LoadOpenIncidentsUserControl control = new LoadOpenIncidentsUserControl();
+
+            if (selectedTab == DisplayOpenIncidentsTabPage)
+            {
+                control.RefreshData();
+            }
+
         }
 
         private void LogOutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Add Code Here
+            this.DialogResult = DialogResult.OK;
         }
 
         private void TabDashboardMainForm_FormClosing(object sender, FormClosingEventArgs e)

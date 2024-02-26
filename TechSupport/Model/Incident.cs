@@ -25,7 +25,7 @@ namespace Incidents.Model
         
         public DateTime DateOpened { get; set; }
         
-        public DateTime DateClosed { get; set; }
+        public DateTime? DateClosed { get; set; }
 
 
         /// <summary>
