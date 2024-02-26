@@ -57,16 +57,54 @@ namespace Customers.DAL
         /// </summary>
         /// <param name="customerName">Name of the customer.</param>
         /// <returns></returns>
-        public Customer GetCustomer(string customerName)
+        public Customer GetCustomer(int customerID)
         {
             Customer customer = new Customer(); 
 
             string selectStatement =
                 "SELECT CustomerID, Name, Address, City, State, ZipCode, Phone, Email " +
                 "FROM Customers " +
-                "WHERE Name = @customerName"
+                "WHERE CustomerID = @customerID"
                 ;
            
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@customerID", customerID);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            customer.CustomerID = (int)reader["CustomerID"];
+                            customer.Name = reader["Name"].ToString();
+                            customer.Address = reader["Address"].ToString();
+                            customer.City = reader["City"].ToString();
+                            customer.State = reader["State"].ToString();
+                            customer.ZipCode = reader["ZipCode"].ToString();
+                            customer.Phone = reader["Phone"].ToString();
+                            customer.Email = reader["Email"].ToString();
+
+                        }
+                    }
+                }
+            }
+            return customer;
+        }
+
+        public Customer GetCustomer(string customerName)
+        {
+            Customer customer = new Customer();
+
+            string selectStatement =
+                "SELECT CustomerID, Name, Address, City, State, ZipCode, Phone, Email " +
+                "FROM Customers " +
+                "WHERE Name = @customerName"
+                ;
+
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {

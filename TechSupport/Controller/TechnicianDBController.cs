@@ -20,5 +20,14 @@ namespace TechSupport.Controller
         {
             return this.TechnicianSource.GetTechnicians();
         }
+
+        /// <summary>
+        /// Gets the technician.
+        /// </summary>
+        /// <returns></returns>
+        public Technician GetTechnician(int techID)
+        {
+            return this.TechnicianSource.GetTechnician(techID);
+        }
     }
 }

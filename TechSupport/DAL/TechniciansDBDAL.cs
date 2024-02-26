@@ -43,5 +43,43 @@ namespace Technicians.DAL
             }
             return technicianList;
         }
+
+        /// <summary>
+        /// Gets the technician.
+        /// </summary>
+        /// <param name="techID">The tech identifier.</param>
+        /// <returns>Technician with that tech ID </returns>
+        public Technician GetTechnician(int techID)
+        {
+            Technician tech = new Technician();
+
+            string selectStatement =
+               "SELECT TechID, Name, Email, Phone " +
+               "FROM Technicians " +
+               "WHERE TechID = @TechID "
+               ;
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@TechID", techID);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {                        
+                        while (reader.Read())
+                        {
+                            tech.TechID = (int)reader["TechID"];
+                            tech.Name = reader["Name"].ToString();
+                            tech.Email = reader["Email"].ToString();
+                            tech.Phone = reader["Phone"].ToString();
+
+                        }
+                    }
+                }
+            }
+            return tech;
+        }
     }
 }
