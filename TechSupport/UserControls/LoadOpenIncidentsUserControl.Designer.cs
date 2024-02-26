@@ -34,18 +34,18 @@
             CustomerColumnHeader = new ColumnHeader();
             TechnicialNameColumnHeader = new ColumnHeader();
             TitleColumnHeader = new ColumnHeader();
-            DescriptionColumnHeader = new ColumnHeader();
             SuspendLayout();
             // 
             // OpenIncidentsListView
             // 
-            OpenIncidentsListView.Columns.AddRange(new ColumnHeader[] { ProductCodeColumnHeader, DateOpenedColumnHeader, CustomerColumnHeader, TechnicialNameColumnHeader, TitleColumnHeader, DescriptionColumnHeader });
+            OpenIncidentsListView.Columns.AddRange(new ColumnHeader[] { ProductCodeColumnHeader, DateOpenedColumnHeader, CustomerColumnHeader, TechnicialNameColumnHeader, TitleColumnHeader });
             OpenIncidentsListView.Dock = DockStyle.Fill;
             OpenIncidentsListView.Location = new Point(0, 0);
             OpenIncidentsListView.Name = "OpenIncidentsListView";
             OpenIncidentsListView.Size = new Size(575, 227);
             OpenIncidentsListView.TabIndex = 0;
             OpenIncidentsListView.UseCompatibleStateImageBehavior = false;
+            OpenIncidentsListView.SelectedIndexChanged += OpenIncidentsListView_SelectedIndexChanged;
             // 
             // ProductCodeColumnHeader
             // 
@@ -74,11 +74,6 @@
             TitleColumnHeader.Text = "Title";
             TitleColumnHeader.TextAlign = HorizontalAlignment.Center;
             // 
-            // DescriptionColumnHeader
-            // 
-            DescriptionColumnHeader.Text = "Description";
-            DescriptionColumnHeader.TextAlign = HorizontalAlignment.Center;
-            // 
             // LoadOpenIncidentsUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -97,6 +92,5 @@
         private ColumnHeader CustomerColumnHeader;
         private ColumnHeader TechnicialNameColumnHeader;
         private ColumnHeader TitleColumnHeader;
-        private ColumnHeader DescriptionColumnHeader;
     }
 }

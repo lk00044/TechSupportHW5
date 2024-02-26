@@ -50,7 +50,7 @@ namespace Incidents.UserControls
             this.customerList = this._customerController.GetCustomers();
             foreach (Customer customer in this.customerList)
             {
-                CustomerIDComboBox.Items.Add(customer.Name);
+                CustomerNameComboBox.Items.Add(customer.Name);
             }
         }
 
@@ -73,7 +73,7 @@ namespace Incidents.UserControls
                 var title = this.TitleTextBox.Text;
                 var description = this.DescriptionRichTextBox.Text;
                 var prodName = this.ProductComboBox.SelectedText;
-                var cusName = this.CustomerIDComboBox.SelectedText;
+                var cusName = this.CustomerNameComboBox.SelectedText;
 
                 if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(description))
                 {

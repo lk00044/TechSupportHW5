@@ -16,7 +16,7 @@ namespace Incidents.UserControls
 {
     public partial class LoadOpenIncidentsUserControl : UserControl
     {
-        private readonly IncidentDBController _incidentController;
+        private IncidentDBController _incidentController;
 
         public LoadOpenIncidentsUserControl()
         {
@@ -25,7 +25,7 @@ namespace Incidents.UserControls
             this.RefreshData();
         }
 
-        private void DisplayOpenIncidentsTabPage_Click(object sender, EventArgs e)
+        private void DisplayOpenIncidentsTabPage_Load(object sender, EventArgs e)
         {
             this.RefreshData();
         }
@@ -42,21 +42,18 @@ namespace Incidents.UserControls
                 customer = new Customer();
                 tech = new Technician();
 
-
                 if (incidentList.Count > 0)
                 {
                     Incident incident;
-                    for (int i = 0; i < incidentList.Count; i++)  
-                    {                        
+                    for (int i = 0; i < incidentList.Count; i++)
+                    {
                         incident = incidentList[i];
-                        int cusID = incident.CustomerID;
-                        int techID = incident.TechID;
                         OpenIncidentsListView.Items.Add(incident.IncidentID.ToString());
                         OpenIncidentsListView.Items[i].SubItems.Add(incident.ProductCode.ToString());
                         OpenIncidentsListView.Items[i].SubItems.Add(incident.DateOpened.ToShortDateString());
-                        OpenIncidentsListView.Items[i].SubItems.Add(customer.GetCustomerName(cusID));
-                        OpenIncidentsListView.Items[i].SubItems.Add(tech.GetTechName(techID));
-                        OpenIncidentsListView.Items[i].SubItems.Add(incident.Title.ToString());                        
+                        OpenIncidentsListView.Items[i].SubItems.Add(customer.GetCustomerName(incident.CustomerID));
+                        OpenIncidentsListView.Items[i].SubItems.Add(tech.GetTechName(incident.TechID));
+                        OpenIncidentsListView.Items[i].SubItems.Add(incident.Title.ToString());
                     }
                 }
                 else
@@ -69,6 +66,11 @@ namespace Incidents.UserControls
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
 
             }
+        }
+
+        private void OpenIncidentsListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.RefreshData();
         }
     }
 

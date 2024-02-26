@@ -37,7 +37,7 @@
             AddIncidentTableLayoutPanel = new TableLayoutPanel();
             DescriptionErrorLabel = new Label();
             ProductLabel = new Label();
-            CustomerIDComboBox = new ComboBox();
+            CustomerNameComboBox = new ComboBox();
             ProductComboBox = new ComboBox();
             CancelButton = new Button();
             AddButton = new Button();
@@ -46,7 +46,7 @@
             // 
             // TitleErrorLabel
             // 
-            TitleErrorLabel.Location = new Point(144, 169);
+            TitleErrorLabel.Location = new Point(182, 169);
             TitleErrorLabel.Name = "TitleErrorLabel";
             TitleErrorLabel.Size = new Size(329, 29);
             TitleErrorLabel.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             // TitleTextBox
             // 
-            TitleTextBox.Location = new Point(144, 135);
+            TitleTextBox.Location = new Point(182, 135);
             TitleTextBox.Name = "TitleTextBox";
             TitleTextBox.Size = new Size(329, 27);
             TitleTextBox.TabIndex = 1;
@@ -79,7 +79,7 @@
             // 
             // DescriptionRichTextBox
             // 
-            DescriptionRichTextBox.Location = new Point(144, 221);
+            DescriptionRichTextBox.Location = new Point(182, 221);
             DescriptionRichTextBox.Name = "DescriptionRichTextBox";
             DescriptionRichTextBox.Size = new Size(329, 154);
             DescriptionRichTextBox.TabIndex = 2;
@@ -98,8 +98,8 @@
             // AddIncidentTableLayoutPanel
             // 
             AddIncidentTableLayoutPanel.ColumnCount = 2;
-            AddIncidentTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.8849564F));
-            AddIncidentTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 74.11504F));
+            AddIncidentTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 32.7838821F));
+            AddIncidentTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 67.21612F));
             AddIncidentTableLayoutPanel.Controls.Add(CustomerIDLabel, 0, 0);
             AddIncidentTableLayoutPanel.Controls.Add(TitleLabel, 0, 2);
             AddIncidentTableLayoutPanel.Controls.Add(TitleErrorLabel, 1, 3);
@@ -108,7 +108,7 @@
             AddIncidentTableLayoutPanel.Controls.Add(DescriptionRichTextBox, 1, 4);
             AddIncidentTableLayoutPanel.Controls.Add(DescriptionErrorLabel, 1, 5);
             AddIncidentTableLayoutPanel.Controls.Add(ProductLabel, 0, 1);
-            AddIncidentTableLayoutPanel.Controls.Add(CustomerIDComboBox, 1, 0);
+            AddIncidentTableLayoutPanel.Controls.Add(CustomerNameComboBox, 1, 0);
             AddIncidentTableLayoutPanel.Controls.Add(ProductComboBox, 1, 1);
             AddIncidentTableLayoutPanel.Location = new Point(42, 24);
             AddIncidentTableLayoutPanel.Name = "AddIncidentTableLayoutPanel";
@@ -124,7 +124,7 @@
             // 
             // DescriptionErrorLabel
             // 
-            DescriptionErrorLabel.Location = new Point(144, 387);
+            DescriptionErrorLabel.Location = new Point(182, 387);
             DescriptionErrorLabel.Name = "DescriptionErrorLabel";
             DescriptionErrorLabel.Size = new Size(329, 25);
             DescriptionErrorLabel.TabIndex = 6;
@@ -138,18 +138,20 @@
             ProductLabel.TabIndex = 7;
             ProductLabel.Text = "Product:";
             // 
-            // CustomerIDComboBox
+            // CustomerNameComboBox
             // 
-            CustomerIDComboBox.FormattingEnabled = true;
-            CustomerIDComboBox.Location = new Point(144, 3);
-            CustomerIDComboBox.Name = "CustomerIDComboBox";
-            CustomerIDComboBox.Size = new Size(329, 28);
-            CustomerIDComboBox.TabIndex = 8;
+            CustomerNameComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            CustomerNameComboBox.FormattingEnabled = true;
+            CustomerNameComboBox.Location = new Point(182, 3);
+            CustomerNameComboBox.Name = "CustomerNameComboBox";
+            CustomerNameComboBox.Size = new Size(329, 28);
+            CustomerNameComboBox.TabIndex = 8;
             // 
             // ProductComboBox
             // 
+            ProductComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             ProductComboBox.FormattingEnabled = true;
-            ProductComboBox.Location = new Point(144, 71);
+            ProductComboBox.Location = new Point(182, 71);
             ProductComboBox.Name = "ProductComboBox";
             ProductComboBox.Size = new Size(329, 28);
             ProductComboBox.TabIndex = 9;
@@ -203,7 +205,7 @@
         private Button CancelButton;
         private Button AddButton;
         private Label ProductLabel;
-        private ComboBox CustomerIDComboBox;
+        private ComboBox CustomerNameComboBox;
         private ComboBox ProductComboBox;
     }
 }

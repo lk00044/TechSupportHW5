@@ -1,5 +1,6 @@
 ﻿using Customers.Model;
 using System.Data.SqlClient;
+using System.Xml.Linq;
 using TechSupport.DAL;
 
 /// <summary>
@@ -63,8 +64,9 @@ namespace Customers.DAL
             string selectStatement =
                 "SELECT CustomerID, Name, Address, City, State, ZipCode, Phone, Email " +
                 "FROM Customers " +
-                "WHERE Name = customerName"
+                "WHERE Name = @customerName"
                 ;
+           
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -72,6 +74,7 @@ namespace Customers.DAL
 
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
+                    selectCommand.Parameters.AddWithValue("@customerName", customerName);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
                         while (reader.Read())

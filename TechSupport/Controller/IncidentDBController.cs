@@ -20,8 +20,6 @@ namespace DisplayDBIncidents.Controller
             this.IncidentSource = new IncidentDBDAL();
         }
 
-
-
         /// <summary>
         /// Returns the incidents from the source 
         /// </summary>
@@ -31,6 +29,10 @@ namespace DisplayDBIncidents.Controller
             return this.IncidentSource.GetIncidents();
         }
 
+        /// <summary>
+        /// Gets the open incidents.
+        /// </summary>
+        /// <returns></returns>
         public List<Incident> GetOpenIncidents()
         {
             return this.IncidentSource.GetOpenIncidents();

@@ -55,5 +55,16 @@ namespace Incidents.View
             }
         }
 
+        private void OpenIncidentsListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TabPage selectedTab = IncidentsTabControl.SelectedTab;
+            LoadOpenIncidentsUserControl control = new LoadOpenIncidentsUserControl();
+
+            if (selectedTab == DisplayOpenIncidentsTabPage)
+            {
+                control.RefreshData();
+            }
+        }
+
     }
 }
