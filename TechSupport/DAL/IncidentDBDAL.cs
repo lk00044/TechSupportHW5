@@ -83,11 +83,11 @@ namespace Incidents.DAL
                             
                             if (reader["DateClosed"] is DBNull)
                             {
-                                incident.DateClosed = DateTime.MinValue;
+                                incident.DateClosed = null;
                             } 
                             else
                             {
-                                incident.DateClosed = (DateTime)reader["DateClosed"];                                
+                                incident.DateClosed = (DateTime?)reader["DateClosed"];                                
                             }
                              
                             incident.Title = reader["Title"].ToString();
@@ -112,10 +112,10 @@ namespace Incidents.DAL
             List<Incident> incidentList = new List<Incident>();
 
             string selectStatement =
-                "SELECT i.IncidentID, i.CustomerID, i.ProductCode, i.TechID, " +
-                "i.DateOpened, i.DateClosed, i.Title, i.Description " +
-                "FROM Incidents i" +                
-                "WHERE DateClosed is null" 
+                "SELECT IncidentID, CustomerID, ProductCode, TechID, " +
+                "DateOpened, DateClosed, Title, Description " +
+                "FROM Incidents " +                
+                "WHERE DateClosed IS NULL " 
                 ;
 
             using (SqlConnection connection = DBConnection.GetConnection())
@@ -146,7 +146,7 @@ namespace Incidents.DAL
                             }
                             else
                             {
-                                incident.DateClosed = (DateTime)reader["DateClosed"];
+                                incident.DateClosed = (DateTime?)reader["DateClosed"];
                             }
 
                             incident.Title = reader["Title"].ToString();
