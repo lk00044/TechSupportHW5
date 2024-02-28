@@ -17,12 +17,16 @@ namespace Incidents.Model
 
         public int CustomerID { get; set; }
 
+        public string CustomerName { get; set; }
+
         public string ProductCode { get; set; }
 
         public int IncidentID { get; set; }
 
         public int TechID { get; set; }
-        
+
+        public string TechName { get; set; }
+
         public DateTime DateOpened { get; set; }
         
         public DateTime? DateClosed { get; set; }
@@ -35,7 +39,7 @@ namespace Incidents.Model
         /// <param UserName="Description"></param>      The Description of the incident
         /// <param CustomerID="CustomerID"></param> The customer id of the incident
         /// <exception cref="ArgumentNullException"></exception>
-        public Incident(string Title, string Description, int CustomerID)
+        public Incident(string Title, string Description, string prodName, int CustomerID)
         {
             if (string.IsNullOrEmpty(Title))
                 throw new ArgumentNullException("UserName cannot be empty", "Title");
@@ -49,6 +53,7 @@ namespace Incidents.Model
             this.Title = Title;
             this.Description = Description;
             this.CustomerID = CustomerID;
+            this.Pr
 
         }
 

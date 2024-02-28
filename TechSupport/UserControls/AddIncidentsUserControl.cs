@@ -92,7 +92,8 @@ namespace Incidents.UserControls
                 else
                 {  
                     Customer customer = this._customerController.GetCustomer(cusName);
-                    this._incidentController.AddIncident(new Incident(title, description, customer.CustomerID));
+                    Product product = this._productDBController.GetProductID(prodName);
+                    this._incidentController.AddIncident(new Incident(title, description, prodName, customer.CustomerID));
                 }
                 this.TitleTextBox.Clear();
                 this.DescriptionRichTextBox.Clear();

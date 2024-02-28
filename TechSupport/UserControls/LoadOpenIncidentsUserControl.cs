@@ -1,9 +1,6 @@
 ﻿using Customers.Model;
 using DisplayDBIncidents.Controller;
 using Incidents.Model;
-using System.Diagnostics.CodeAnalysis;
-using Technicians.Model;
-using TechSupport.Controller;
 
 /// <summary>
 /// Load Incidents User Control
@@ -17,15 +14,11 @@ namespace Incidents.UserControls
     public partial class LoadOpenIncidentsUserControl : UserControl
     {
         private IncidentDBController _incidentController;
-        private TechnicianDBController _technicianController;
-        private CustomerDBController _customerController;
 
         public LoadOpenIncidentsUserControl()
         {
             InitializeComponent();
             this._incidentController = new IncidentDBController();
-            this._customerController = new CustomerDBController();
-            this._technicianController = new TechnicianDBController();
             this.RefreshData();
         }
 
@@ -37,14 +30,18 @@ namespace Incidents.UserControls
         public void RefreshData()
         {
             List<Incident> incidentList;
-            Customer customer;
-            Technician tech;
+
+            this.OpenIncidentsListView.Columns[0].Width = 10;
+            this.OpenIncidentsListView.Columns[1].Width = 15;
+            this.OpenIncidentsListView.Columns[2].Width = 30;
+            this.OpenIncidentsListView.Columns[3].Width = 30;
+            this.OpenIncidentsListView.Columns[4].Width = 50;
+
+            this.OpenIncidentsListView.Items.Clear();
 
             try
             {
                 incidentList = this._incidentController.GetOpenIncidents();
-                customer = new Customer();
-                tech = new Technician();
 
                 if (incidentList.Count > 0)
                 {
@@ -52,22 +49,10 @@ namespace Incidents.UserControls
                     for (int i = 0; i < incidentList.Count; i++)
                     {
                         incident = incidentList[i];
-                        customer = this._customerController.GetCustomer(incident.CustomerID);
-                        tech = this._technicianController.GetTechnician((int)incident.TechID);
-
-                        OpenIncidentsListView.Items.Add(incident.IncidentID.ToString());
-                        OpenIncidentsListView.Items[i].SubItems.Add(incident.ProductCode.ToString());
+                        OpenIncidentsListView.Items.Add(incident.ProductCode.ToString());
                         OpenIncidentsListView.Items[i].SubItems.Add(incident.DateOpened.ToShortDateString());
-                        OpenIncidentsListView.Items[i].SubItems.Add(customer.Name.ToString());
-                        if (tech.Name is not null)
-                        {
-                            OpenIncidentsListView.Items[i].SubItems.Add(tech.Name.ToString());
-                        }
-                        else
-                        {
-                            OpenIncidentsListView.Items[i].SubItems.Add("Technician Name Unavailable");
-                        }
-
+                        OpenIncidentsListView.Items[i].SubItems.Add(incident.CustomerName.ToString());
+                        OpenIncidentsListView.Items[i].SubItems.Add(incident.TechName.ToString());                    
                         OpenIncidentsListView.Items[i].SubItems.Add(incident.Title.ToString());
                     }
                 }

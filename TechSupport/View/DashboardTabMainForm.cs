@@ -16,19 +16,13 @@ namespace Incidents.View
         {
             InitializeComponent();
             UserName = Name;
+            DisplayNameLabel.Text = UserName;
+            this.loadOpenIncidentsUserControl1.RefreshData();
         }
 
         private void TabDashboardMainForm_Load(object sender, EventArgs e)
-        {
-            DisplayNameLabel.Text = UserName;
-            TabPage selectedTab = IncidentsTabControl.SelectedTab;
-            LoadOpenIncidentsUserControl control = new LoadOpenIncidentsUserControl();
-
-            if (selectedTab == DisplayOpenIncidentsTabPage)
-            {
-                control.RefreshData();
-            }
-
+        {            
+             
         }
 
         private void LogOutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -41,38 +35,14 @@ namespace Incidents.View
             Application.Exit();
         }
 
-        //private void DisplayOpenIncidentsTabPage_Click(object sender, EventArgs e)
-        //{
-        //    TabPage selectedTab = IncidentsTabControl.SelectedTab;
-        //    LoadOpenIncidentsUserControl control = new LoadOpenIncidentsUserControl();
-
-        //    if (selectedTab == DisplayOpenIncidentsTabPage)
-        //    {
-        //        control.RefreshData();
-        //    }
-        //}
-
         private void IncidentsTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TabPage selectedTab = IncidentsTabControl.SelectedTab;
-          //  LoadOpenIncidentsUserControl control = new LoadOpenIncidentsUserControl();
-
-            if (selectedTab == DisplayOpenIncidentsTabPage)
-            {
-                this.loadOpenIncidentsUserControl1.RefreshData();
-               
-            }
+             this.loadOpenIncidentsUserControl1.RefreshData();
         }
 
         private void DashboardTabMainForm_Load(object sender, EventArgs e)
         {
-            TabPage selectedTab = IncidentsTabControl.SelectedTab;
-            LoadOpenIncidentsUserControl control = new LoadOpenIncidentsUserControl();
-
-            if (selectedTab == DisplayOpenIncidentsTabPage)
-            {
-                control.RefreshData();
-            }
+            this.loadOpenIncidentsUserControl1.RefreshData();
         }
 
 

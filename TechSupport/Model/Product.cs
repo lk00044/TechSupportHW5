@@ -16,4 +16,9 @@ namespace Products.Model
         public DateTime ReleaseDate { get; set; }
 
     }
+
+    public int GetProductID (string ProductName)
+    {
+        return 
+    }
 }

@@ -32,13 +32,14 @@
             ProductCodeColumnHeader = new ColumnHeader();
             DateOpenedColumnHeader = new ColumnHeader();
             CustomerColumnHeader = new ColumnHeader();
-            TechnicialNameColumnHeader = new ColumnHeader();
+            TechnicianColumnHeader = new ColumnHeader();
             TitleColumnHeader = new ColumnHeader();
             SuspendLayout();
             // 
             // OpenIncidentsListView
             // 
-            OpenIncidentsListView.Columns.AddRange(new ColumnHeader[] { ProductCodeColumnHeader, DateOpenedColumnHeader, CustomerColumnHeader, TechnicialNameColumnHeader, TitleColumnHeader });
+            OpenIncidentsListView.AutoArrange = false;
+            OpenIncidentsListView.Columns.AddRange(new ColumnHeader[] { ProductCodeColumnHeader, DateOpenedColumnHeader, CustomerColumnHeader, TechnicianColumnHeader, TitleColumnHeader });
             OpenIncidentsListView.Dock = DockStyle.Fill;
             OpenIncidentsListView.Location = new Point(0, 0);
             OpenIncidentsListView.Name = "OpenIncidentsListView";
@@ -50,29 +51,24 @@
             // ProductCodeColumnHeader
             // 
             ProductCodeColumnHeader.Text = "Product Code";
-            ProductCodeColumnHeader.Width = 10;
+            ProductCodeColumnHeader.Width = 15;
             // 
             // DateOpenedColumnHeader
             // 
             DateOpenedColumnHeader.Text = "Date Opened";
-            DateOpenedColumnHeader.TextAlign = HorizontalAlignment.Center;
-            DateOpenedColumnHeader.Width = 20;
+            DateOpenedColumnHeader.Width = 15;
             // 
             // CustomerColumnHeader
             // 
             CustomerColumnHeader.Text = "Customer";
-            CustomerColumnHeader.TextAlign = HorizontalAlignment.Center;
-            CustomerColumnHeader.Width = 25;
             // 
-            // TechnicialNameColumnHeader
+            // TechnicianColumnHeader
             // 
-            TechnicialNameColumnHeader.Text = "Technician";
-            TechnicialNameColumnHeader.Width = 25;
+            TechnicianColumnHeader.Text = "Technician";
             // 
             // TitleColumnHeader
             // 
             TitleColumnHeader.Text = "Title";
-            TitleColumnHeader.TextAlign = HorizontalAlignment.Center;
             // 
             // LoadOpenIncidentsUserControl
             // 
@@ -90,7 +86,7 @@
         private ColumnHeader ProductCodeColumnHeader;
         private ColumnHeader DateOpenedColumnHeader;
         private ColumnHeader CustomerColumnHeader;
-        private ColumnHeader TechnicialNameColumnHeader;
+        private ColumnHeader TechnicianColumnHeader;
         private ColumnHeader TitleColumnHeader;
     }
 }

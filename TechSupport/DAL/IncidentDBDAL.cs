@@ -112,10 +112,14 @@ namespace Incidents.DAL
             List<Incident> incidentList = new List<Incident>();
 
             string selectStatement =
-                "SELECT IncidentID, CustomerID, ProductCode, TechID, " +
-                "DateOpened, DateClosed, Title, Description " +
-                "FROM Incidents " +                
-                "WHERE DateClosed IS NULL " 
+                "SELECT i.ProductCode, i.DateOpened, " +
+                "c.Name as CustomerName, t.Name as TechName, i.Title " +
+                "FROM Incidents i " +   
+                "LEFT JOIN Customers c " +
+                "ON i.CustomerID = c.CustomerID " +
+                "LEFT JOIN Technicians t " +
+                "ON i.TechID = t.TechID " +
+                "WHERE i.DateClosed IS NULL " 
                 ;
 
             using (SqlConnection connection = DBConnection.GetConnection())
@@ -130,27 +134,11 @@ namespace Incidents.DAL
                         while (reader.Read())
                         {
                             Incident incident = new Incident();
-                            incident.IncidentID = (int)reader["IncidentID"];
-                            incident.CustomerID = (int)reader["CustomerID"];
                             incident.ProductCode = reader["ProductCode"].ToString();
-                            if (reader["TechID"] is not DBNull)
-                            {
-                                incident.TechID = Convert.ToInt32(reader["TechID"]);
-                            }
-
                             incident.DateOpened = (DateTime)reader["DateOpened"];
-
-                            if (reader["DateClosed"] is DBNull)
-                            {
-                                incident.DateClosed = null;
-                            }
-                            else
-                            {
-                                incident.DateClosed = (DateTime?)reader["DateClosed"];
-                            }
-
+                            incident.CustomerName = reader["CustomerName"].ToString();                            
+                            incident.TechName = reader["TechName"].ToString() ;                      
                             incident.Title = reader["Title"].ToString();
-                            incident.Description = reader["Description"].ToString();
 
                             incidentList.Add(incident);
                         }
