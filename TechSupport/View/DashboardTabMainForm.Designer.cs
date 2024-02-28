@@ -31,11 +31,11 @@
             LogOutLinkLabel = new LinkLabel();
             DisplayNameLabel = new Label();
             DisplayOpenIncidentsTabPage = new TabPage();
+            loadOpenIncidentsUserControl1 = new UserControls.LoadOpenIncidentsUserControl();
             IncidentsTabControl = new TabControl();
             AddIncidentTabPage = new TabPage();
             addIncidentsUserControl1 = new UserControls.AddIncidentsUserControl();
             addIncidentsUserControl2 = new UserControls.AddIncidentsUserControl();
-            loadOpenIncidentsUserControl1 = new UserControls.LoadOpenIncidentsUserControl();
             DisplayOpenIncidentsTabPage.SuspendLayout();
             IncidentsTabControl.SuspendLayout();
             AddIncidentTabPage.SuspendLayout();
@@ -71,6 +71,13 @@
             DisplayOpenIncidentsTabPage.Text = "Display Open Incidents";
             DisplayOpenIncidentsTabPage.UseVisualStyleBackColor = true;
             // 
+            // loadOpenIncidentsUserControl1
+            // 
+            loadOpenIncidentsUserControl1.Location = new Point(0, 3);
+            loadOpenIncidentsUserControl1.Name = "loadOpenIncidentsUserControl1";
+            loadOpenIncidentsUserControl1.Size = new Size(708, 615);
+            loadOpenIncidentsUserControl1.TabIndex = 0;
+            // 
             // IncidentsTabControl
             // 
             IncidentsTabControl.Controls.Add(DisplayOpenIncidentsTabPage);
@@ -91,11 +98,11 @@
             // 
             AddIncidentTabPage.Controls.Add(addIncidentsUserControl1);
             AddIncidentTabPage.Controls.Add(addIncidentsUserControl2);
-            AddIncidentTabPage.Location = new Point(4, 34);
+            AddIncidentTabPage.Location = new Point(4, 29);
             AddIncidentTabPage.Margin = new Padding(3, 4, 3, 4);
             AddIncidentTabPage.Name = "AddIncidentTabPage";
             AddIncidentTabPage.Padding = new Padding(3, 4, 3, 4);
-            AddIncidentTabPage.Size = new Size(711, 624);
+            AddIncidentTabPage.Size = new Size(192, 67);
             AddIncidentTabPage.TabIndex = 1;
             AddIncidentTabPage.Text = "Add";
             AddIncidentTabPage.UseVisualStyleBackColor = true;
@@ -117,13 +124,6 @@
             addIncidentsUserControl2.Name = "addIncidentsUserControl2";
             addIncidentsUserControl2.Size = new Size(922, 826);
             addIncidentsUserControl2.TabIndex = 0;
-            // 
-            // loadOpenIncidentsUserControl1
-            // 
-            loadOpenIncidentsUserControl1.Location = new Point(0, 3);
-            loadOpenIncidentsUserControl1.Name = "loadOpenIncidentsUserControl1";
-            loadOpenIncidentsUserControl1.Size = new Size(708, 615);
-            loadOpenIncidentsUserControl1.TabIndex = 0;
             // 
             // DashboardTabMainForm
             // 

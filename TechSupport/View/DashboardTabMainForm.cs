@@ -41,25 +41,26 @@ namespace Incidents.View
             Application.Exit();
         }
 
-        private void DisplayOpenIncidentsTabPage_Click(object sender, EventArgs e)
-        {
-            TabPage selectedTab = IncidentsTabControl.SelectedTab;
-            LoadOpenIncidentsUserControl control = new LoadOpenIncidentsUserControl();
+        //private void DisplayOpenIncidentsTabPage_Click(object sender, EventArgs e)
+        //{
+        //    TabPage selectedTab = IncidentsTabControl.SelectedTab;
+        //    LoadOpenIncidentsUserControl control = new LoadOpenIncidentsUserControl();
 
-            if (selectedTab == DisplayOpenIncidentsTabPage)
-            {
-                control.RefreshData();
-            }
-        }
+        //    if (selectedTab == DisplayOpenIncidentsTabPage)
+        //    {
+        //        control.RefreshData();
+        //    }
+        //}
 
         private void IncidentsTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             TabPage selectedTab = IncidentsTabControl.SelectedTab;
-            LoadOpenIncidentsUserControl control = new LoadOpenIncidentsUserControl();
+          //  LoadOpenIncidentsUserControl control = new LoadOpenIncidentsUserControl();
 
             if (selectedTab == DisplayOpenIncidentsTabPage)
             {
-                control.RefreshData();
+                this.loadOpenIncidentsUserControl1.RefreshData();
+               
             }
         }
 

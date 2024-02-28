@@ -45,6 +45,7 @@
             OpenIncidentsListView.Size = new Size(575, 227);
             OpenIncidentsListView.TabIndex = 0;
             OpenIncidentsListView.UseCompatibleStateImageBehavior = false;
+            OpenIncidentsListView.View = System.Windows.Forms.View.Details;
             // 
             // ProductCodeColumnHeader
             // 
