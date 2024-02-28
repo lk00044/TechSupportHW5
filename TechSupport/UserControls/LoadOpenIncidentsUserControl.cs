@@ -52,7 +52,7 @@ namespace Incidents.UserControls
                         OpenIncidentsListView.Items.Add(incident.ProductCode.ToString());
                         OpenIncidentsListView.Items[i].SubItems.Add(incident.DateOpened.ToShortDateString());
                         OpenIncidentsListView.Items[i].SubItems.Add(incident.CustomerName.ToString());
-                        OpenIncidentsListView.Items[i].SubItems.Add(incident.TechName.ToString());                    
+                        OpenIncidentsListView.Items[i].SubItems.Add(incident.TechName.ToString());
                         OpenIncidentsListView.Items[i].SubItems.Add(incident.Title.ToString());
                     }
                 }

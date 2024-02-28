@@ -43,7 +43,7 @@
             OpenIncidentsListView.Dock = DockStyle.Fill;
             OpenIncidentsListView.Location = new Point(0, 0);
             OpenIncidentsListView.Name = "OpenIncidentsListView";
-            OpenIncidentsListView.Size = new Size(575, 227);
+            OpenIncidentsListView.Size = new Size(728, 227);
             OpenIncidentsListView.TabIndex = 0;
             OpenIncidentsListView.UseCompatibleStateImageBehavior = false;
             OpenIncidentsListView.View = System.Windows.Forms.View.Details;
@@ -51,24 +51,27 @@
             // ProductCodeColumnHeader
             // 
             ProductCodeColumnHeader.Text = "Product Code";
-            ProductCodeColumnHeader.Width = 15;
+            ProductCodeColumnHeader.Width = 100;
             // 
             // DateOpenedColumnHeader
             // 
             DateOpenedColumnHeader.Text = "Date Opened";
-            DateOpenedColumnHeader.Width = 15;
+            DateOpenedColumnHeader.Width = 100;
             // 
             // CustomerColumnHeader
             // 
             CustomerColumnHeader.Text = "Customer";
+            CustomerColumnHeader.Width = 150;
             // 
             // TechnicianColumnHeader
             // 
             TechnicianColumnHeader.Text = "Technician";
+            TechnicianColumnHeader.Width = 150;
             // 
             // TitleColumnHeader
             // 
             TitleColumnHeader.Text = "Title";
+            TitleColumnHeader.Width = 200;
             // 
             // LoadOpenIncidentsUserControl
             // 
@@ -76,7 +79,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(OpenIncidentsListView);
             Name = "LoadOpenIncidentsUserControl";
-            Size = new Size(575, 227);
+            Size = new Size(728, 227);
             ResumeLayout(false);
         }
 
