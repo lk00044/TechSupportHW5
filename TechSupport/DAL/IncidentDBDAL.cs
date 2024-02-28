@@ -20,21 +20,22 @@ namespace Incidents.DAL
         public void AddIncident(Incident AnIncident)
         {
             string insertStatement =
-               "INSERT CustomerID, ProductCode, Title, Description, DateOpened " +
-               "VALUES @CustomerID, @ProductCode, @Title, @Description, DateTime.Now ";
+               "INSERT INTO Incidents (CustomerID, ProductCode, Title, Description, DateOpened) " +
+               "VALUES (@CustomerID, @ProductCode, @Title, @Description, @DateOpened) ";
 
-            using (SqlConnection connection = DBConnection.GetConnection())
-            {
-                connection.Open();
+            SqlConnection connection = DBConnection.GetConnection();
+            SqlCommand insertCommand = new SqlCommand(insertStatement, connection);    
 
-                using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
-                {
-                    insertCommand.Parameters.AddWithValue("@CustomerID", AnIncident.CustomerID);
-                    insertCommand.Parameters.AddWithValue("@ProductCode", AnIncident.ProductCode);
-                    insertCommand.Parameters.AddWithValue("@Title", AnIncident.Title);
-                    insertCommand.Parameters.AddWithValue("@Description", AnIncident.Description);
-                }
-            }
+            insertCommand.Parameters.AddWithValue("CustomerID", AnIncident.CustomerID);
+            insertCommand.Parameters.AddWithValue("ProductCode", AnIncident.ProductCode);
+            insertCommand.Parameters.AddWithValue("Title", AnIncident.Title);
+            insertCommand.Parameters.AddWithValue("Description", AnIncident.Description);
+            insertCommand.Parameters.AddWithValue("DateOpened", DateTime.Now);
+
+            connection.Open();
+            insertCommand.ExecuteNonQuery();
+            connection.Close();                    
+            
 
         }
 
