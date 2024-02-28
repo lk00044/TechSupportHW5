@@ -17,8 +17,4 @@ namespace Products.Model
 
     }
 
-    public int GetProductID (string ProductName)
-    {
-        return 
-    }
 }

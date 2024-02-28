@@ -17,7 +17,7 @@ namespace Incidents.View
             InitializeComponent();
             UserName = Name;
             DisplayNameLabel.Text = UserName;
-            this.loadOpenIncidentsUserControl1.RefreshData();
+            this.loadOpenIncidentsUserControl.RefreshData();
         }
 
         private void TabDashboardMainForm_Load(object sender, EventArgs e)
@@ -37,12 +37,12 @@ namespace Incidents.View
 
         private void IncidentsTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-             this.loadOpenIncidentsUserControl1.RefreshData();
+             this.loadOpenIncidentsUserControl.RefreshData();
         }
 
         private void DashboardTabMainForm_Load(object sender, EventArgs e)
         {
-            this.loadOpenIncidentsUserControl1.RefreshData();
+            this.loadOpenIncidentsUserControl.RefreshData();
         }
 
 

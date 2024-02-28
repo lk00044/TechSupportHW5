@@ -39,7 +39,7 @@ namespace Incidents.Model
         /// <param UserName="Description"></param>      The Description of the incident
         /// <param CustomerID="CustomerID"></param> The customer id of the incident
         /// <exception cref="ArgumentNullException"></exception>
-        public Incident(string Title, string Description, string prodName, int CustomerID)
+        public Incident(string Title, string Description, string prodCode, int CustomerID)
         {
             if (string.IsNullOrEmpty(Title))
                 throw new ArgumentNullException("UserName cannot be empty", "Title");
@@ -53,7 +53,7 @@ namespace Incidents.Model
             this.Title = Title;
             this.Description = Description;
             this.CustomerID = CustomerID;
-            this.Pr
+            this.ProductCode = prodCode; 
 
         }
 

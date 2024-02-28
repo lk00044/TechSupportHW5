@@ -31,11 +31,11 @@
             LogOutLinkLabel = new LinkLabel();
             DisplayNameLabel = new Label();
             DisplayOpenIncidentsTabPage = new TabPage();
-            loadOpenIncidentsUserControl1 = new UserControls.LoadOpenIncidentsUserControl();
+            loadOpenIncidentsUserControl = new UserControls.LoadOpenIncidentsUserControl();
             IncidentsTabControl = new TabControl();
             AddIncidentTabPage = new TabPage();
             addIncidentsUserControl1 = new UserControls.AddIncidentsUserControl();
-            addIncidentsUserControl2 = new UserControls.AddIncidentsUserControl();
+          //  addIncidentsUserControl2 = new UserControls.AddIncidentsUserControl();
             DisplayOpenIncidentsTabPage.SuspendLayout();
             IncidentsTabControl.SuspendLayout();
             AddIncidentTabPage.SuspendLayout();
@@ -62,7 +62,7 @@
             // 
             // DisplayOpenIncidentsTabPage
             // 
-            DisplayOpenIncidentsTabPage.Controls.Add(loadOpenIncidentsUserControl1);
+            DisplayOpenIncidentsTabPage.Controls.Add(loadOpenIncidentsUserControl);
             DisplayOpenIncidentsTabPage.Location = new Point(4, 34);
             DisplayOpenIncidentsTabPage.Name = "DisplayOpenIncidentsTabPage";
             DisplayOpenIncidentsTabPage.Padding = new Padding(3);
@@ -73,10 +73,10 @@
             // 
             // loadOpenIncidentsUserControl1
             // 
-            loadOpenIncidentsUserControl1.Location = new Point(0, 3);
-            loadOpenIncidentsUserControl1.Name = "loadOpenIncidentsUserControl1";
-            loadOpenIncidentsUserControl1.Size = new Size(708, 615);
-            loadOpenIncidentsUserControl1.TabIndex = 0;
+            loadOpenIncidentsUserControl.Location = new Point(3, 3);
+            loadOpenIncidentsUserControl.Name = "loadOpenIncidentsUserControl1";
+            loadOpenIncidentsUserControl.Size = new Size(708, 615);
+            loadOpenIncidentsUserControl.TabIndex = 0;
             // 
             // IncidentsTabControl
             // 
@@ -97,7 +97,7 @@
             // AddIncidentTabPage
             // 
             AddIncidentTabPage.Controls.Add(addIncidentsUserControl1);
-            AddIncidentTabPage.Controls.Add(addIncidentsUserControl2);
+           // AddIncidentTabPage.Controls.Add(addIncidentsUserControl2);
             AddIncidentTabPage.Location = new Point(4, 29);
             AddIncidentTabPage.Margin = new Padding(3, 4, 3, 4);
             AddIncidentTabPage.Name = "AddIncidentTabPage";
@@ -118,12 +118,12 @@
             // 
             // addIncidentsUserControl2
             // 
-            addIncidentsUserControl2.AutoSize = true;
-            addIncidentsUserControl2.Location = new Point(4, 5);
-            addIncidentsUserControl2.Margin = new Padding(4, 5, 4, 5);
-            addIncidentsUserControl2.Name = "addIncidentsUserControl2";
-            addIncidentsUserControl2.Size = new Size(922, 826);
-            addIncidentsUserControl2.TabIndex = 0;
+           // addIncidentsUserControl2.AutoSize = true;
+           // addIncidentsUserControl2.Location = new Point(4, 5);
+           // addIncidentsUserControl2.Margin = new Padding(4, 5, 4, 5);
+           // addIncidentsUserControl2.Name = "addIncidentsUserControl2";
+           // addIncidentsUserControl2.Size = new Size(922, 826);
+          //  addIncidentsUserControl2.TabIndex = 0;
             // 
             // DashboardTabMainForm
             // 
@@ -150,10 +150,10 @@
         private Label DisplayNameLabel;
         private TechSupport.UserControls.SearchIncidentsUserControl searchIncidentsUserControl1;
         private TabPage DisplayOpenIncidentsTabPage;
-        private UserControls.LoadOpenIncidentsUserControl loadOpenIncidentsUserControl1;
+        private UserControls.LoadOpenIncidentsUserControl loadOpenIncidentsUserControl;
         private UserControls.AddIncidentsUserControl addIncidentsUserControl1;
         private TabControl IncidentsTabControl;
         private TabPage AddIncidentTabPage;
-        private UserControls.AddIncidentsUserControl addIncidentsUserControl2;
+       // private UserControls.AddIncidentsUserControl addIncidentsUserControl2;
     }
 }

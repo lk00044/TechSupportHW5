@@ -67,13 +67,16 @@ namespace Incidents.UserControls
         }
 
         private void AddButton_Click(object sender, EventArgs e)
-        {            
+        {
            try
             {
-                var title = this.TitleTextBox.Text;
-                var description = this.DescriptionRichTextBox.Text;
-                var prodName = this.ProductComboBox.SelectedText;
-                var cusName = this.CustomerNameComboBox.SelectedText;
+                string title = this.TitleTextBox.Text;
+                string description = this.DescriptionRichTextBox.Text;
+                string prodName = this.ProductComboBox.GetItemText(this.ProductComboBox.SelectedItem);
+                string cusName = this.CustomerNameComboBox.GetItemText(this.CustomerNameComboBox.SelectedItem);
+
+                string productCode = this._productDBController.GetProductCode(prodName);
+                int customerID = this._customerController.GetCustomerID(cusName);
 
                 if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(description))
                 {
@@ -91,9 +94,7 @@ namespace Incidents.UserControls
                 }
                 else
                 {  
-                    Customer customer = this._customerController.GetCustomer(cusName);
-                    Product product = this._productDBController.GetProductID(prodName);
-                    this._incidentController.AddIncident(new Incident(title, description, prodName, customer.CustomerID));
+                    this._incidentController.AddIncident(new Incident(title, description, productCode, customerID));
                 }
                 this.TitleTextBox.Clear();
                 this.DescriptionRichTextBox.Clear();

@@ -1,5 +1,7 @@
-﻿using Incidents.Model;
+﻿using DisplayDBIncidents.Controller;
+using Incidents.Model;
 using System.Data.SqlClient;
+using TechSupport.Controller;
 using TechSupport.DAL;
 
 // Leslie Keller
@@ -7,24 +9,19 @@ using TechSupport.DAL;
 namespace Incidents.DAL
 {
     public class IncidentDBDAL
-    {        
+    {
+        private CustomerDBController _customerController;
+        private ProductDBController _productController;
 
         /// <summary>
-        /// Add an AnIncident to the Incidents database
+        /// Add an AnIncident to the Incidents database8
         /// </summary>
         /// <exception cref="ArgumentNullException"></exception>
         public void AddIncident(Incident AnIncident)
         {
-            if (AnIncident == null)
-                throw new ArgumentNullException("Incident cannot be null.");
-
             string insertStatement =
-               "INSERT IncidentID, CustomerID, ProductCode, " +
-               "TechID, DateOpened, DateClosed " +
-               "Title, Description " +
-               "VALUES @IncidentID, @CustomerID, @ProductCode, " +
-               "@TechID, @DateOpened, @DateClosed, " +
-               "@Title, @Description ";
+               "INSERT CustomerID, ProductCode, Title, Description, DateOpened " +
+               "VALUES @CustomerID, @ProductCode, @Title, @Description, DateTime.Now ";
 
             using (SqlConnection connection = DBConnection.GetConnection())
             {
@@ -34,8 +31,6 @@ namespace Incidents.DAL
                 {
                     insertCommand.Parameters.AddWithValue("@CustomerID", AnIncident.CustomerID);
                     insertCommand.Parameters.AddWithValue("@ProductCode", AnIncident.ProductCode);
-                    insertCommand.Parameters.AddWithValue("@TechID", AnIncident.TechID);
-                    insertCommand.Parameters.AddWithValue("@DateOpened", AnIncident.DateOpened);
                     insertCommand.Parameters.AddWithValue("@Title", AnIncident.Title);
                     insertCommand.Parameters.AddWithValue("@Description", AnIncident.Description);
                 }
@@ -47,13 +42,18 @@ namespace Incidents.DAL
         /// Get the list of incidents 
         /// </summary>
         /// <returns> the list of incidents </returns> 
-        public List<Incident> GetIncidents()
+        public List<Incident> GetAllIncidents()
         {
             List<Incident> incidentList = new List<Incident>();
 
             string selectStatement =
-                "SELECT IncidentID, CustomerID, ProductCode, TechID, DateOpened, DateClosed, Title, Description " +
-                "FROM Incidents "
+                "SELECT i.ProductCode, i.DateOpened, " +
+                "c.Name as CustomerName, t.Name as TechName, i.Title " +
+                "FROM Incidents i " +
+                "LEFT JOIN Customers c " +
+                "ON i.CustomerID = c.CustomerID " +
+                "LEFT JOIN Technicians t " +
+                "ON i.TechID = t.TechID " 
                 ;
 
             using (SqlConnection connection = DBConnection.GetConnection())
@@ -64,34 +64,15 @@ namespace Incidents.DAL
                 {
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-                        
+
                         while (reader.Read())
                         {
                             Incident incident = new Incident();
-                            incident.IncidentID = (int)reader["IncidentID"];
-                            incident.CustomerID = (int)reader["CustomerID"];
                             incident.ProductCode = reader["ProductCode"].ToString();
-                           // incident.TechID = (int)reader["TechID"];
-  
-                            if (reader["TechID"] is not DBNull)
-                            {
-                                  incident.TechID  = Convert.ToInt32(reader["TechID"]);                               
-                            }
-
                             incident.DateOpened = (DateTime)reader["DateOpened"];
-                          //  incident.DateClosed = (DateTime)reader["DateClosed"]; ;
-                            
-                            if (reader["DateClosed"] is DBNull)
-                            {
-                                incident.DateClosed = null;
-                            } 
-                            else
-                            {
-                                incident.DateClosed = (DateTime?)reader["DateClosed"];                                
-                            }
-                             
+                            incident.CustomerName = reader["CustomerName"].ToString();
+                            incident.TechName = reader["TechName"].ToString();
                             incident.Title = reader["Title"].ToString();
-                            incident.Description = reader["Description"].ToString();
 
                             incidentList.Add(incident);
                         }
@@ -99,7 +80,6 @@ namespace Incidents.DAL
                 }
             }
             return incidentList;
-            //  return _incidents;
         }
 
         /// <summary>

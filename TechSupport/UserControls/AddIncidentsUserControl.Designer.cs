@@ -134,9 +134,9 @@
             ProductLabel.AutoSize = true;
             ProductLabel.Location = new Point(3, 68);
             ProductLabel.Name = "ProductLabel";
-            ProductLabel.Size = new Size(63, 20);
+            ProductLabel.Size = new Size(107, 20);
             ProductLabel.TabIndex = 7;
-            ProductLabel.Text = "Product:";
+            ProductLabel.Text = "Product Name:";
             // 
             // CustomerNameComboBox
             // 

@@ -42,9 +42,9 @@ namespace TechSupport.Controller
         /// </summary>
         /// <param name="customerName">Name of the customer.</param>
         /// <returns></returns>
-        public Customer GetCustomer(string customerName)
+        public int GetCustomerID(string customerName)
         {
-            return this.CustomerSource.GetCustomer(customerName);
+            return this.CustomerSource.GetCustomerID(customerName);
         }
     }
 }

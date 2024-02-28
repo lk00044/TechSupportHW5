@@ -95,12 +95,12 @@ namespace Customers.DAL
             return customer;
         }
 
-        public Customer GetCustomer(string customerName)
+        public int GetCustomerID(string customerName)
         {
             Customer customer = new Customer();
 
             string selectStatement =
-                "SELECT CustomerID, Name, Address, City, State, ZipCode, Phone, Email " +
+                "SELECT CustomerID, Name " +
                 "FROM Customers " +
                 "WHERE Name = @customerName"
                 ;
@@ -119,18 +119,12 @@ namespace Customers.DAL
                         {
                             customer.CustomerID = (int)reader["CustomerID"];
                             customer.Name = reader["Name"].ToString();
-                            customer.Address = reader["Address"].ToString();
-                            customer.City = reader["City"].ToString();
-                            customer.State = reader["State"].ToString();
-                            customer.ZipCode = reader["ZipCode"].ToString();
-                            customer.Phone = reader["Phone"].ToString();
-                            customer.Email = reader["Email"].ToString();
 
                         }
                     }
                 }
             }
-            return customer;
+            return customer.CustomerID;
         }
     }
 }

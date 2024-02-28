@@ -32,6 +32,12 @@ namespace TechSupport.Controller
 
         }
 
+        public string GetProductCode(string prodName)
+        {
+            return this.ProductSource.GetProductCode(prodName);
+
+        }
+
 
     }
 }

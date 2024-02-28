@@ -29,6 +29,7 @@ namespace Incidents.View
                 var title = this.TitleTextBox.Text;
                 var description = this.DescriptionRichTextBox.Text;
                 var customerID = this.CustomerIDTextBox.Text;
+                string prodCode = "";
 
                 if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(customerID) || (int.TryParse(customerID, out _) == false))
                 {
@@ -65,7 +66,7 @@ namespace Incidents.View
                 else
                 {
                     int intCustomerID = int.Parse(this.CustomerIDTextBox.Text);
-                    this._incidentController.AddIncident(new Incident(title, description, intCustomerID));
+                    this._incidentController.AddIncident(new Incident(title, description, prodCode, intCustomerID));
                     this.DialogResult = DialogResult.OK;
                 }
             }

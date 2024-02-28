@@ -41,6 +41,10 @@ namespace Products.DAL
             return productList;
         }
 
+        /// <summary>
+        /// Gets the product names.
+        /// </summary>
+        /// <returns></returns>
         public List<string> GetProductNames()
         {
 
@@ -69,6 +73,36 @@ namespace Products.DAL
                 }
             }
             return names;
+        }
+
+        public string GetProductCode(string prodName)
+        {
+            Product product = new Product();
+
+            string selectStatement =
+                "SELECT ProductCode, Name " +
+                "FROM Products " +
+                "WHERE Name = @prodName "
+                ;
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@prodName", prodName);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            product.ProductCode = reader["ProductCode"].ToString();
+                        }
+                    }
+                }
+            }
+            return product.ProductCode;
         }
     }
 }
