@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             OpenIncidentsListView = new ListView();
-            ProductCodeColumnHeader = new ColumnHeader();
-            DateOpenedColumnHeader = new ColumnHeader();
-            CustomerColumnHeader = new ColumnHeader();
-            TechnicianColumnHeader = new ColumnHeader();
-            TitleColumnHeader = new ColumnHeader();
+            ProductCodeColumnHeader1 = new ColumnHeader();
+            DateOpenedColumnHeader1 = new ColumnHeader();
+            CustomerColumnHeader1 = new ColumnHeader();
+            TechnicianColumnHeader1 = new ColumnHeader();
+            TitleColumnHeader1 = new ColumnHeader();
             SuspendLayout();
             // 
             // OpenIncidentsListView
             // 
             OpenIncidentsListView.AutoArrange = false;
-            OpenIncidentsListView.Columns.AddRange(new ColumnHeader[] { ProductCodeColumnHeader, DateOpenedColumnHeader, CustomerColumnHeader, TechnicianColumnHeader, TitleColumnHeader });
+            OpenIncidentsListView.Columns.AddRange(new ColumnHeader[] { ProductCodeColumnHeader1, DateOpenedColumnHeader1, CustomerColumnHeader1, TechnicianColumnHeader1, TitleColumnHeader1 });
             OpenIncidentsListView.Dock = DockStyle.Fill;
             OpenIncidentsListView.Location = new Point(0, 0);
             OpenIncidentsListView.Name = "OpenIncidentsListView";
@@ -48,30 +48,30 @@
             OpenIncidentsListView.UseCompatibleStateImageBehavior = false;
             OpenIncidentsListView.View = System.Windows.Forms.View.Details;
             // 
-            // ProductCodeColumnHeader
+            // ProductCodeColumnHeader1
             // 
-            ProductCodeColumnHeader.Text = "Product Code";
-            ProductCodeColumnHeader.Width = 100;
+            ProductCodeColumnHeader1.Text = "Product Code";
+            ProductCodeColumnHeader1.Width = 100;
             // 
-            // DateOpenedColumnHeader
+            // DateOpenedColumnHeader1
             // 
-            DateOpenedColumnHeader.Text = "Date Opened";
-            DateOpenedColumnHeader.Width = 100;
+            DateOpenedColumnHeader1.Text = "Date Opened";
+            DateOpenedColumnHeader1.Width = 100;
             // 
-            // CustomerColumnHeader
+            // CustomerColumnHeader1
             // 
-            CustomerColumnHeader.Text = "Customer";
-            CustomerColumnHeader.Width = 150;
+            CustomerColumnHeader1.Text = "Customer";
+            CustomerColumnHeader1.Width = 150;
             // 
-            // TechnicianColumnHeader
+            // TechnicianColumnHeader1
             // 
-            TechnicianColumnHeader.Text = "Technician";
-            TechnicianColumnHeader.Width = 150;
+            TechnicianColumnHeader1.Text = "Technician";
+            TechnicianColumnHeader1.Width = 150;
             // 
-            // TitleColumnHeader
+            // TitleColumnHeader1
             // 
-            TitleColumnHeader.Text = "Title";
-            TitleColumnHeader.Width = 200;
+            TitleColumnHeader1.Text = "Title";
+            TitleColumnHeader1.Width = 200;
             // 
             // LoadOpenIncidentsUserControl
             // 
@@ -86,10 +86,10 @@
         #endregion
 
         private ListView OpenIncidentsListView;
-        private ColumnHeader ProductCodeColumnHeader;
-        private ColumnHeader DateOpenedColumnHeader;
-        private ColumnHeader CustomerColumnHeader;
-        private ColumnHeader TechnicianColumnHeader;
-        private ColumnHeader TitleColumnHeader;
+        private ColumnHeader ProductCodeColumnHeader1;
+        private ColumnHeader DateOpenedColumnHeader1;
+        private ColumnHeader CustomerColumnHeader1;
+        private ColumnHeader TechnicianColumnHeader1;
+        private ColumnHeader TitleColumnHeader1;
     }
 }

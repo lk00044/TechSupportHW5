@@ -31,11 +31,11 @@ namespace Incidents.UserControls
         {
             List<Incident> incidentList;
 
-            this.OpenIncidentsListView.Columns[0].Width = 10;
-            this.OpenIncidentsListView.Columns[1].Width = 15;
-            this.OpenIncidentsListView.Columns[2].Width = 30;
-            this.OpenIncidentsListView.Columns[3].Width = 30;
-            this.OpenIncidentsListView.Columns[4].Width = 50;
+            this.OpenIncidentsListView.Columns[0].Width = 130;
+            this.OpenIncidentsListView.Columns[1].Width = 130;
+            this.OpenIncidentsListView.Columns[2].Width = 200;
+            this.OpenIncidentsListView.Columns[3].Width = 200;
+            this.OpenIncidentsListView.Columns[4].Width = 500;
 
             this.OpenIncidentsListView.Items.Clear();
 
