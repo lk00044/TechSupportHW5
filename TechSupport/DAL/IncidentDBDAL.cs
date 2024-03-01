@@ -48,7 +48,7 @@ namespace Incidents.DAL
             List<Incident> incidentList = new List<Incident>();
 
             string selectStatement =
-                "SELECT i.ProductCode, i.DateOpened, " +
+                "SELECT i.ProductCode, i.DateOpened, i.DateClosed, " +
                 "c.Name as CustomerName, t.Name as TechName, i.Title " +
                 "FROM Incidents i " +
                 "LEFT JOIN Customers c " +
@@ -71,6 +71,7 @@ namespace Incidents.DAL
                             Incident incident = new Incident();
                             incident.ProductCode = reader["ProductCode"].ToString();
                             incident.DateOpened = (DateTime)reader["DateOpened"];
+                            incident.DateClosed = (DateTime)reader["DateClosed"];
                             incident.CustomerName = reader["CustomerName"].ToString();
                             incident.TechName = reader["TechName"].ToString();
                             incident.Title = reader["Title"].ToString();

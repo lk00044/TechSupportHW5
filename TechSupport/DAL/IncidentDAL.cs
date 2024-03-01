@@ -6,7 +6,7 @@
 /// <summary>
 /// Data Access for the Incidents Local
 /// </summary>
-namespace IncidentsLocal.DAL
+namespace AllIncidents.DAL
 {
     public class IncidentDAL
     {
