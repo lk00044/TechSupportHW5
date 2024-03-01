@@ -33,13 +33,17 @@
             DisplayOpenIncidentsTabPage = new TabPage();
             loadOpenIncidentsUserControl = new UserControls.LoadOpenIncidentsUserControl();
             IncidentsTabControl = new TabControl();
+            DisplayAllIncidentsTabPage = new TabPage();
+            loadAllIncidentsUserControl = new AllIncidents.UserControls.LoadAllIncidentsUserControl();
             AddIncidentTabPage = new TabPage();
             addIncidentsUserControl1 = new UserControls.AddIncidentsUserControl();
             UpdateIncidentTabPage = new TabPage();
-            DisplayAllIncidentsTabPage = new TabPage();
+            updateIncidentUserControl1 = new TechSupport.UserControls.UpdateIncidentUserControl();
             DisplayOpenIncidentsTabPage.SuspendLayout();
             IncidentsTabControl.SuspendLayout();
+            DisplayAllIncidentsTabPage.SuspendLayout();
             AddIncidentTabPage.SuspendLayout();
+            UpdateIncidentTabPage.SuspendLayout();
             SuspendLayout();
             // 
             // LogOutLinkLabel
@@ -67,7 +71,7 @@
             DisplayOpenIncidentsTabPage.Location = new Point(4, 34);
             DisplayOpenIncidentsTabPage.Name = "DisplayOpenIncidentsTabPage";
             DisplayOpenIncidentsTabPage.Padding = new Padding(3);
-            DisplayOpenIncidentsTabPage.Size = new Size(951, 624);
+            DisplayOpenIncidentsTabPage.Size = new Size(971, 624);
             DisplayOpenIncidentsTabPage.TabIndex = 4;
             DisplayOpenIncidentsTabPage.Text = "Display Open Incidents";
             DisplayOpenIncidentsTabPage.UseVisualStyleBackColor = true;
@@ -88,15 +92,34 @@
             IncidentsTabControl.Controls.Add(UpdateIncidentTabPage);
             IncidentsTabControl.Dock = DockStyle.Bottom;
             IncidentsTabControl.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            IncidentsTabControl.Location = new Point(0, 57);
+            IncidentsTabControl.Location = new Point(0, 41);
             IncidentsTabControl.Margin = new Padding(3, 4, 3, 4);
             IncidentsTabControl.Name = "IncidentsTabControl";
             IncidentsTabControl.SelectedIndex = 0;
-            IncidentsTabControl.Size = new Size(959, 662);
+            IncidentsTabControl.Size = new Size(979, 662);
             IncidentsTabControl.TabIndex = 0;
             IncidentsTabControl.SelectedIndexChanged += IncidentsTabControl_SelectedIndexChanged;
             IncidentsTabControl.TabIndexChanged += TabDashboardMainForm_Load;
             IncidentsTabControl.Click += TabDashboardMainForm_Load;
+            // 
+            // DisplayAllIncidentsTabPage
+            // 
+            DisplayAllIncidentsTabPage.Controls.Add(loadAllIncidentsUserControl);
+            DisplayAllIncidentsTabPage.Location = new Point(4, 34);
+            DisplayAllIncidentsTabPage.Name = "DisplayAllIncidentsTabPage";
+            DisplayAllIncidentsTabPage.Padding = new Padding(3);
+            DisplayAllIncidentsTabPage.Size = new Size(971, 624);
+            DisplayAllIncidentsTabPage.TabIndex = 5;
+            DisplayAllIncidentsTabPage.Text = "Display All Incidents";
+            DisplayAllIncidentsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // loadAllIncidentsUserControl
+            // 
+            loadAllIncidentsUserControl.Dock = DockStyle.Fill;
+            loadAllIncidentsUserControl.Location = new Point(3, 3);
+            loadAllIncidentsUserControl.Name = "loadAllIncidentsUserControl";
+            loadAllIncidentsUserControl.Size = new Size(965, 618);
+            loadAllIncidentsUserControl.TabIndex = 0;
             // 
             // AddIncidentTabPage
             // 
@@ -105,7 +128,7 @@
             AddIncidentTabPage.Margin = new Padding(3, 4, 3, 4);
             AddIncidentTabPage.Name = "AddIncidentTabPage";
             AddIncidentTabPage.Padding = new Padding(3, 4, 3, 4);
-            AddIncidentTabPage.Size = new Size(951, 624);
+            AddIncidentTabPage.Size = new Size(971, 624);
             AddIncidentTabPage.TabIndex = 1;
             AddIncidentTabPage.Text = "Add Incident";
             AddIncidentTabPage.UseVisualStyleBackColor = true;
@@ -113,37 +136,37 @@
             // addIncidentsUserControl1
             // 
             addIncidentsUserControl1.AutoSize = true;
-            addIncidentsUserControl1.Location = new Point(6, 0);
+            addIncidentsUserControl1.Dock = DockStyle.Fill;
+            addIncidentsUserControl1.Location = new Point(3, 4);
             addIncidentsUserControl1.Margin = new Padding(2, 4, 2, 4);
             addIncidentsUserControl1.Name = "addIncidentsUserControl1";
-            addIncidentsUserControl1.Size = new Size(739, 661);
+            addIncidentsUserControl1.Size = new Size(965, 616);
             addIncidentsUserControl1.TabIndex = 1;
             // 
             // UpdateIncidentTabPage
             // 
+            UpdateIncidentTabPage.Controls.Add(updateIncidentUserControl1);
             UpdateIncidentTabPage.Location = new Point(4, 34);
             UpdateIncidentTabPage.Name = "UpdateIncidentTabPage";
             UpdateIncidentTabPage.Padding = new Padding(3);
-            UpdateIncidentTabPage.Size = new Size(951, 624);
+            UpdateIncidentTabPage.Size = new Size(971, 624);
             UpdateIncidentTabPage.TabIndex = 6;
             UpdateIncidentTabPage.Text = "Update Incident";
             UpdateIncidentTabPage.UseVisualStyleBackColor = true;
             // 
-            // DisplayAllIncidentsTabPage
+            // updateIncidentUserControl1
             // 
-            DisplayAllIncidentsTabPage.Location = new Point(4, 34);
-            DisplayAllIncidentsTabPage.Name = "DisplayAllIncidentsTabPage";
-            DisplayAllIncidentsTabPage.Padding = new Padding(3);
-            DisplayAllIncidentsTabPage.Size = new Size(951, 624);
-            DisplayAllIncidentsTabPage.TabIndex = 5;
-            DisplayAllIncidentsTabPage.Text = "Display All Incidents";
-            DisplayAllIncidentsTabPage.UseVisualStyleBackColor = true;
+            updateIncidentUserControl1.Dock = DockStyle.Fill;
+            updateIncidentUserControl1.Location = new Point(3, 3);
+            updateIncidentUserControl1.Name = "updateIncidentUserControl1";
+            updateIncidentUserControl1.Size = new Size(965, 618);
+            updateIncidentUserControl1.TabIndex = 0;
             // 
             // DashboardTabMainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(959, 719);
+            ClientSize = new Size(979, 703);
             Controls.Add(DisplayNameLabel);
             Controls.Add(LogOutLinkLabel);
             Controls.Add(IncidentsTabControl);
@@ -154,8 +177,10 @@
             Load += DashboardTabMainForm_Load;
             DisplayOpenIncidentsTabPage.ResumeLayout(false);
             IncidentsTabControl.ResumeLayout(false);
+            DisplayAllIncidentsTabPage.ResumeLayout(false);
             AddIncidentTabPage.ResumeLayout(false);
             AddIncidentTabPage.PerformLayout();
+            UpdateIncidentTabPage.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -171,5 +196,6 @@
         private TabPage UpdateIncidentTabPage;
         private AllIncidents.UserControls.LoadAllIncidentsUserControl loadAllIncidentsUserControl;
         private TabPage DisplayAllIncidentsTabPage;
+        private TechSupport.UserControls.UpdateIncidentUserControl updateIncidentUserControl1;
     }
 }

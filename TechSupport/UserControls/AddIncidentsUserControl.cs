@@ -21,7 +21,6 @@ namespace Incidents.UserControls
 
         private List<Customer> customerList;
         private List<string> productList;
-        private List<Incident> incidentList;
 
         /// <summary>o the Incident Controller
         /// Constructor to build the form and initialize the controller
@@ -35,7 +34,6 @@ namespace Incidents.UserControls
             this._productDBController = new ProductDBController();
 
             this.customerList = new List<Customer>();
-            this.incidentList = new List<Incident>();
             this.productList = new List<string>();
 
             this.loadCustomerNames();

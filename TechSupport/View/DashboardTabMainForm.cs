@@ -42,16 +42,11 @@ namespace Incidents.View
             this.loadAllIncidentsUserControl.RefreshData();
         }
 
-
-
         private void DashboardTabMainForm_Load(object sender, EventArgs e)
         {
             this.loadOpenIncidentsUserControl.RefreshData();
             this.loadAllIncidentsUserControl.RefreshData();
         }
-
-
-
 
     }
 }

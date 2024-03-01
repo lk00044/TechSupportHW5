@@ -34,8 +34,30 @@ namespace Incidents.DAL
 
             connection.Open();
             insertCommand.ExecuteNonQuery();
-            connection.Close();                    
-            
+            connection.Close();                
+
+        }
+
+        /// <summary>
+        /// Updates the incident.
+        /// </summary>
+        /// <param name="customerID">The customer identifier.</param>
+        /// <param name="addToText">The add to text.</param>
+        public void UpdateIncident(int customerID, string addToText)
+        {
+            string updateStatement =
+               "UPDATE Incidents " +
+               "SET Description = Description + @addToText " +
+               "WHERE CustomerID = @customerID ";
+
+            SqlConnection connection = DBConnection.GetConnection();
+            SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
+
+            updateCommand.Parameters.AddWithValue("addToText", addToText);
+
+            connection.Open();
+            updateCommand.ExecuteNonQuery();
+            connection.Close();
 
         }
 
@@ -128,6 +150,61 @@ namespace Incidents.DAL
                 }
             }
             return incidentList;
+        }
+
+
+        public Incident GetCustomerIncident(int incidentID)
+        {
+           Incident incident = new Incident(); ; 
+
+            string selectStatement =
+                "SELECT i.ProductCode, i.DateOpened, i.CustomerID, " +
+                "c.Name as CustomerName, t.Name as TechName, i.Title, " +
+                "i.Description " +
+                "FROM Incidents i " +
+                "LEFT JOIN Customers c " +
+                "ON i.CustomerID = c.CustomerID " +
+                "LEFT JOIN Technicians t " +
+                "ON i.TechID = t.TechID " +
+                "WHERE i.IncidentID = @incidentID "
+                ;
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("incidentID", incidentID);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            incident.ProductCode = reader["ProductCode"].ToString();
+                            incident.DateOpened = (DateTime)reader["DateOpened"];
+                            incident.CustomerName = reader["CustomerName"].ToString();
+                            incident.CustomerID = (int)reader["CustomerID"];
+                            incident.TechName = reader["TechName"].ToString();
+                            incident.Title = reader["Title"].ToString();
+                            incident.Description = reader["Description"].ToString();
+                        }
+                    }
+                }
+            }
+
+            if (incident.CustomerID == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return incident;
+            }
+
+
+            
         }
 
     }

@@ -33,10 +33,10 @@
             DisplayAllListView = new ListView();
             ProductCodeColumnHeader = new ColumnHeader();
             DateOpenedColumnHeader = new ColumnHeader();
+            DateClosedColumnHeader = new ColumnHeader();
             CustomerColumnHeader = new ColumnHeader();
             TechnicianColumnHeader = new ColumnHeader();
             TitleColumnHeader = new ColumnHeader();
-            DateClosedColumnHeader = new ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)incidentControllerBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -65,29 +65,25 @@
             DateOpenedColumnHeader.Text = "Date Opened";
             DateOpenedColumnHeader.Width = 120;
             // 
+            // DateClosedColumnHeader
+            // 
+            DateClosedColumnHeader.Text = "Date Closed";
+            DateClosedColumnHeader.Width = 120;
+            // 
             // CustomerColumnHeader
             // 
-            CustomerColumnHeader.DisplayIndex = 2;
             CustomerColumnHeader.Text = "Customer";
             CustomerColumnHeader.Width = 200;
             // 
             // TechnicianColumnHeader
             // 
-            TechnicianColumnHeader.DisplayIndex = 3;
             TechnicianColumnHeader.Text = "Technician";
             TechnicianColumnHeader.Width = 200;
             // 
             // TitleColumnHeader
             // 
-            TitleColumnHeader.DisplayIndex = 4;
             TitleColumnHeader.Text = "Title";
             TitleColumnHeader.Width = 300;
-            // 
-            // DateClosedColumnHeader
-            // 
-            DateClosedColumnHeader.DisplayIndex = 5;
-            DateClosedColumnHeader.Text = "Date Closed";
-            DateClosedColumnHeader.Width = 120;
             // 
             // LoadAllIncidentsUserControl
             // 

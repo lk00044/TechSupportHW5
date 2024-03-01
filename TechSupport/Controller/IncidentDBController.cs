@@ -53,5 +53,28 @@ namespace DisplayDBIncidents.Controller
 
             this.IncidentSource.AddIncident(incident);
         }
-    }
+
+        /// <summary>
+        /// Updates the incident.
+        /// </summary>
+        /// <param name="customerID">The customer identifier.</param>
+        /// <param name="addToText">The add to text.</param>
+        public void UpdateIncident(int customerID, string addToText)
+        {
+            this.IncidentSource.UpdateIncident(customerID, addToText);
+        }
+
+
+        /// <summary>
+        /// Gets the customer incident.
+        /// </summary>
+        /// <param name="customerID">The customer identifier.</param>
+        /// <returns> the incident </returns>
+        public Incident GetCustomerIncident(int customerID)
+        {
+            return this.IncidentSource.GetCustomerIncident(customerID);    
+        }
+
+
+     }
 }
