@@ -48,6 +48,8 @@
             ProductTextBox = new TextBox();
             UpdateButton = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
+            ClearButton = new Button();
+            CloseIncidentButton = new Button();
             TextToAddErrorLabel = new Label();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -55,7 +57,7 @@
             // IDLabel
             // 
             IDLabel.AutoSize = true;
-            IDLabel.Location = new Point(3, 53);
+            IDLabel.Location = new Point(3, 0);
             IDLabel.Name = "IDLabel";
             IDLabel.Size = new Size(88, 20);
             IDLabel.TabIndex = 0;
@@ -63,7 +65,7 @@
             // 
             // IncidentIDTtextBox
             // 
-            IncidentIDTtextBox.Location = new Point(147, 56);
+            IncidentIDTtextBox.Location = new Point(147, 3);
             IncidentIDTtextBox.Name = "IncidentIDTtextBox";
             IncidentIDTtextBox.Size = new Size(269, 27);
             IncidentIDTtextBox.TabIndex = 1;
@@ -72,9 +74,9 @@
             // GetIncidentButton
             // 
             GetIncidentButton.FlatStyle = FlatStyle.Popup;
-            GetIncidentButton.Location = new Point(147, 3);
+            GetIncidentButton.Location = new Point(494, 3);
             GetIncidentButton.Name = "GetIncidentButton";
-            GetIncidentButton.Size = new Size(272, 29);
+            GetIncidentButton.Size = new Size(272, 42);
             GetIncidentButton.TabIndex = 2;
             GetIncidentButton.Text = "Get Incident";
             GetIncidentButton.UseVisualStyleBackColor = true;
@@ -83,7 +85,7 @@
             // CustomerTextBox
             // 
             CustomerTextBox.Enabled = false;
-            CustomerTextBox.Location = new Point(147, 138);
+            CustomerTextBox.Location = new Point(147, 118);
             CustomerTextBox.Name = "CustomerTextBox";
             CustomerTextBox.Size = new Size(269, 27);
             CustomerTextBox.TabIndex = 4;
@@ -91,7 +93,7 @@
             // CustomerLabel
             // 
             CustomerLabel.AutoSize = true;
-            CustomerLabel.Location = new Point(3, 135);
+            CustomerLabel.Location = new Point(3, 115);
             CustomerLabel.Name = "CustomerLabel";
             CustomerLabel.Size = new Size(72, 20);
             CustomerLabel.TabIndex = 3;
@@ -100,7 +102,7 @@
             // ProductLabel
             // 
             ProductLabel.AutoSize = true;
-            ProductLabel.Location = new Point(3, 277);
+            ProductLabel.Location = new Point(3, 257);
             ProductLabel.Name = "ProductLabel";
             ProductLabel.Size = new Size(63, 20);
             ProductLabel.TabIndex = 5;
@@ -109,7 +111,7 @@
             // TitleTextBox
             // 
             TitleTextBox.Enabled = false;
-            TitleTextBox.Location = new Point(147, 325);
+            TitleTextBox.Location = new Point(147, 305);
             TitleTextBox.Name = "TitleTextBox";
             TitleTextBox.Size = new Size(269, 27);
             TitleTextBox.TabIndex = 8;
@@ -117,7 +119,7 @@
             // TechnicianLabel
             // 
             TechnicianLabel.AutoSize = true;
-            TechnicianLabel.Location = new Point(3, 232);
+            TechnicianLabel.Location = new Point(3, 212);
             TechnicianLabel.Name = "TechnicianLabel";
             TechnicianLabel.Size = new Size(85, 20);
             TechnicianLabel.TabIndex = 7;
@@ -127,7 +129,7 @@
             // 
             TechnicianComboBox.Enabled = false;
             TechnicianComboBox.FormattingEnabled = true;
-            TechnicianComboBox.Location = new Point(147, 235);
+            TechnicianComboBox.Location = new Point(147, 215);
             TechnicianComboBox.Name = "TechnicianComboBox";
             TechnicianComboBox.Size = new Size(269, 28);
             TechnicianComboBox.TabIndex = 9;
@@ -135,7 +137,7 @@
             // TitleLabel
             // 
             TitleLabel.AutoSize = true;
-            TitleLabel.Location = new Point(3, 322);
+            TitleLabel.Location = new Point(3, 302);
             TitleLabel.Name = "TitleLabel";
             TitleLabel.Size = new Size(41, 20);
             TitleLabel.TabIndex = 10;
@@ -144,7 +146,7 @@
             // DateOpenedTtextBox
             // 
             DateOpenedTtextBox.Enabled = false;
-            DateOpenedTtextBox.Location = new Point(147, 187);
+            DateOpenedTtextBox.Location = new Point(147, 167);
             DateOpenedTtextBox.Name = "DateOpenedTtextBox";
             DateOpenedTtextBox.Size = new Size(269, 27);
             DateOpenedTtextBox.TabIndex = 12;
@@ -152,7 +154,7 @@
             // DateOpenedLabel
             // 
             DateOpenedLabel.AutoSize = true;
-            DateOpenedLabel.Location = new Point(3, 184);
+            DateOpenedLabel.Location = new Point(3, 164);
             DateOpenedLabel.Name = "DateOpenedLabel";
             DateOpenedLabel.Size = new Size(101, 20);
             DateOpenedLabel.TabIndex = 11;
@@ -161,7 +163,7 @@
             // DescriptionLabel
             // 
             DescriptionLabel.AutoSize = true;
-            DescriptionLabel.Location = new Point(3, 368);
+            DescriptionLabel.Location = new Point(3, 348);
             DescriptionLabel.Name = "DescriptionLabel";
             DescriptionLabel.Size = new Size(88, 20);
             DescriptionLabel.TabIndex = 13;
@@ -170,7 +172,7 @@
             // TextToAddLabel
             // 
             TextToAddLabel.AutoSize = true;
-            TextToAddLabel.Location = new Point(494, 53);
+            TextToAddLabel.Location = new Point(494, 82);
             TextToAddLabel.Name = "TextToAddLabel";
             TextToAddLabel.Size = new Size(95, 20);
             TextToAddLabel.TabIndex = 15;
@@ -179,7 +181,7 @@
             // DescriptionRichTextBox
             // 
             DescriptionRichTextBox.Enabled = false;
-            DescriptionRichTextBox.Location = new Point(147, 371);
+            DescriptionRichTextBox.Location = new Point(147, 351);
             DescriptionRichTextBox.Name = "DescriptionRichTextBox";
             tableLayoutPanel1.SetRowSpan(DescriptionRichTextBox, 4);
             DescriptionRichTextBox.Size = new Size(275, 180);
@@ -188,7 +190,7 @@
             // 
             // TextToAddRichTextBox
             // 
-            TextToAddRichTextBox.Location = new Point(494, 97);
+            TextToAddRichTextBox.Location = new Point(494, 118);
             TextToAddRichTextBox.Name = "TextToAddRichTextBox";
             tableLayoutPanel1.SetRowSpan(TextToAddRichTextBox, 4);
             TextToAddRichTextBox.Size = new Size(275, 177);
@@ -199,15 +201,15 @@
             // ErrorMessageLabel
             // 
             tableLayoutPanel1.SetColumnSpan(ErrorMessageLabel, 2);
-            ErrorMessageLabel.Location = new Point(147, 94);
+            ErrorMessageLabel.Location = new Point(147, 48);
             ErrorMessageLabel.Name = "ErrorMessageLabel";
-            ErrorMessageLabel.Size = new Size(256, 25);
+            ErrorMessageLabel.Size = new Size(256, 23);
             ErrorMessageLabel.TabIndex = 18;
             // 
             // ProductTextBox
             // 
             ProductTextBox.Enabled = false;
-            ProductTextBox.Location = new Point(147, 280);
+            ProductTextBox.Location = new Point(147, 260);
             ProductTextBox.Name = "ProductTextBox";
             ProductTextBox.Size = new Size(269, 27);
             ProductTextBox.TabIndex = 19;
@@ -215,9 +217,9 @@
             // UpdateButton
             // 
             UpdateButton.FlatStyle = FlatStyle.Popup;
-            UpdateButton.Location = new Point(494, 280);
+            UpdateButton.Location = new Point(494, 305);
             UpdateButton.Name = "UpdateButton";
-            UpdateButton.Size = new Size(273, 29);
+            UpdateButton.Size = new Size(275, 39);
             UpdateButton.TabIndex = 20;
             UpdateButton.Text = "Update Incident";
             UpdateButton.UseVisualStyleBackColor = true;
@@ -230,8 +232,6 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 66.2531052F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 304F));
-            tableLayoutPanel1.Controls.Add(IncidentIDTtextBox, 1, 1);
-            tableLayoutPanel1.Controls.Add(IDLabel, 0, 1);
             tableLayoutPanel1.Controls.Add(DescriptionLabel, 0, 8);
             tableLayoutPanel1.Controls.Add(DescriptionRichTextBox, 1, 8);
             tableLayoutPanel1.Controls.Add(TitleLabel, 0, 7);
@@ -244,37 +244,64 @@
             tableLayoutPanel1.Controls.Add(TechnicianComboBox, 1, 5);
             tableLayoutPanel1.Controls.Add(CustomerLabel, 0, 3);
             tableLayoutPanel1.Controls.Add(CustomerTextBox, 1, 3);
-            tableLayoutPanel1.Controls.Add(GetIncidentButton, 1, 0);
-            tableLayoutPanel1.Controls.Add(ErrorMessageLabel, 1, 2);
-            tableLayoutPanel1.Controls.Add(TextToAddLabel, 3, 1);
-            tableLayoutPanel1.Controls.Add(TextToAddRichTextBox, 3, 2);
-            tableLayoutPanel1.Controls.Add(UpdateButton, 3, 6);
-            tableLayoutPanel1.Controls.Add(TextToAddErrorLabel, 3, 7);
+            tableLayoutPanel1.Controls.Add(IDLabel, 0, 0);
+            tableLayoutPanel1.Controls.Add(IncidentIDTtextBox, 1, 0);
+            tableLayoutPanel1.Controls.Add(ClearButton, 3, 9);
+            tableLayoutPanel1.Controls.Add(CloseIncidentButton, 3, 8);
+            tableLayoutPanel1.Controls.Add(UpdateButton, 3, 7);
+            tableLayoutPanel1.Controls.Add(TextToAddRichTextBox, 3, 3);
+            tableLayoutPanel1.Controls.Add(TextToAddLabel, 3, 2);
+            tableLayoutPanel1.Controls.Add(GetIncidentButton, 3, 0);
+            tableLayoutPanel1.Controls.Add(ErrorMessageLabel, 1, 1);
+            tableLayoutPanel1.Controls.Add(TextToAddErrorLabel, 3, 10);
             tableLayoutPanel1.Location = new Point(24, 18);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 12;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 56.38298F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 43.61702F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 41F));
+            tableLayoutPanel1.RowCount = 13;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 58.10811F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 41.89189F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 33F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 49F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 48F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 46F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 120F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 46F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 24F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 48F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 53F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 59F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(796, 579);
             tableLayoutPanel1.TabIndex = 21;
             // 
+            // ClearButton
+            // 
+            ClearButton.Location = new Point(494, 399);
+            ClearButton.Name = "ClearButton";
+            ClearButton.Size = new Size(273, 38);
+            ClearButton.TabIndex = 23;
+            ClearButton.Text = "Clear";
+            ClearButton.UseVisualStyleBackColor = true;
+            ClearButton.Click += ClearButton_Click;
+            // 
+            // CloseIncidentButton
+            // 
+            CloseIncidentButton.Location = new Point(494, 351);
+            CloseIncidentButton.Name = "CloseIncidentButton";
+            CloseIncidentButton.Size = new Size(275, 40);
+            CloseIncidentButton.TabIndex = 22;
+            CloseIncidentButton.Text = "Close Incident";
+            CloseIncidentButton.UseVisualStyleBackColor = true;
+            CloseIncidentButton.Click += CloseIncidentButton_Click;
+            // 
             // TextToAddErrorLabel
             // 
-            TextToAddErrorLabel.Location = new Point(494, 322);
+            TextToAddErrorLabel.Location = new Point(494, 449);
             TextToAddErrorLabel.Name = "TextToAddErrorLabel";
-            tableLayoutPanel1.SetRowSpan(TextToAddErrorLabel, 2);
-            TextToAddErrorLabel.Size = new Size(273, 82);
-            TextToAddErrorLabel.TabIndex = 21;
+            tableLayoutPanel1.SetRowSpan(TextToAddErrorLabel, 3);
+            TextToAddErrorLabel.Size = new Size(272, 130);
+            TextToAddErrorLabel.TabIndex = 24;
             // 
             // UpdateIncidentUserControl
             // 
@@ -312,6 +339,8 @@
         private TextBox ProductTextBox;
         private Button UpdateButton;
         private TableLayoutPanel tableLayoutPanel1;
+        private Button CloseIncidentButton;
+        private Button ClearButton;
         private Label TextToAddErrorLabel;
     }
 }

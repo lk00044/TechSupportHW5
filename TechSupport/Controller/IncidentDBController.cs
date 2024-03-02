@@ -59,9 +59,9 @@ namespace DisplayDBIncidents.Controller
         /// </summary>
         /// <param name="customerID">The customer identifier.</param>
         /// <param name="addToText">The add to text.</param>
-        public void UpdateIncident(int customerID, string addToText)
+        public void UpdateIncident(int incidentID, string addToText, int? techID)
         {
-            this.IncidentSource.UpdateIncident(customerID, addToText);
+            this.IncidentSource.UpdateIncident(incidentID, addToText, techID);
         }
 
 

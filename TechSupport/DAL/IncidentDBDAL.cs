@@ -43,17 +43,20 @@ namespace Incidents.DAL
         /// </summary>
         /// <param name="customerID">The customer identifier.</param>
         /// <param name="addToText">The add to text.</param>
-        public void UpdateIncident(int customerID, string addToText)
+        public void UpdateIncident(int incidentID, string addToText, int? technicianID)
         {
             string updateStatement =
                "UPDATE Incidents " +
-               "SET Description = Description + @addToText " +
-               "WHERE CustomerID = @customerID ";
+               "SET Description = Description + @addToText, " +
+                    "TechID = @technicianID " +
+               "WHERE IncidentID = @incidentID ";
 
             SqlConnection connection = DBConnection.GetConnection();
             SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
 
+            updateCommand.Parameters.AddWithValue("incidentID", incidentID);
             updateCommand.Parameters.AddWithValue("addToText", addToText);
+            updateCommand.Parameters.AddWithValue("technicianID", technicianID);
 
             connection.Open();
             updateCommand.ExecuteNonQuery();
@@ -160,7 +163,7 @@ namespace Incidents.DAL
             string selectStatement =
                 "SELECT i.ProductCode, i.DateOpened, i.CustomerID, " +
                 "c.Name as CustomerName, t.Name as TechName, i.Title, " +
-                "i.Description " +
+                "i.TechID, i.Description " +
                 "FROM Incidents i " +
                 "LEFT JOIN Customers c " +
                 "ON i.CustomerID = c.CustomerID " +
@@ -188,7 +191,18 @@ namespace Incidents.DAL
                             incident.CustomerID = (int)reader["CustomerID"];
                             incident.TechName = reader["TechName"].ToString();
                             incident.Title = reader["Title"].ToString();
-                            incident.Description = reader["Description"].ToString();
+                            incident.Description = reader["Description"].ToString();  
+                            if (reader.IsDBNull(reader.GetOrdinal("TechID")))
+                            {
+                                incident.TechID = 0;
+                            }
+                            else
+                            {
+                                incident.TechID = (int)reader["TechID"];
+                            }
+                            
+                            
+                            
                         }
                     }
                 }
