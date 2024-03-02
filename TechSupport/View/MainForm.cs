@@ -3,7 +3,7 @@
 namespace Incidents.View
 {
     /// <summary>
-    /// Class for the Main Form to add or search for an incident.
+    /// Class for the Main Form to add or search for an AnIncident.
     /// </summary>
     public partial class MainForm : Form
     {

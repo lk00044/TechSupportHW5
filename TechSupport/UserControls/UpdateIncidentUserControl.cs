@@ -10,11 +10,11 @@ namespace TechSupport.UserControls
 
         private readonly IncidentDBController _incidentController;
         private readonly TechnicianDBController _technicianController;
-        private int incidentID;
-        private int? techID;
-        private string textToAdd;
-        Incident incident;
-        List<Technician> technicianList;
+        private int AnIncidentID;
+        private int? ATechID;
+        private string TextToAdd;
+        Incident AnIncident;
+        List<Technician> TechnicianList;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateIncidentUserControl"/> class.
@@ -24,11 +24,10 @@ namespace TechSupport.UserControls
             InitializeComponent();
             _incidentController = new IncidentDBController();
             _technicianController = new TechnicianDBController();
-            technicianList = new List<Technician>();
-            textToAdd = string.Empty;
-            incident = new Incident();
+            TechnicianList = new List<Technician>();
+            TextToAdd = string.Empty;
+            AnIncident = new Incident(); 
             Name = "";
-            techID = -1;
             this.TechnicianComboBox.SelectedIndex = -1;
         }
 
@@ -44,16 +43,16 @@ namespace TechSupport.UserControls
 
             try
             {
-                if (!int.TryParse(this.IncidentIDTtextBox.Text, out incidentID))
+                if (!int.TryParse(this.IncidentIDTtextBox.Text, out AnIncidentID))
                 {
                     this.ErrorMessageLabel.ForeColor = Color.Red;
                     this.ErrorMessageLabel.Text = "Incident ID must be numeric only.";
                     this.IncidentIDTtextBox.Clear();
                 }
 
-                incident = this._incidentController.GetCustomerIncident(incidentID);
+                AnIncident = this._incidentController.GetCustomerIncident(AnIncidentID);
 
-                if (incident == null)
+                if (AnIncident == null)
                 {
                     this.ErrorMessageLabel.ForeColor = Color.Red;
                     this.ErrorMessageLabel.Text = "No Incident with that ID. Please re-enter Incident ID.";
@@ -61,7 +60,7 @@ namespace TechSupport.UserControls
                 }
                 else
                 {
-                    this.LoadIncident(incident);
+                    this.LoadIncident(AnIncident);
                 }
             }
             catch (Exception ex)
@@ -73,7 +72,7 @@ namespace TechSupport.UserControls
 
         private void LoadIncident(Incident incident)
         {
-            incident = this._incidentController.GetCustomerIncident(incidentID);
+            incident = this._incidentController.GetCustomerIncident(AnIncidentID);
 
             this.TitleTextBox.Text = incident.Title;
             this.CustomerTextBox.Text = incident.CustomerName;
@@ -81,27 +80,23 @@ namespace TechSupport.UserControls
             this.DescriptionRichTextBox.Text = incident.Description;
             this.DateOpenedTtextBox.Text = incident.DateOpened.ToShortDateString();
             this.TechnicianComboBox.Text = incident.TechName;
-            this.techID = incident.TechID;
-
-            // No tech assigned - load all techs so customer can choose one.
-            if (incident.TechName == "")
-            {
-                this.TechnicianComboBox.Enabled = true;
-                this.loadTechnicians();
-            }
+            this.ATechID = incident.TechID;
+            this.TechnicianComboBox.Enabled = true;
+            this.loadTechnicians();
         }
 
         private void loadTechnicians()
         {
             try
             {
-                technicianList = this._technicianController.GetTechnicianNames();
+                TechnicianList = this._technicianController.GetTechnicianNames();
 
-                this.TechnicianComboBox.DataSource = technicianList;
+                this.TechnicianComboBox.DataSource = TechnicianList;
                 this.TechnicianComboBox.DisplayMember = "Name";
                 this.TechnicianComboBox.ValueMember = "TechID";
 
                 this.TechnicianComboBox.SelectedIndex = -1;
+
             }
             catch
             {
@@ -124,48 +119,35 @@ namespace TechSupport.UserControls
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void UpdateButton_Click(object sender, EventArgs e)
         {
-            this.textToAdd = this.TextToAddRichTextBox.Text;
+            this.TextToAdd = this.TextToAddRichTextBox.Text;
+            this.ATechID = AnIncident.TechID;
 
             if (this.TechnicianComboBox.SelectedIndex > -1)
             {
-                this.techID = Convert.ToInt32(this.TechnicianComboBox.SelectedValue);
+                this.ATechID = Convert.ToInt32(this.TechnicianComboBox.SelectedValue);
+            }
+            //else
+            //{
+            //    this.ATechID = AnIncident.TechID;
+            //}
+
+
+            if (this.TextToAdd != "" || this.TechnicianComboBox.SelectedIndex > -1)
+            {
+                this.TextToAdd = "\n" + this.TextToAddRichTextBox.Text;
+                this._incidentController.UpdateIncident(AnIncidentID, TextToAdd, this.ATechID);
+                this.TextToAddRichTextBox.Text = "";               
+                this.LoadIncident(AnIncident);
+                this.TextToAddErrorLabel.ForeColor = Color.Blue;
+                this.TextToAddErrorLabel.Text = "Updates have been made.";
             }
             else
             {
-                this.techID = -1;
-            }
-
-
-            if (this.ValidateUpdateInfo())
-            {
-                this.textToAdd = "\n" + this.TextToAddRichTextBox.Text;
-                this._incidentController.UpdateIncident(incidentID, textToAdd, this.techID);
-                this.TextToAddRichTextBox.Text = "";
-                this.TechnicianComboBox.Enabled = false;
-                this.LoadIncident(incident);
+                this.TextToAddErrorLabel.ForeColor = Color.Red;
+                this.TextToAddErrorLabel.Text = "There are no changes to be made.";
             }
         }
 
-        private Boolean ValidateUpdateInfo()
-        {
-            if (this.textToAdd == "" || this.techID == -1)
-            {
-                if (textToAdd == "")
-                {
-                    this.TextToAddErrorLabel.ForeColor = Color.Red;
-                    this.TextToAddErrorLabel.Text += "Enter information to be added to the incident description.";
-                }
-                if (this.techID == -1)
-                {
-
-                    this.TextToAddErrorLabel.ForeColor = Color.Red;
-                    this.TextToAddErrorLabel.Text += "\nPlease choose a technician.";
-                }
-                return false;
-            }
-
-            return true;
-        }
 
         private void TextToAddRichTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -183,15 +165,15 @@ namespace TechSupport.UserControls
 
         private void CloseIncidentButton_Click(object sender, EventArgs e)
         {
-            if (incident.TechName == "")
+            if (AnIncident.TechName == "")
             {
                 this.TextToAddErrorLabel.ForeColor = Color.Red;
-                this.TextToAddErrorLabel.Text = "You must first choose a technician.";
+                this.TextToAddErrorLabel.Text = "You must first choose a ATechnician.";
             } 
             else
             {
-                this._incidentController.CloseIncident(incidentID);
-                this.LoadIncident(incident);
+                this._incidentController.CloseIncident(AnIncidentID);
+                this.LoadIncident(AnIncident);
                 this.TextToAddErrorLabel.ForeColor = Color.Blue;
                 this.TextToAddErrorLabel.Text = "Incident closed.";
             }

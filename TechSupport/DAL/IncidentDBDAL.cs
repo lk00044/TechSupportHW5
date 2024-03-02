@@ -39,7 +39,7 @@ namespace Incidents.DAL
         }
 
         /// <summary>
-        /// Updates the incident.
+        /// Updates the AnIncident.
         /// </summary>
         /// <param name="customerID">The customer identifier.</param>
         /// <param name="addToText">The add to text.</param>
@@ -49,12 +49,12 @@ namespace Incidents.DAL
                "UPDATE Incidents " +
                "SET Description = Description + @addToText, " +
                     "TechID = @technicianID " +
-               "WHERE IncidentID = @incidentID ";
+               "WHERE IncidentID = @AnIncidentID ";
 
             SqlConnection connection = DBConnection.GetConnection();
             SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
 
-            updateCommand.Parameters.AddWithValue("incidentID", incidentID);
+            updateCommand.Parameters.AddWithValue("AnIncidentID", incidentID);
             updateCommand.Parameters.AddWithValue("addToText", addToText);
             updateCommand.Parameters.AddWithValue("technicianID", technicianID);
 
@@ -71,13 +71,13 @@ namespace Incidents.DAL
             string updateStatement =
                "UPDATE Incidents " +
                "SET DateClosed = @today " +
-               "WHERE IncidentID = @incidentID ";
+               "WHERE IncidentID = @AnIncidentID ";
 
             SqlConnection connection = DBConnection.GetConnection();
             SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
 
             updateCommand.Parameters.AddWithValue("today", today);
-            updateCommand.Parameters.AddWithValue("incidentID", incidentID);
+            updateCommand.Parameters.AddWithValue("AnIncidentID", incidentID);
 
             connection.Open();
             updateCommand.ExecuteNonQuery();
@@ -190,7 +190,7 @@ namespace Incidents.DAL
                 "ON i.CustomerID = c.CustomerID " +
                 "LEFT JOIN Technicians t " +
                 "ON i.TechID = t.TechID " +
-                "WHERE i.IncidentID = @incidentID "
+                "WHERE i.IncidentID = @AnIncidentID "
                 ;
 
             using (SqlConnection connection = DBConnection.GetConnection())
@@ -199,7 +199,7 @@ namespace Incidents.DAL
 
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
-                    selectCommand.Parameters.AddWithValue("incidentID", incidentID);
+                    selectCommand.Parameters.AddWithValue("AnIncidentID", incidentID);
 
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {

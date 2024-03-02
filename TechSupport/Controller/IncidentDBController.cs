@@ -42,9 +42,9 @@ namespace DisplayDBIncidents.Controller
         }
 
         /// <summary>
-        /// Add an incident to the internal structure 
+        /// Add an AnIncident to the internal structure 
         /// </summary>
-        /// <param UserName="incident"></param>
+        /// <param UserName="AnIncident"></param>
         /// <exception cref="ArgumentNullException"></exception>
         public void AddIncident(Incident incident)
         {
@@ -55,7 +55,7 @@ namespace DisplayDBIncidents.Controller
         }
 
         /// <summary>
-        /// Updates the incident.
+        /// Updates the AnIncident.
         /// </summary>
         /// <param name="customerID">The customer identifier.</param>
         /// <param name="addToText">The add to text.</param>
@@ -66,10 +66,10 @@ namespace DisplayDBIncidents.Controller
 
 
         /// <summary>
-        /// Gets the customer incident.
+        /// Gets the customer AnIncident.
         /// </summary>
         /// <param name="customerID">The customer identifier.</param>
-        /// <returns> the incident </returns>
+        /// <returns> the AnIncident </returns>
         public Incident GetCustomerIncident(int customerID)
         {
             return this.IncidentSource.GetCustomerIncident(customerID);

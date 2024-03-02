@@ -68,10 +68,10 @@
             // DisplayOpenIncidentsTabPage
             // 
             DisplayOpenIncidentsTabPage.Controls.Add(loadOpenIncidentsUserControl);
-            DisplayOpenIncidentsTabPage.Location = new Point(4, 34);
+            DisplayOpenIncidentsTabPage.Location = new Point(4, 29);
             DisplayOpenIncidentsTabPage.Name = "DisplayOpenIncidentsTabPage";
             DisplayOpenIncidentsTabPage.Padding = new Padding(3);
-            DisplayOpenIncidentsTabPage.Size = new Size(971, 624);
+            DisplayOpenIncidentsTabPage.Size = new Size(192, 67);
             DisplayOpenIncidentsTabPage.TabIndex = 4;
             DisplayOpenIncidentsTabPage.Text = "Display Open Incidents";
             DisplayOpenIncidentsTabPage.UseVisualStyleBackColor = true;
@@ -124,11 +124,11 @@
             // AddIncidentTabPage
             // 
             AddIncidentTabPage.Controls.Add(addIncidentsUserControl1);
-            AddIncidentTabPage.Location = new Point(4, 34);
+            AddIncidentTabPage.Location = new Point(4, 29);
             AddIncidentTabPage.Margin = new Padding(3, 4, 3, 4);
             AddIncidentTabPage.Name = "AddIncidentTabPage";
             AddIncidentTabPage.Padding = new Padding(3, 4, 3, 4);
-            AddIncidentTabPage.Size = new Size(971, 624);
+            AddIncidentTabPage.Size = new Size(192, 67);
             AddIncidentTabPage.TabIndex = 1;
             AddIncidentTabPage.Text = "Add Incident";
             AddIncidentTabPage.UseVisualStyleBackColor = true;
@@ -140,16 +140,16 @@
             addIncidentsUserControl1.Location = new Point(3, 4);
             addIncidentsUserControl1.Margin = new Padding(2, 4, 2, 4);
             addIncidentsUserControl1.Name = "addIncidentsUserControl1";
-            addIncidentsUserControl1.Size = new Size(965, 616);
+            addIncidentsUserControl1.Size = new Size(186, 59);
             addIncidentsUserControl1.TabIndex = 1;
             // 
             // UpdateIncidentTabPage
             // 
             UpdateIncidentTabPage.Controls.Add(updateIncidentUserControl1);
-            UpdateIncidentTabPage.Location = new Point(4, 29);
+            UpdateIncidentTabPage.Location = new Point(4, 34);
             UpdateIncidentTabPage.Name = "UpdateIncidentTabPage";
             UpdateIncidentTabPage.Padding = new Padding(3);
-            UpdateIncidentTabPage.Size = new Size(192, 67);
+            UpdateIncidentTabPage.Size = new Size(971, 624);
             UpdateIncidentTabPage.TabIndex = 6;
             UpdateIncidentTabPage.Text = "Update Incident";
             UpdateIncidentTabPage.UseVisualStyleBackColor = true;
@@ -159,7 +159,7 @@
             updateIncidentUserControl1.Dock = DockStyle.Fill;
             updateIncidentUserControl1.Location = new Point(3, 3);
             updateIncidentUserControl1.Name = "updateIncidentUserControl1";
-            updateIncidentUserControl1.Size = new Size(186, 61);
+            updateIncidentUserControl1.Size = new Size(965, 618);
             updateIncidentUserControl1.TabIndex = 0;
             // 
             // DashboardTabMainForm

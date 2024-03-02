@@ -39,9 +39,9 @@ namespace Incidents.Controller
         }
 
         /// <summary>
-        /// Add an incident to the internal structure 
+        /// Add an AnIncident to the internal structure 
         /// </summary>
-        /// <param UserName="incident"></param>
+        /// <param UserName="AnIncident"></param>
         /// <exception cref="ArgumentNullException"></exception>
         public void AddIncident(Incident incident)
         {

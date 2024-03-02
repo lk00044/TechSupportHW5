@@ -35,9 +35,9 @@ namespace Incidents.Model
         /// <summary>
         /// Constructor to create the Incident object
         /// </summary>
-        /// <param UserName="Title"></param>            The Title of the incident
-        /// <param UserName="Description"></param>      The Description of the incident
-        /// <param CustomerID="CustomerID"></param> The customer id of the incident
+        /// <param UserName="Title"></param>            The Title of the AnIncident
+        /// <param UserName="Description"></param>      The Description of the AnIncident
+        /// <param CustomerID="CustomerID"></param> The customer id of the AnIncident
         /// <exception cref="ArgumentNullException"></exception>
         public Incident(string Title, string Description, string prodCode, int CustomerID)
         {

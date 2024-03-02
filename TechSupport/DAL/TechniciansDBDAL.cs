@@ -45,7 +45,7 @@ namespace Technicians.DAL
         }
 
         /// <summary>
-        /// Gets the technician names.
+        /// Gets the ATechnician names.
         /// </summary>
         /// <returns></returns>
         public List<Technician> GetTechnicianNames()
@@ -81,7 +81,7 @@ namespace Technicians.DAL
 
 
         /// <summary>
-        /// Gets the technician.
+        /// Gets the ATechnician.
         /// </summary>
         /// <param name="techID">The tech identifier.</param>
         /// <returns>Technician with that tech ID </returns>

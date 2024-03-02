@@ -22,7 +22,7 @@ namespace TechSupport.Controller
         }
 
         /// <summary>
-        /// Gets the technician.
+        /// Gets the ATechnician.
         /// </summary>
         /// <returns></returns>
         public Technician GetTechnician(int techID)
@@ -31,7 +31,7 @@ namespace TechSupport.Controller
         }
 
         /// <summary>
-        /// Gets the technician names.
+        /// Gets the ATechnician names.
         /// </summary>
         /// <returns></returns>
         public List<Technician> GetTechnicianNames()
