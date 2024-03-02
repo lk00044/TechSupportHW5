@@ -1,5 +1,4 @@
-﻿using AllIncidents.UserControls;
-using DisplayDBIncidents.Controller;
+﻿using DisplayDBIncidents.Controller;
 using Incidents.Model;
 using Technicians.Model;
 using TechSupport.Controller;
@@ -14,10 +13,8 @@ namespace TechSupport.UserControls
         private int incidentID;
         private int? techID;
         private string textToAdd;
-        private string Name;
         Incident incident;
         List<Technician> technicianList;
-        Technician technician;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateIncidentUserControl"/> class.
@@ -30,7 +27,6 @@ namespace TechSupport.UserControls
             technicianList = new List<Technician>();
             textToAdd = string.Empty;
             incident = new Incident();
-            technician = new Technician();
             Name = "";
             techID = -1;
             this.TechnicianComboBox.SelectedIndex = -1;
@@ -59,7 +55,8 @@ namespace TechSupport.UserControls
 
                 if (incident == null)
                 {
-                    MessageBox.Show("No Incident with that ID. Please re-enter Incident ID.");
+                    this.ErrorMessageLabel.ForeColor = Color.Red;
+                    this.ErrorMessageLabel.Text = "No Incident with that ID. Please re-enter Incident ID.";
                     this.IncidentIDTtextBox.Clear();
                 }
                 else
@@ -103,6 +100,8 @@ namespace TechSupport.UserControls
                 this.TechnicianComboBox.DataSource = technicianList;
                 this.TechnicianComboBox.DisplayMember = "Name";
                 this.TechnicianComboBox.ValueMember = "TechID";
+
+                this.TechnicianComboBox.SelectedIndex = -1;
             }
             catch
             {
@@ -126,12 +125,16 @@ namespace TechSupport.UserControls
         public void UpdateButton_Click(object sender, EventArgs e)
         {
             this.textToAdd = this.TextToAddRichTextBox.Text;
-          
+
             if (this.TechnicianComboBox.SelectedIndex > -1)
             {
                 this.techID = Convert.ToInt32(this.TechnicianComboBox.SelectedValue);
             }
-            
+            else
+            {
+                this.techID = -1;
+            }
+
 
             if (this.ValidateUpdateInfo())
             {
@@ -176,12 +179,22 @@ namespace TechSupport.UserControls
             this.ProductTextBox.Clear();
             this.DescriptionRichTextBox.Clear();
             this.DateOpenedTtextBox.Clear();
-            //  this.TechnicianComboBox.Items.Clear();
         }
 
         private void CloseIncidentButton_Click(object sender, EventArgs e)
         {
-
+            if (incident.TechName == "")
+            {
+                this.TextToAddErrorLabel.ForeColor = Color.Red;
+                this.TextToAddErrorLabel.Text = "You must first choose a technician.";
+            } 
+            else
+            {
+                this._incidentController.CloseIncident(incidentID);
+                this.LoadIncident(incident);
+                this.TextToAddErrorLabel.ForeColor = Color.Blue;
+                this.TextToAddErrorLabel.Text = "Incident closed.";
+            }
         }
 
     }

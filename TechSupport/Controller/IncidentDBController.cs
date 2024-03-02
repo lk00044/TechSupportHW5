@@ -72,9 +72,13 @@ namespace DisplayDBIncidents.Controller
         /// <returns> the incident </returns>
         public Incident GetCustomerIncident(int customerID)
         {
-            return this.IncidentSource.GetCustomerIncident(customerID);    
+            return this.IncidentSource.GetCustomerIncident(customerID);
         }
 
+        public void CloseIncident(int incidentID)
+        {
+            this.IncidentSource.CloseIncident(incidentID);
+        }
 
-     }
+    }
 }

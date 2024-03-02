@@ -64,6 +64,27 @@ namespace Incidents.DAL
 
         }
 
+        public void CloseIncident(int incidentID)
+        {
+            DateTime today = DateTime.Now;
+
+            string updateStatement =
+               "UPDATE Incidents " +
+               "SET DateClosed = @today " +
+               "WHERE IncidentID = @incidentID ";
+
+            SqlConnection connection = DBConnection.GetConnection();
+            SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
+
+            updateCommand.Parameters.AddWithValue("today", today);
+            updateCommand.Parameters.AddWithValue("incidentID", incidentID);
+
+            connection.Open();
+            updateCommand.ExecuteNonQuery();
+            connection.Close();
+
+        }
+
         /// <summary>
         /// Get the list of incidents 
         /// </summary>
