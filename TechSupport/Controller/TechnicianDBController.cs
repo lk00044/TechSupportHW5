@@ -9,7 +9,7 @@ namespace TechSupport.Controller
         private TechniciansDBDAL TechnicianSource;
         public TechnicianDBController()
         {
-            this.TechnicianSource = new TechniciansDBDAL(); 
+            this.TechnicianSource = new TechniciansDBDAL();
         }
 
         /// <summary>
@@ -28,6 +28,15 @@ namespace TechSupport.Controller
         public Technician GetTechnician(int techID)
         {
             return this.TechnicianSource.GetTechnician(techID);
+        }
+
+        /// <summary>
+        /// Gets the technician names.
+        /// </summary>
+        /// <returns></returns>
+        public List<Technician> GetTechnicianNames()
+        {
+            return this.TechnicianSource.GetTechnicianNames();
         }
     }
 }

@@ -48,6 +48,7 @@
             ProductTextBox = new TextBox();
             UpdateButton = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
+            TextToAddErrorLabel = new Label();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -66,9 +67,11 @@
             IncidentIDTtextBox.Name = "IncidentIDTtextBox";
             IncidentIDTtextBox.Size = new Size(269, 27);
             IncidentIDTtextBox.TabIndex = 1;
+            IncidentIDTtextBox.TextChanged += IncidentIDTtextBox_TextChanged;
             // 
             // GetIncidentButton
             // 
+            GetIncidentButton.FlatStyle = FlatStyle.Popup;
             GetIncidentButton.Location = new Point(147, 3);
             GetIncidentButton.Name = "GetIncidentButton";
             GetIncidentButton.Size = new Size(272, 29);
@@ -191,6 +194,7 @@
             TextToAddRichTextBox.Size = new Size(275, 177);
             TextToAddRichTextBox.TabIndex = 17;
             TextToAddRichTextBox.Text = "";
+            TextToAddRichTextBox.TextChanged += TextToAddRichTextBox_TextChanged;
             // 
             // ErrorMessageLabel
             // 
@@ -210,12 +214,14 @@
             // 
             // UpdateButton
             // 
+            UpdateButton.FlatStyle = FlatStyle.Popup;
             UpdateButton.Location = new Point(494, 280);
             UpdateButton.Name = "UpdateButton";
             UpdateButton.Size = new Size(273, 29);
             UpdateButton.TabIndex = 20;
             UpdateButton.Text = "Update Incident";
             UpdateButton.UseVisualStyleBackColor = true;
+            UpdateButton.Click += UpdateButton_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -243,9 +249,10 @@
             tableLayoutPanel1.Controls.Add(TextToAddLabel, 3, 1);
             tableLayoutPanel1.Controls.Add(TextToAddRichTextBox, 3, 2);
             tableLayoutPanel1.Controls.Add(UpdateButton, 3, 6);
+            tableLayoutPanel1.Controls.Add(TextToAddErrorLabel, 3, 7);
             tableLayoutPanel1.Location = new Point(24, 18);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 11;
+            tableLayoutPanel1.RowCount = 12;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 56.38298F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 43.61702F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 41F));
@@ -260,6 +267,14 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(796, 579);
             tableLayoutPanel1.TabIndex = 21;
+            // 
+            // TextToAddErrorLabel
+            // 
+            TextToAddErrorLabel.Location = new Point(494, 322);
+            TextToAddErrorLabel.Name = "TextToAddErrorLabel";
+            tableLayoutPanel1.SetRowSpan(TextToAddErrorLabel, 2);
+            TextToAddErrorLabel.Size = new Size(273, 82);
+            TextToAddErrorLabel.TabIndex = 21;
             // 
             // UpdateIncidentUserControl
             // 
@@ -297,5 +312,6 @@
         private TextBox ProductTextBox;
         private Button UpdateButton;
         private TableLayoutPanel tableLayoutPanel1;
+        private Label TextToAddErrorLabel;
     }
 }
