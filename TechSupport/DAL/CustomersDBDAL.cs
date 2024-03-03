@@ -52,6 +52,37 @@ namespace Customers.DAL
             return customerList;
         }
 
+        public List<Customer> GetCustomerNames()
+        {
+            List<Customer> customerList = new List<Customer>();
+
+            string selectStatement =
+                "SELECT CustomerID, Name " +
+                "FROM Customers "
+                ;
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Customer customer = new Customer();
+                            customer.CustomerID = (int)reader["CustomerID"];
+                            customer.Name = reader["Name"].ToString();
+
+                            customerList.Add(customer);
+                        }
+                    }
+                }
+            }
+            return customerList;
+        }
+
         /// <summary>
         /// Gets the customer based on the customer name.
         /// </summary>

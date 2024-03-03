@@ -26,12 +26,21 @@ namespace TechSupport.Controller
             return this.ProductSource.GetProducts();
         }
 
-        public List<string> GetProductNames()
+        /// <summary>
+        /// Gets the product names.
+        /// </summary>
+        /// <returns></returns>
+        public List<Product> GetProductNames()
         {
             return this.ProductSource.GetProductNames();
 
         }
 
+        /// <summary>
+        /// Gets the product code.
+        /// </summary>
+        /// <param name="prodName">Name of the product.</param>
+        /// <returns></returns>
         public string GetProductCode(string prodName)
         {
             return this.ProductSource.GetProductCode(prodName);

@@ -40,17 +40,21 @@ namespace Products.DAL
             return productList;
         }
 
+
+
+
+
         /// <summary>
         /// Gets the product names.
         /// </summary>
         /// <returns></returns>
-        public List<string> GetProductNames()
+        public List<Product> GetProductNames()
         {
 
-            List<string> names = new List<string>();
+            List<Product> names = new List<Product>();
 
             string selectStatement =
-                "SELECT Name " +
+                "SELECT Name, ProductCode " +
                 "FROM Products "
                 ;
 
@@ -62,11 +66,14 @@ namespace Products.DAL
                 {
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
+
                         while (reader.Read())
                         {
-                            string ProductName = reader["Name"].ToString();
+                            Product product = new Product();
+                            product.ProductName = reader["Name"].ToString();
+                            product.ProductCode = reader["ProductCode"].ToString();
 
-                            names.Add(ProductName);
+                            names.Add(product);
                         }
                     }
                 }

@@ -20,7 +20,10 @@ namespace Incidents.UserControls
         private ProductDBController _productDBController;
 
         private List<Customer> customerList;
-        private List<string> productList;
+        private List<Product> productList;
+
+        private Product product;
+        private Customer customer;
 
         /// <summary>o the Incident Controller
         /// Constructor to build the form and initialize the controller
@@ -34,35 +37,36 @@ namespace Incidents.UserControls
             this._productDBController = new ProductDBController();
 
             this.customerList = new List<Customer>();
-            this.productList = new List<string>();
+            this.productList = new List<Product>();
 
-            this.loadCustomerNames();
-            this.loadProductNames();
+            this.customer = new Customer();
+            this.product = new Product();
+
+            this.LoadCustomersAndProducts();
         }
 
-        /// <summary>
-        /// Loads the customer names.
-        /// </summary>
-        public void loadCustomerNames()
+
+        private void LoadCustomersAndProducts()
         {
-            this.customerList = this._customerController.GetCustomers();
-            foreach (Customer customer in this.customerList)
+            try
             {
-                CustomerNameComboBox.Items.Add(customer.Name);
+
+                this.customerList = this._customerController.GetCustomerNames();
+                this.CustomerNameComboBox.DataSource = this.customerList;
+                this.CustomerNameComboBox.DisplayMember = "Name";
+                this.CustomerNameComboBox.ValueMember = "CustomerID";
+
+                this.productList = this._productDBController.GetProductNames();
+                this.ProductComboBox.DataSource = this.productList;
+                this.ProductComboBox.DisplayMember = "ProductName";
+                this.ProductComboBox.ValueMember= "ProductCode";
+
+            }
+            catch
+            {
             }
         }
 
-        /// <summary>
-        /// Loads the product names.
-        /// </summary>
-        public void loadProductNames()
-        {
-            this.productList = this._productDBController.GetProductNames();
-            foreach (string productName in this.productList)
-            {
-               ProductComboBox.Items.Add(productName);
-            }
-        }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
@@ -70,11 +74,9 @@ namespace Incidents.UserControls
             {
                 string title = this.TitleTextBox.Text;
                 string description = this.DescriptionRichTextBox.Text;
-                string prodName = this.ProductComboBox.GetItemText(this.ProductComboBox.SelectedItem);
-                string cusName = this.CustomerNameComboBox.GetItemText(this.CustomerNameComboBox.SelectedItem);
-
-                string productCode = this._productDBController.GetProductCode(prodName);
-                int customerID = this._customerController.GetCustomerID(cusName);
+               
+                string productCode = this.ProductComboBox.SelectedValue.ToString();
+                int customerID = Convert.ToInt32(this.CustomerNameComboBox.SelectedValue);
 
                 if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(description))
                 {

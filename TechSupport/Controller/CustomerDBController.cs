@@ -28,6 +28,15 @@ namespace TechSupport.Controller
         }
 
         /// <summary>
+        /// Gets the customer names.
+        /// </summary>
+        /// <returns>list of customers with names and customer ID </returns>
+        public List<Customer> GetCustomerNames()
+        {
+            return this.CustomerSource.GetCustomers();
+        }
+
+        /// <summary>
         /// Gets the customer.
         /// </summary>
         /// <param name="customerID">The customer identifier.</param>
