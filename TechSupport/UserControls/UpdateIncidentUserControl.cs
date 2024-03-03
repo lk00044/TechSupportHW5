@@ -40,6 +40,8 @@ namespace TechSupport.UserControls
         {
             this.ErrorMessageLabel.ForeColor = Color.Black;
             this.ErrorMessageLabel.Text = "";
+            this.CurrentTechLabel.Text = "";
+            this.ResultErrorLabel.Text = "";
 
             try
             {
@@ -50,9 +52,9 @@ namespace TechSupport.UserControls
                     this.IncidentIDTtextBox.Clear();
                 }
 
-                AnIncident = this._incidentController.GetCustomerIncident(AnIncidentID);
+                this.AnIncident = this._incidentController.GetCustomerIncident(AnIncidentID);
 
-                if (AnIncident == null)
+                if (this.AnIncident == null)
                 {
                     this.ErrorMessageLabel.ForeColor = Color.Red;
                     this.ErrorMessageLabel.Text = "No Incident with that ID. Please re-enter Incident ID.";
@@ -60,7 +62,10 @@ namespace TechSupport.UserControls
                 }
                 else
                 {
-                    this.LoadIncident(AnIncident);
+                    this.LoadIncident(this.AnIncident);
+                    this.TextToAddRichTextBox.Enabled = true;
+                    this.CloseIncidentButton.Enabled = true;
+                    this.UpdateButton.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -79,7 +84,6 @@ namespace TechSupport.UserControls
             this.ProductTextBox.Text = incident.ProductCode;
             this.DescriptionRichTextBox.Text = incident.Description;
             this.DateOpenedTtextBox.Text = incident.DateOpened.ToShortDateString();
-        //    this.TechnicianComboBox.Text = incident.TechName;
             this.ATechID = incident.TechID;
             this.TechnicianComboBox.Enabled = true;
 
@@ -87,10 +91,10 @@ namespace TechSupport.UserControls
             {
                 this.CurrentTechLabel.Text = "Current Technician: " + incident.TechName;
             }
-            this.loadTechnicians();
+            this.LoadTechnicians();
         }
 
-        private void loadTechnicians()
+        private void LoadTechnicians()
         {
             try
             {
@@ -124,6 +128,11 @@ namespace TechSupport.UserControls
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void UpdateButton_Click(object sender, EventArgs e)
         {
+            this.UpdateIncident();
+        }
+
+        private void UpdateIncident()
+        {
             this.TextToAdd = this.TextToAddRichTextBox.Text;
             this.ATechID = AnIncident.TechID;
 
@@ -131,32 +140,56 @@ namespace TechSupport.UserControls
             {
                 this.ATechID = Convert.ToInt32(this.TechnicianComboBox.SelectedValue);
             }
-            //else
-            //{
-            //    this.ATechID = AnIncident.TechID;
-            //}
 
+            if (this.AnIncident.Description.Length > 200) {
+                this.ResultErrorLabel.ForeColor = Color.Red;
+                this.ResultErrorLabel.Text = "The description is already 200 characters and cannot be updates.";
+                this.TextToAdd = "";
+            }
+
+            if (this.TextToAdd != "")
+            {
+                this.TextToAdd = "\n<" + DateTime.Now.ToShortDateString() + "> " + this.TextToAddRichTextBox.Text;
+            }
 
             if (this.TextToAdd != "" || this.TechnicianComboBox.SelectedIndex > -1)
-            {
-                this.TextToAdd = "\n" + this.TextToAddRichTextBox.Text;
-                this._incidentController.UpdateIncident(AnIncidentID, TextToAdd, this.ATechID);
-                this.TextToAddRichTextBox.Text = "";               
-                this.LoadIncident(AnIncident);
-                this.TextToAddErrorLabel.ForeColor = Color.Blue;
-                this.TextToAddErrorLabel.Text = "Updates have been made.";
+            {                    
+                if (this.TextToAdd.Length > 200)
+                {
+                   if( MessageBox.Show("The description will be truncated to the first 200 characters. \n" +
+                        "Do you want to update your text to 200 or less? ", "Description Warning", MessageBoxButtons.YesNo)
+                        == DialogResult.No)
+                    {
+                        this.TextToAdd = this.TextToAdd[0..200];
+                        this._incidentController.UpdateIncident(AnIncidentID, TextToAdd, this.ATechID);
+                        this.TextToAddRichTextBox.Text = "";
+                        this.LoadIncident(AnIncident);
+                        this.ResultErrorLabel.ForeColor = Color.Blue;
+                        this.ResultErrorLabel.Text = "Updates have been made.";
+                    }
+
+                } 
+                else
+                {
+                    this._incidentController.UpdateIncident(AnIncidentID, TextToAdd, this.ATechID);
+                    this.TextToAddRichTextBox.Text = "";
+                    this.LoadIncident(AnIncident);
+                    this.ResultErrorLabel.ForeColor = Color.Blue;
+                    this.ResultErrorLabel.Text = "Updates have been made.";
+                }
+               
             }
             else
             {
-                this.TextToAddErrorLabel.ForeColor = Color.Red;
-                this.TextToAddErrorLabel.Text = "There are no changes to be made.";
+                this.ResultErrorLabel.ForeColor = Color.Red;
+                this.ResultErrorLabel.Text = "There are no changes to be made.";
             }
         }
 
 
         private void TextToAddRichTextBox_TextChanged(object sender, EventArgs e)
         {
-            this.TextToAddErrorLabel.Text = "";
+            this.ResultErrorLabel.Text = "";
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
@@ -172,15 +205,21 @@ namespace TechSupport.UserControls
         {
             if (AnIncident.TechName == "")
             {
-                this.TextToAddErrorLabel.ForeColor = Color.Red;
-                this.TextToAddErrorLabel.Text = "You must first choose a ATechnician.";
+                this.ResultErrorLabel.ForeColor = Color.Red;
+                this.ResultErrorLabel.Text = "You must first choose a ATechnician.";
             } 
             else
             {
+                this.TextToAdd = this.TextToAddRichTextBox.Text;
+                
+                if (!string.IsNullOrEmpty(this.TextToAdd) || this.TechnicianComboBox.SelectedIndex > -1){
+                    this.UpdateIncident();
+                }                        
+
                 this._incidentController.CloseIncident(AnIncidentID);
                 this.LoadIncident(AnIncident);
-                this.TextToAddErrorLabel.ForeColor = Color.Blue;
-                this.TextToAddErrorLabel.Text = "Incident closed.";
+                this.ResultErrorLabel.ForeColor = Color.Blue;
+                this.ResultErrorLabel.Text = "Incident closed.";
             }
         }
 

@@ -50,7 +50,7 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             ClearButton = new Button();
             CloseIncidentButton = new Button();
-            TextToAddErrorLabel = new Label();
+            ResultErrorLabel = new Label();
             CurrentTechLabel = new Label();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -191,6 +191,7 @@
             // 
             // TextToAddRichTextBox
             // 
+            TextToAddRichTextBox.Enabled = false;
             TextToAddRichTextBox.Location = new Point(494, 118);
             TextToAddRichTextBox.Name = "TextToAddRichTextBox";
             tableLayoutPanel1.SetRowSpan(TextToAddRichTextBox, 4);
@@ -248,7 +249,7 @@
             tableLayoutPanel1.Controls.Add(TextToAddLabel, 3, 2);
             tableLayoutPanel1.Controls.Add(GetIncidentButton, 3, 0);
             tableLayoutPanel1.Controls.Add(ErrorMessageLabel, 1, 1);
-            tableLayoutPanel1.Controls.Add(TextToAddErrorLabel, 3, 10);
+            tableLayoutPanel1.Controls.Add(ResultErrorLabel, 3, 10);
             tableLayoutPanel1.Controls.Add(DescriptionLabel, 0, 9);
             tableLayoutPanel1.Controls.Add(DescriptionRichTextBox, 1, 9);
             tableLayoutPanel1.Controls.Add(TitleLabel, 0, 8);
@@ -279,6 +280,7 @@
             // 
             // ClearButton
             // 
+            ClearButton.FlatStyle = FlatStyle.Popup;
             ClearButton.Location = new Point(494, 399);
             ClearButton.Name = "ClearButton";
             ClearButton.Size = new Size(273, 38);
@@ -289,6 +291,8 @@
             // 
             // CloseIncidentButton
             // 
+            CloseIncidentButton.Enabled = false;
+            CloseIncidentButton.FlatStyle = FlatStyle.Popup;
             CloseIncidentButton.Location = new Point(494, 351);
             CloseIncidentButton.Name = "CloseIncidentButton";
             CloseIncidentButton.Size = new Size(275, 40);
@@ -297,13 +301,13 @@
             CloseIncidentButton.UseVisualStyleBackColor = true;
             CloseIncidentButton.Click += CloseIncidentButton_Click;
             // 
-            // TextToAddErrorLabel
+            // ResultErrorLabel
             // 
-            TextToAddErrorLabel.Location = new Point(494, 449);
-            TextToAddErrorLabel.Name = "TextToAddErrorLabel";
-            tableLayoutPanel1.SetRowSpan(TextToAddErrorLabel, 3);
-            TextToAddErrorLabel.Size = new Size(272, 130);
-            TextToAddErrorLabel.TabIndex = 24;
+            ResultErrorLabel.Location = new Point(494, 449);
+            ResultErrorLabel.Name = "ResultErrorLabel";
+            tableLayoutPanel1.SetRowSpan(ResultErrorLabel, 3);
+            ResultErrorLabel.Size = new Size(272, 130);
+            ResultErrorLabel.TabIndex = 24;
             // 
             // CurrentTechLabel
             // 
@@ -350,7 +354,7 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Button CloseIncidentButton;
         private Button ClearButton;
-        private Label TextToAddErrorLabel;
+        private Label ResultErrorLabel;
         private Label CurrentTechLabel;
     }
 }
