@@ -181,9 +181,9 @@
             // 
             // DescriptionRichTextBox
             // 
-            DescriptionRichTextBox.Enabled = false;
             DescriptionRichTextBox.Location = new Point(147, 399);
             DescriptionRichTextBox.Name = "DescriptionRichTextBox";
+            DescriptionRichTextBox.ReadOnly = true;
             tableLayoutPanel1.SetRowSpan(DescriptionRichTextBox, 4);
             DescriptionRichTextBox.Size = new Size(275, 177);
             DescriptionRichTextBox.TabIndex = 16;
@@ -198,7 +198,6 @@
             TextToAddRichTextBox.Size = new Size(275, 177);
             TextToAddRichTextBox.TabIndex = 17;
             TextToAddRichTextBox.Text = "";
-            TextToAddRichTextBox.TextChanged += TextToAddRichTextBox_TextChanged;
             // 
             // ErrorMessageLabel
             // 
