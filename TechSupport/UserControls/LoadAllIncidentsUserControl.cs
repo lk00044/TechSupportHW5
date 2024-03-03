@@ -25,7 +25,7 @@ namespace AllIncidents.UserControls
 
             try
             {
-                incidentList = this._incidentController.GetOpenIncidents();
+                incidentList = this._incidentController.GetAllIncidents();
 
                 if (incidentList.Count > 0)
                 {

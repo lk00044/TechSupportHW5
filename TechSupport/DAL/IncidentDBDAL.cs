@@ -117,7 +117,15 @@ namespace Incidents.DAL
                             Incident incident = new Incident();
                             incident.ProductCode = reader["ProductCode"].ToString();
                             incident.DateOpened = (DateTime)reader["DateOpened"];
-                            incident.DateClosed = (DateTime)reader["DateClosed"];
+
+                            if (reader.IsDBNull(reader.GetOrdinal("DateClosed"))) {
+                                incident.DateClosed = null;
+                            }
+                            else
+                            {
+                                incident.DateClosed = (DateTime?)reader["DateClosed"];
+                            }
+                            
                             incident.CustomerName = reader["CustomerName"].ToString();
                             incident.TechName = reader["TechName"].ToString();
                             incident.Title = reader["Title"].ToString();
@@ -182,7 +190,7 @@ namespace Incidents.DAL
            Incident incident = new Incident(); ; 
 
             string selectStatement =
-                "SELECT i.ProductCode, i.DateOpened, i.CustomerID, " +
+                "SELECT i.ProductCode, i.DateOpened, i.DateClosed, i.CustomerID, " +
                 "c.Name as CustomerName, t.Name as TechName, i.Title, " +
                 "i.TechID, i.Description " +
                 "FROM Incidents i " +
@@ -208,6 +216,16 @@ namespace Incidents.DAL
                         {
                             incident.ProductCode = reader["ProductCode"].ToString();
                             incident.DateOpened = (DateTime)reader["DateOpened"];
+
+                            if (reader.IsDBNull(reader.GetOrdinal("DateClosed")))
+                            {
+                                incident.DateClosed = null;
+                            }
+                            else
+                            {
+                                incident.DateClosed = (DateTime?)reader["DateClosed"];
+                            }
+
                             incident.CustomerName = reader["CustomerName"].ToString();
                             incident.CustomerID = (int)reader["CustomerID"];
                             incident.TechName = reader["TechName"].ToString();

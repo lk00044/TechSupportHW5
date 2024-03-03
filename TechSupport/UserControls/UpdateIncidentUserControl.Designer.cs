@@ -88,6 +88,7 @@
             CustomerTextBox.Enabled = false;
             CustomerTextBox.Location = new Point(147, 118);
             CustomerTextBox.Name = "CustomerTextBox";
+            CustomerTextBox.ReadOnly = true;
             CustomerTextBox.Size = new Size(269, 27);
             CustomerTextBox.TabIndex = 4;
             // 
@@ -114,6 +115,7 @@
             TitleTextBox.Enabled = false;
             TitleTextBox.Location = new Point(147, 351);
             TitleTextBox.Name = "TitleTextBox";
+            TitleTextBox.ReadOnly = true;
             TitleTextBox.Size = new Size(269, 27);
             TitleTextBox.TabIndex = 8;
             // 
@@ -134,6 +136,7 @@
             TechnicianComboBox.Name = "TechnicianComboBox";
             TechnicianComboBox.Size = new Size(269, 28);
             TechnicianComboBox.TabIndex = 9;
+            TechnicianComboBox.Click += TechnicianComboBox_Click;
             // 
             // TitleLabel
             // 
@@ -149,6 +152,7 @@
             DateOpenedTtextBox.Enabled = false;
             DateOpenedTtextBox.Location = new Point(147, 167);
             DateOpenedTtextBox.Name = "DateOpenedTtextBox";
+            DateOpenedTtextBox.ReadOnly = true;
             DateOpenedTtextBox.Size = new Size(269, 27);
             DateOpenedTtextBox.TabIndex = 12;
             // 
@@ -198,13 +202,15 @@
             TextToAddRichTextBox.Size = new Size(275, 177);
             TextToAddRichTextBox.TabIndex = 17;
             TextToAddRichTextBox.Text = "";
+            TextToAddRichTextBox.TextChanged += TextToAddRichTextBox_TextChanged;
             // 
             // ErrorMessageLabel
             // 
             tableLayoutPanel1.SetColumnSpan(ErrorMessageLabel, 2);
+            ErrorMessageLabel.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ErrorMessageLabel.Location = new Point(147, 48);
             ErrorMessageLabel.Name = "ErrorMessageLabel";
-            ErrorMessageLabel.Size = new Size(256, 23);
+            ErrorMessageLabel.Size = new Size(256, 34);
             ErrorMessageLabel.TabIndex = 18;
             // 
             // ProductTextBox
@@ -212,6 +218,7 @@
             ProductTextBox.Enabled = false;
             ProductTextBox.Location = new Point(147, 305);
             ProductTextBox.Name = "ProductTextBox";
+            ProductTextBox.ReadOnly = true;
             ProductTextBox.Size = new Size(269, 27);
             ProductTextBox.TabIndex = 19;
             // 
@@ -302,6 +309,7 @@
             // 
             // ResultErrorLabel
             // 
+            ResultErrorLabel.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ResultErrorLabel.Location = new Point(494, 449);
             ResultErrorLabel.Name = "ResultErrorLabel";
             tableLayoutPanel1.SetRowSpan(ResultErrorLabel, 3);

@@ -99,8 +99,6 @@
             IncidentsTabControl.Size = new Size(979, 662);
             IncidentsTabControl.TabIndex = 0;
             IncidentsTabControl.SelectedIndexChanged += IncidentsTabControl_SelectedIndexChanged;
-            IncidentsTabControl.TabIndexChanged += TabDashboardMainForm_Load;
-            IncidentsTabControl.Click += TabDashboardMainForm_Load;
             // 
             // DisplayAllIncidentsTabPage
             // 

@@ -21,9 +21,10 @@ namespace Incidents.View
             this.loadAllIncidentsUserControl.RefreshData();
         }
 
-        private void TabDashboardMainForm_Load(object sender, EventArgs e)
-        {            
-             
+        private void DashboardTabMainForm_Load(object sender, EventArgs e)
+        {
+            this.loadOpenIncidentsUserControl.RefreshData();
+            this.loadAllIncidentsUserControl.RefreshData();
         }
 
         private void LogOutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -37,12 +38,6 @@ namespace Incidents.View
         }
 
         private void IncidentsTabControl_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.loadOpenIncidentsUserControl.RefreshData();
-            this.loadAllIncidentsUserControl.RefreshData();
-        }
-
-        private void DashboardTabMainForm_Load(object sender, EventArgs e)
         {
             this.loadOpenIncidentsUserControl.RefreshData();
             this.loadAllIncidentsUserControl.RefreshData();
