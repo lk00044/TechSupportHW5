@@ -259,9 +259,5 @@ namespace TechSupport.UserControls
             this.ResultErrorLabel.Text = "";
         }
 
-        private void TechnicianComboBox_Click(object sender, EventArgs e)
-        {
-         //   this.ResultErrorLabel.Text = "";
-        }
     }
 }

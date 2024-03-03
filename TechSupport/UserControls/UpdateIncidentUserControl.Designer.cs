@@ -136,7 +136,6 @@
             TechnicianComboBox.Name = "TechnicianComboBox";
             TechnicianComboBox.Size = new Size(269, 28);
             TechnicianComboBox.TabIndex = 9;
-            TechnicianComboBox.Click += TechnicianComboBox_Click;
             // 
             // TitleLabel
             // 
