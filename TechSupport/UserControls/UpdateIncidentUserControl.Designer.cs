@@ -51,6 +51,7 @@
             ClearButton = new Button();
             CloseIncidentButton = new Button();
             TextToAddErrorLabel = new Label();
+            CurrentTechLabel = new Label();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -102,7 +103,7 @@
             // ProductLabel
             // 
             ProductLabel.AutoSize = true;
-            ProductLabel.Location = new Point(3, 257);
+            ProductLabel.Location = new Point(3, 302);
             ProductLabel.Name = "ProductLabel";
             ProductLabel.Size = new Size(63, 20);
             ProductLabel.TabIndex = 5;
@@ -111,7 +112,7 @@
             // TitleTextBox
             // 
             TitleTextBox.Enabled = false;
-            TitleTextBox.Location = new Point(147, 305);
+            TitleTextBox.Location = new Point(147, 351);
             TitleTextBox.Name = "TitleTextBox";
             TitleTextBox.Size = new Size(269, 27);
             TitleTextBox.TabIndex = 8;
@@ -137,7 +138,7 @@
             // TitleLabel
             // 
             TitleLabel.AutoSize = true;
-            TitleLabel.Location = new Point(3, 302);
+            TitleLabel.Location = new Point(3, 348);
             TitleLabel.Name = "TitleLabel";
             TitleLabel.Size = new Size(41, 20);
             TitleLabel.TabIndex = 10;
@@ -163,7 +164,7 @@
             // DescriptionLabel
             // 
             DescriptionLabel.AutoSize = true;
-            DescriptionLabel.Location = new Point(3, 348);
+            DescriptionLabel.Location = new Point(3, 396);
             DescriptionLabel.Name = "DescriptionLabel";
             DescriptionLabel.Size = new Size(88, 20);
             DescriptionLabel.TabIndex = 13;
@@ -181,10 +182,10 @@
             // DescriptionRichTextBox
             // 
             DescriptionRichTextBox.Enabled = false;
-            DescriptionRichTextBox.Location = new Point(147, 351);
+            DescriptionRichTextBox.Location = new Point(147, 399);
             DescriptionRichTextBox.Name = "DescriptionRichTextBox";
             tableLayoutPanel1.SetRowSpan(DescriptionRichTextBox, 4);
-            DescriptionRichTextBox.Size = new Size(275, 180);
+            DescriptionRichTextBox.Size = new Size(275, 177);
             DescriptionRichTextBox.TabIndex = 16;
             DescriptionRichTextBox.Text = "";
             // 
@@ -209,7 +210,7 @@
             // ProductTextBox
             // 
             ProductTextBox.Enabled = false;
-            ProductTextBox.Location = new Point(147, 260);
+            ProductTextBox.Location = new Point(147, 305);
             ProductTextBox.Name = "ProductTextBox";
             ProductTextBox.Size = new Size(269, 27);
             ProductTextBox.TabIndex = 19;
@@ -232,12 +233,6 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 66.2531052F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 65F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 304F));
-            tableLayoutPanel1.Controls.Add(DescriptionLabel, 0, 8);
-            tableLayoutPanel1.Controls.Add(DescriptionRichTextBox, 1, 8);
-            tableLayoutPanel1.Controls.Add(TitleLabel, 0, 7);
-            tableLayoutPanel1.Controls.Add(TitleTextBox, 1, 7);
-            tableLayoutPanel1.Controls.Add(ProductLabel, 0, 6);
-            tableLayoutPanel1.Controls.Add(ProductTextBox, 1, 6);
             tableLayoutPanel1.Controls.Add(DateOpenedLabel, 0, 4);
             tableLayoutPanel1.Controls.Add(TechnicianLabel, 0, 5);
             tableLayoutPanel1.Controls.Add(DateOpenedTtextBox, 1, 4);
@@ -254,6 +249,13 @@
             tableLayoutPanel1.Controls.Add(GetIncidentButton, 3, 0);
             tableLayoutPanel1.Controls.Add(ErrorMessageLabel, 1, 1);
             tableLayoutPanel1.Controls.Add(TextToAddErrorLabel, 3, 10);
+            tableLayoutPanel1.Controls.Add(DescriptionLabel, 0, 9);
+            tableLayoutPanel1.Controls.Add(DescriptionRichTextBox, 1, 9);
+            tableLayoutPanel1.Controls.Add(TitleLabel, 0, 8);
+            tableLayoutPanel1.Controls.Add(TitleTextBox, 1, 8);
+            tableLayoutPanel1.Controls.Add(ProductLabel, 0, 7);
+            tableLayoutPanel1.Controls.Add(ProductTextBox, 1, 7);
+            tableLayoutPanel1.Controls.Add(CurrentTechLabel, 1, 6);
             tableLayoutPanel1.Location = new Point(24, 18);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 13;
@@ -303,13 +305,20 @@
             TextToAddErrorLabel.Size = new Size(272, 130);
             TextToAddErrorLabel.TabIndex = 24;
             // 
+            // CurrentTechLabel
+            // 
+            CurrentTechLabel.Location = new Point(147, 257);
+            CurrentTechLabel.Name = "CurrentTechLabel";
+            CurrentTechLabel.Size = new Size(275, 28);
+            CurrentTechLabel.TabIndex = 25;
+            // 
             // UpdateIncidentUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
             Name = "UpdateIncidentUserControl";
-            Size = new Size(848, 613);
+            Size = new Size(848, 625);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
@@ -342,5 +351,6 @@
         private Button CloseIncidentButton;
         private Button ClearButton;
         private Label TextToAddErrorLabel;
+        private Label CurrentTechLabel;
     }
 }

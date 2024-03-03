@@ -79,9 +79,14 @@ namespace TechSupport.UserControls
             this.ProductTextBox.Text = incident.ProductCode;
             this.DescriptionRichTextBox.Text = incident.Description;
             this.DateOpenedTtextBox.Text = incident.DateOpened.ToShortDateString();
-            this.TechnicianComboBox.Text = incident.TechName;
+        //    this.TechnicianComboBox.Text = incident.TechName;
             this.ATechID = incident.TechID;
             this.TechnicianComboBox.Enabled = true;
+
+            if (!string.IsNullOrEmpty(incident.TechName.ToString())) 
+            {
+                this.CurrentTechLabel.Text = "Current Technician: " + incident.TechName;
+            }
             this.loadTechnicians();
         }
 
@@ -96,7 +101,6 @@ namespace TechSupport.UserControls
                 this.TechnicianComboBox.ValueMember = "TechID";
 
                 this.TechnicianComboBox.SelectedIndex = -1;
-
             }
             catch
             {
@@ -110,6 +114,7 @@ namespace TechSupport.UserControls
             this.ProductTextBox.Clear();
             this.DescriptionRichTextBox.Clear();
             this.DateOpenedTtextBox.Clear();
+            this.CurrentTechLabel.Text = "";
         }
 
         /// <summary>
